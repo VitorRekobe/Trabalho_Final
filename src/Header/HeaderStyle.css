@@ -1,0 +1,45 @@
+Header {
+    background-color: black;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+Header div {
+    display: flex;
+    font-size: 25px;
+    color: #E8D1C5;
+}
+
+Header div p {
+    cursor: pointer;
+}
+
+Header ol{
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+Header .hover:hover {
+    border-bottom: 2px solid #E8D1C5;
+}
+
+.juntarHeader{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+a{
+    text-decoration: none !important;
+    color: #E8D1C5 !important;
+}
+
+header img{
+    height: 30px;
+}

@@ -1,0 +1,76 @@
+#carrinho{
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(34,34,35,1) 35%, rgba(60,61,62,1) 100%);
+    height: 85vh;
+    width: 90vw;
+    margin: auto;
+    margin-top: 1%;
+    border-radius: 5px;
+    display: flex;
+
+}
+
+.itemPai{
+    width: 60%;
+    height: 100%;
+    margin: auto;
+    /* background-color: #e8d1c55e; */
+    border-radius: 5px;
+}
+
+
+.itemMãe{
+    width: 30%;
+    height: 90%;
+    margin: auto;
+    background-color: #e8d1c55e;
+    border-radius: 5px;
+    padding: 1%;
+    color: #E8D1C5;
+}
+
+#divpagamento{
+    padding: 5%;
+    border-radius: 3px;
+    color: #E8D1C5;
+    height: 45%;
+    margin-bottom: 3%;
+    background-color: rgba(60,61,62,1);
+    overflow-y: auto;
+}
+
+#divFormasPagamento{
+    padding: 5%;
+    border-radius: 3px;
+    color: #E8D1C5;
+    height: 40%;
+    margin-bottom: 1%;
+    background-color: rgba(60,61,62,1);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#divFormasPagamento p{
+    margin-bottom: 1%;
+}
+
+#divpagamento h3{
+    text-align: end;
+    margin-right: 2%;
+}
+
+.BotaoPedido{
+    width: 50%;
+    border-radius: 5px;
+    margin: end;
+    border: 0;
+    color: #E8D1C5;
+    background-color: transparent;
+    border: 2px solid #E8D1C5;
+    cursor: pointer;
+}
+
+.flexBotao{
+    display: flex;
+    justify-content: end;
+    margin-top: 5%;
+}

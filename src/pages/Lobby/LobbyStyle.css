@@ -1,0 +1,66 @@
+#Principal{
+    height: 85vh;
+    width: 100vw;
+    margin: auto;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+.imgMargin{
+    width: 90%;
+    margin: auto;
+    margin-top: 1%
+}
+
+.imgMargin img{
+    height: 90vh;
+    border-radius: 5px;
+}
+
+.BotaoHome{
+    font-size: 20px;
+    width: 20%;
+    border-radius: 5px;
+    border: 0;
+    color: #E8D1C5;
+    background-color: transparent;
+    border: 2px solid #E8D1C5;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-top: 3%;
+    width: 15%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.textMargin{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 1%;
+    margin-top: 3%;
+}
+
+.textMargin h1{
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.textMargin h3{
+    font-weight: 200;
+}
+
+#Carrossel{
+    width: 90%;
+    height: 80%;
+    display: block;
+    margin: auto;
+    margin-top: 1%;
+}
+
+#Carrossel img{
+    border-radius: 5px;
+}

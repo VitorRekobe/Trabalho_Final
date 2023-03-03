@@ -1,0 +1,37 @@
+#HeaderPesquisa{
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    font-size: 25px;
+    justify-content: space-evenly;
+    color: black;
+}
+
+#HeaderPesquisa .ol{
+    padding: 1%;
+    cursor: pointer;
+    margin: 0;
+    color: black;
+}
+
+#HeaderPesquisa .ol:hover{
+    border-bottom: 2px solid black;
+}
+
+#HeaderPesquisa input{
+    border-radius: 30px;
+    border: 0;
+    background-color: black;
+    font-size: 20px;
+    width: 200px;
+    color: #E8D1C5;
+}
+
+::placeholder{
+    color: #E8D1C5;
+}
+
+#HeaderPesquisa ol{
+    margin: 0;
+    padding: 0;
+}

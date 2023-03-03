@@ -1,0 +1,15 @@
+#footer{
+    height: 20vh;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    margin-top: 1%;
+    color: #E8D1C5;
+}
+
+.footerMargin{
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
