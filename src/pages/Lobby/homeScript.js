@@ -1,7 +1,7 @@
 import "./LobbyStyle.css";
 
-import Header from "../../Header/Header";
-import HeaderPesquisa from "../../HeaderItens.js/BarraPesquisa";
+import Header from "../../componentes/Header/Header";
+import HeaderPesquisa from "../../componentes/HeaderItens.js/BarraPesquisa";
 
 import carrosel from './imagensHome/banner3.png'
 import carrosel3 from './imagensHome/banner.png'
@@ -10,15 +10,13 @@ import carrosel2 from './imagensHome/banner2.png'
 import bannerF from './imagensHome/BannerF.png';
 import bannerM from './imagensHome/bannerM.png'
 import bannerC from './imagensHome/bannerC.png'
-import Footer from "../../Footer";
+import Footer from '../../componentes/Footer/index'
 
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 
 import { Link } from 'react-router-dom'
-
-import 'swiper/css';
 function Home() {
     return (
         <>
@@ -53,9 +51,9 @@ function Home() {
             </div>
 
             <div className="textMargin">
-                <h3 className="t1">Vista roupas que te deem</h3>
+                <h3 className="t1">Vista roupas que dão</h3>
                 <h1 className="t2">PERFEIÇÃO E CUIDADO</h1>
-                <h3 className="t3">para que voçê seja a sua melhor versão</h3>
+                <h3 className="t3">para que você seja a sua melhor versão</h3>
                 <Link to='/Feminina'><button className="BotaoHome">Moda Female</button></Link>
             </div>
 
@@ -64,9 +62,9 @@ function Home() {
             </div>
 
             <div className="textMargin">
-                <h3>Possuir a o estilo e a moda</h3>
+                <h3>Possua o estilo e a moda</h3>
                 <h1>AO ALCENCE DE TODOS</h1>
-                <h3>Tendo os melhores looks a vossa disposição</h3>
+                <h3>Tendo os melhores looks a sua disposição</h3>
                 <Link to='/Masculina'><button className="BotaoHome">Moda Male</button></Link>
             </div>
 

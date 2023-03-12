@@ -80,3 +80,12 @@ input:-webkit-autofill {
 input:-webkit-autofill {
     -webkit-text-fill-color: #E8D1C5 !important;
 }
+
+.Esqueceu{
+    width: 30%;
+    margin-left: 1%;
+}
+
+.divButtonLogin{
+    display: flex;
+}

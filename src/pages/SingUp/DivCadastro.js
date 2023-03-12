@@ -1,9 +1,10 @@
 import "./DivCadastroStyle.css"
-import Header from "../../Header/Header";
+import Header from "../../componentes/Header/Header";
 import { Link } from "react-router-dom";
 import Cadastrar from "./FunçõesCad/FuncaoCadastrar";
 
 function DivCadastro() {
+
     return (
         <>
             <Header></Header>

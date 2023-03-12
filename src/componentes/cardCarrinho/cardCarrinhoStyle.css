@@ -1,0 +1,11 @@
+.CardCarrinho{
+    width: 100%;
+    background-color: #e8d1c55e;
+    display: flex;
+    justify-content: space-around;
+    height: 15vh;
+    margin-bottom: 5%;
+    align-items: center;
+    border-radius: 5px;
+    color: #E8D1C5;
+}

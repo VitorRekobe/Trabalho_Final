@@ -1,27 +1,46 @@
-import Header from "../../Header/Header"
+import Header from '../../componentes/Header/Header';
 import './carrinhoStyle.css'
+import CardCarrinho from '../../componentes/cardCarrinho/index.js';
+import { Link } from 'react-router-dom'
 
 function pageCarrinho() {
 
-    
+
     return (
         <><Header></Header>
             <div>
                 <div id="carrinho">
-                    <div className="itemPai">
-
+                    <div className="itemPaiCarinho">
+                        <div id='Etapa'>
+                            <h5 className='EtapaCarrinhoName'> Carrinho </h5>
+                            <h5> > </h5>
+                            <h5> Pagamento e Entrega </h5>
+                            <h5> > </h5>
+                            <h5> Finalização </h5>
+                        </div>
+                        <div>
+                            <div>
+                                <h2 id='qtdProduto'>RESUMO DE ITENS ( )</h2>
+                            </div>
+                            <div>
+                                <CardCarrinho></CardCarrinho>
+                                <CardCarrinho></CardCarrinho>
+                                <CardCarrinho></CardCarrinho>
+                                <CardCarrinho></CardCarrinho>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="itemMãe">
+                    <div className="itemMãeCarinho">
                         <h3>Resumo do pedido</h3>
-                        <div id="divpagamento">
+                        <div id="divpagamentoCarrinho">
                             <div>
                                 <p color="black">Subtotal</p>
                                 <hr></hr>
-                                <h3>R$00,00</h3>
+                                <h3>R$0,00</h3>
                             </div>
                             <div className="flexBotao">
-                                <button className="BotaoPedido">Finalizar Pedido</button>
+                                <button className="BotaoPedido" ><Link to={'/pagamento-e-entrega'}>Finalizar Pedido</Link></button>
                             </div>
                         </div>
 
