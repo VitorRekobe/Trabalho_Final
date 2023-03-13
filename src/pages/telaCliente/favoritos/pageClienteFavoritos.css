@@ -19,8 +19,3 @@
 }
 
 /* ////////////////////////////////////////////////////////////// */
-
-.informaçõesCliente{
-    display: flex;
-    flex-direction: column;
-}

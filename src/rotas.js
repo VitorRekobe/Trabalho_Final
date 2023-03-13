@@ -7,6 +7,7 @@ import PageCarrinho from './pages/carrinho/pageCarrinho';
 import Pagamento_Entrega from './pages/carrinho/pagamento-e-entrega/Pagamento_Entrega';
 import Secret from './pages/Secret/secret';
 import PageCliente from './pages/telaCliente/perfil';
+import PageClienteFavoritos from './pages/telaCliente/favoritos';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -22,6 +23,7 @@ function Rotas() {
           <Route path='/pagamento-e-entrega' element={<Pagamento_Entrega></Pagamento_Entrega>}></Route>
           <Route path='/secret' element={<Secret></Secret>}></Route>
           <Route path='/cliente' element={<PageCliente></PageCliente>}></Route>
+          <Route path='/favoritos' element={<PageClienteFavoritos></PageClienteFavoritos>}></Route>
         </Routes>
       </Router>
     </div>

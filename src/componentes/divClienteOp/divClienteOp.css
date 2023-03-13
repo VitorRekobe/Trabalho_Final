@@ -1,6 +1,6 @@
 .opCliente{
     width: 30%;
-    overflow-y: auto;
+    overflow: hidden ;
     display: flex;
     flex-direction: column;
     height: 60vh;
@@ -9,6 +9,16 @@
 .opCliente h2{
     padding: 1%;
     border: 2px solid #E8D1C5;
-    overflow-y: hidden ;
     border-radius: 5px;
+    overflow-y: hidden;
+    cursor: pointer;
+}
+
+.Link{
+    overflow-y: hidden;
+}
+
+.opCliente h2:hover{
+    background-color: #E8D1C5;
+    color: black;
 }
