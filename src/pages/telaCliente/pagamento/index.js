@@ -1,8 +1,8 @@
 import OpcoesCliente from "../../../componentes/divClienteOp/divClienteOp";
-import './pageClienteFavoritos.css';
+import './pageClientePagamentos.css';
 import Header from "../../../componentes/Header/Header";
 
-function pageClienteFavoritos() {
+function pageClientePagamentos() {
     
     return (
         <>
@@ -17,4 +17,4 @@ function pageClienteFavoritos() {
     )
 }
 
-export default pageClienteFavoritos;
+export default pageClientePagamentos;

@@ -1,6 +1,7 @@
 import OpcoesCliente from "../../../componentes/divClienteOp/divClienteOp";
 import './pageClienteFavoritos.css';
 import Header from "../../../componentes/Header/Header";
+import { FcLike } from "react-icons/fc";
 
 function pageClienteFavoritos() {
     
@@ -10,7 +11,7 @@ function pageClienteFavoritos() {
             <div className="principalCliente">
                 <OpcoesCliente></OpcoesCliente>
                 <div className="telaO">
- 
+                    <FcLike></FcLike>
                 </div>
             </div>
         </>

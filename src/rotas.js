@@ -8,6 +8,11 @@ import Pagamento_Entrega from './pages/carrinho/pagamento-e-entrega/Pagamento_En
 import Secret from './pages/Secret/secret';
 import PageCliente from './pages/telaCliente/perfil';
 import PageClienteFavoritos from './pages/telaCliente/favoritos';
+import PageClientePedido from './pages/telaCliente/pedido';
+import PageClientePagamentos from './pages/telaCliente/pagamento';
+import PageClienteAtendimento from './pages/telaCliente/atendimento';
+import PageClienteReebolso from './pages/telaCliente/reembolso';
+import PageClienteEndereco from './pages/telaCliente/endereco';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -24,6 +29,11 @@ function Rotas() {
           <Route path='/secret' element={<Secret></Secret>}></Route>
           <Route path='/cliente' element={<PageCliente></PageCliente>}></Route>
           <Route path='/favoritos' element={<PageClienteFavoritos></PageClienteFavoritos>}></Route>
+          <Route path='/pedidos' element={<PageClientePedido></PageClientePedido>}></Route>
+          <Route path='/pagamentos' element={<PageClientePagamentos></PageClientePagamentos>}></Route>
+          <Route path='/atendimento' element={<PageClienteAtendimento></PageClienteAtendimento>}></Route>
+          <Route path='/reembolso' element={<PageClienteReebolso></PageClienteReebolso>}></Route>
+          <Route path='/endereço' element={<PageClienteEndereco></PageClienteEndereco>}></Route>
         </Routes>
       </Router>
     </div>
