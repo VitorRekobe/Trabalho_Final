@@ -6,7 +6,7 @@ import { IoHeartOutline } from "react-icons/io5";
 function pageClienteFavoritos() {
 
     return (
-        <>
+        <div className="background">
             <Header></Header>
             <div className="principalCliente">
                 <OpcoesCliente></OpcoesCliente>
@@ -17,7 +17,7 @@ function pageClienteFavoritos() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

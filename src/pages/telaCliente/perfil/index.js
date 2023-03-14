@@ -4,7 +4,7 @@ import Header from "../../../componentes/Header/Header";
 
 function pageClientePerfil() {
     return (
-        <>
+        <div className="background">
             <Header></Header>
             <div className="principalCliente">
                 <OpcoesCliente></OpcoesCliente>
@@ -20,7 +20,7 @@ function pageClientePerfil() {
                         </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

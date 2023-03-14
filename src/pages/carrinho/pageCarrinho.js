@@ -7,7 +7,8 @@ function pageCarrinho() {
 
 
     return (
-        <><Header></Header>
+        <div className="background">
+        <Header></Header>
             <div>
                 <div id="carrinho">
                     <div className="itemPaiCarinho">
@@ -54,7 +55,7 @@ function pageCarrinho() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

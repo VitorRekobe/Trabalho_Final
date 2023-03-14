@@ -6,7 +6,7 @@ import Cadastrar from "./FunçõesCad/FuncaoCadastrar";
 function DivCadastro() {
 
     return (
-        <>
+        <div className="background">
             <Header></Header>
 
             <div id="DivCadastro">
@@ -30,7 +30,7 @@ function DivCadastro() {
                     </div>
                 </div>
             </div >
-        </>
+        </div>
     );
 }
 

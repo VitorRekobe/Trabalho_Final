@@ -9,6 +9,12 @@
     padding: 1%;
 }
 
+.background{
+    background-image: url("./banner3.png");
+    background-size: cover;
+    height: 100vh;
+}
+
 #DivCadastro .divStyle{
     display: flex;
     padding: 10px;

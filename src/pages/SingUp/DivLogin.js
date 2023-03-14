@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function DivLogin() {
 
     return (
-        <>
+        <div className="background">
             <Header></Header>
             <div id="DivCadastro">
                 <div className='divStyle'>
@@ -28,7 +28,7 @@ function DivLogin() {
                     </div>
                 </div>
             </div >
-        </>
+        </div>
     );
 }
 

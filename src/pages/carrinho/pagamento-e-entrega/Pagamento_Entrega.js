@@ -6,7 +6,8 @@ function Pagamento_Entrega() {
 
 
     return (
-        <><Header></Header>
+        <div className="background">
+        <Header></Header>
             <div>
                 <div id="carrinho">
                     <div className="itemPaiPagamento">
@@ -40,7 +41,7 @@ function Pagamento_Entrega() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

@@ -5,7 +5,7 @@ import Header from "../../../componentes/Header/Header";
 function pageClienteReebolso() {
     
     return (
-        <>
+        <div className="background">
             <Header></Header>
             <div className="principalCliente">
                 <OpcoesCliente></OpcoesCliente>
@@ -13,7 +13,7 @@ function pageClienteReebolso() {
  
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

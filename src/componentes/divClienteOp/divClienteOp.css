@@ -1,4 +1,4 @@
-.opCliente{
+.opADM{
     width: 30%;
     overflow: hidden ;
     display: flex;
@@ -6,7 +6,7 @@
     height: 60vh;
 }
 
-.opCliente h2{
+.opADM h2{
     padding: 1%;
     border: 2px solid #E8D1C5;
     border-radius: 5px;
@@ -18,7 +18,7 @@
     overflow-y: hidden;
 }
 
-.opCliente h2:hover{
+.opADM h2:hover{
     background-color: #E8D1C5;
     color: black;
 }

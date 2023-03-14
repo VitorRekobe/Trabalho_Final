@@ -5,7 +5,7 @@ import Header from "../../../componentes/Header/Header";
 function pageClienteEndereco() {
     
     return (
-        <>
+        <div className="background">
             <Header></Header>
             <div className="principalCliente">
                 <OpcoesCliente></OpcoesCliente>
@@ -23,7 +23,7 @@ function pageClienteEndereco() {
                         </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
