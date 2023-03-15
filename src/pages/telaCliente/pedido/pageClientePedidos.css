@@ -1,0 +1,10 @@
+#divPedidos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  margin-top: 2%;
+  color: #e8d1c5;
+  height: 90%;
+}
