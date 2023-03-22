@@ -3,14 +3,14 @@ import './pageAdmCliente.css';
 import Header from "../../../componentes/Header/Header";
 import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 
-function pageADMLista() {
+function pageADMVendas() {
     return (
         <div className="background">
             <Header></Header>
             <div className="principalCliente">
                 <TelaAdm></TelaAdm>
                 <div className="telaO">
-                        <div className="ListaCliente">
+                        <div className="divVendas">
 
                         </div>
                 </div>
@@ -19,4 +19,4 @@ function pageADMLista() {
     )
 }
 
-export default pageADMLista;
+export default pageADMVendas;

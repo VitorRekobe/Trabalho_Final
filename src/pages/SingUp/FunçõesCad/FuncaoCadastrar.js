@@ -28,6 +28,7 @@ function Cadastrar() {
             headers: {
                 'Accept': 'application/json, text/plain',
                 'Content-Type': 'application/json;charset=UTF-8',
+   
                 'Access-Control-Allow-Origin': '*'
             },
         })
