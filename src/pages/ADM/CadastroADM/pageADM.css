@@ -15,11 +15,34 @@
 
 .crudProduto{
     width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 5%;
+}
+
+.DivimgProdAdm{
+    height: 50vh;
+    width: 40%;
+    overflow: hidden;
 }
 
 .imgProdAdm{
     height: 250px;
-    width: 40%;
+    width: 100%;
     border: 2px solid #E8D1C5;
     border-radius: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.botaoImage{
+    width: 80% !important;
+    text-align: center ;
+    margin-top: 5%;
 }
