@@ -3,7 +3,7 @@ function cadProd() {
     let nomeProd = document.getElementById("prodNome").value;
     let categoria = document.getElementById("prodCategoria").value;
     let valor = document.getElementById("prodValor").value;
-    var file = document.getElementById("imgFile").files[0];
+    var file = document.getElementById("imgFile").files[1];
     
     if (Marca == '') {
         alert("Campos Vazios")
@@ -100,32 +100,32 @@ function cadProd() {
                 });
         }
 
-        const data = {
-            "id": "-1",
-            "nome" : file
-        };
-        console.log((JSON.stringify(data)))
-        fetch("http://localhost:8082/api/produtoImagens/", {
-            body: JSON.stringify(data),
-            method: "POST",
-            headers: {
-                'Accept': 'application/json, text/plain',
-                'Content-Type': 'application/json;charset=UTF-8',
+        // const data = {
+        //     "id": "-1",
+        //     "nome" : file
+        // };
+        // console.log((JSON.stringify(data)))
+        // fetch("http://localhost:8082/api/produtoImagens/", {
+        //     body: JSON.stringify(data),
+        //     method: "POST",
+        //     headers: {
+        //         'Accept': 'application/json, text/plain',
+        //         'Content-Type': 'application/json;charset=UTF-8',
     
-                'Access-Control-Allow-Origin': '*'
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                alert("Cadastro Concluido")
-                console.log("Success:", data, Marca, categoria);
-                document.getElementById("prodNome").value = '';
-                document.getElementById("prodValor").value = '';
-            })
-            .catch((error) => {
-                alert("Erro No Cadastro PRODUTO")
-                console.error("Error:", error);
-            });
+        //         'Access-Control-Allow-Origin': '*'
+        //     },
+        // })
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         alert("Cadastro Concluido")
+        //         console.log("Success:", data, Marca, categoria);
+        //         document.getElementById("prodNome").value = '';
+        //         document.getElementById("prodValor").value = '';
+        //     })
+        //     .catch((error) => {
+        //         alert("Erro No Cadastro PRODUTO")
+        //         console.error("Error:", error);
+        //     });
 
 }
 export default cadProd;
