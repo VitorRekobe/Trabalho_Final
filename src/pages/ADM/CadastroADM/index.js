@@ -23,7 +23,7 @@ function pageADMCad() {
                                 <div className='imgProdAdm'>
                                 </div>
                                 <label className='Botao botaoImage'> Enviar imagem
-                                    <input type="file"></input>
+                                    <input id='imgFile' type="file"></input>
                                 </label>
                             </div>
                         </div>
