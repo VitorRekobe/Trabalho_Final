@@ -14,8 +14,9 @@ import PageClienteAtendimento from './pages/telaCliente/atendimento';
 import PageClienteReebolso from './pages/telaCliente/reembolso';
 import PageClienteEndereco from './pages/telaCliente/endereco';
 import PageADMCad from './pages/ADM/CadastroADM';
-import PageADMLista from './pages/ADM/ListaCliente';
+import PageADMLista from './pages/ADM/ListaProd';
 import PageADMVendas from './pages/ADM/Vendas';
+import PageAdmClientes from './pages/ADM/ListaCliente';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -38,7 +39,8 @@ function Rotas() {
           <Route path='/reembolso' element={<PageClienteReebolso></PageClienteReebolso>}></Route>
           <Route path='/endereço' element={<PageClienteEndereco></PageClienteEndereco>}></Route>
           <Route path='/ADM' element={<PageADMCad></PageADMCad>}></Route>
-          <Route path='/ADM/ListCliente' element={<PageADMLista></PageADMLista>}></Route>
+          <Route path='/ADM/ListProd' element={<PageADMLista></PageADMLista>}></Route>
+          <Route path='/ADM/ListCliente' element={<PageAdmClientes></PageAdmClientes>}></Route>
           <Route path='/ADM/Vendas' element={<PageADMVendas></PageADMVendas>}></Route>
         </Routes>
       </Router>

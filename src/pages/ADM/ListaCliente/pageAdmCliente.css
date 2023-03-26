@@ -1,35 +1,4 @@
-.ListaCliente{
+.divVendas{
     display: flex;
     flex-direction: column;
-}
-
-table, th, td {
-    border: 2px solid;
-  }
-
-th{
-    width: 20%;
-    max-width: 50%;
-}
-
-table{
-    text-align: center;
-    overflow: auto;
-    max-height: 50vh;
-    width: 100%;
-}
-
-th {
-    padding: 2%;
-    font-size: 20px;
-}
-
-#buscarProd{
-    outline: 0;
-    border: 2px solid #E8D1C5;
-    border-radius: 5px;
-    background-color: transparent;
-    font-size: 20px;
-    width: 200px;
-    color: #E8D1C5;
 }
