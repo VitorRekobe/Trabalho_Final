@@ -1,4 +1,4 @@
-function r() {
+function pesquisarProd() {
     var tbody = document.getElementById("tbodyProd")
 
     document.getElementById("buscarProd").addEventListener("keyup", function () {
@@ -27,4 +27,4 @@ function r() {
     })
 }
 
-export default r;
+export default pesquisarProd;

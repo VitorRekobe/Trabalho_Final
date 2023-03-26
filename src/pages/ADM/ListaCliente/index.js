@@ -3,7 +3,7 @@ import './pageAdmCliente.css';
 import Header from "../../../componentes/Header/Header";
 import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 // import $ from 'jquery'; 
-import r from './funçãoListar';
+import pesquisarProd from './funçãoListar';
 
 function pageADMLista() {
 
@@ -16,7 +16,7 @@ function pageADMLista() {
                     <div className="ListaCliente">
                         <div><label>
                             Pesquisar produtos: &ensp;
-                            <input placeholder="  &#x1F50E;&#xFE0E;  Buscar" id='buscarProd' onChange={r}></input>
+                            <input placeholder="  &#x1F50E;&#xFE0E;  Buscar" id='buscarProd' onChange={pesquisarProd}></input>
                         </label>
                         </div>
                         <br></br>
