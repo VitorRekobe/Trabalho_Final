@@ -5,6 +5,16 @@ import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 import pesquisarProd from './funçãoListar';
 
 function pageAdmClientes() {
+
+    fetch('', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(response => console.log(JSON.stringify(response)))
+
     return (
         <div className="background">
             <Header></Header>

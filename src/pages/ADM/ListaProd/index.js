@@ -6,6 +6,14 @@ import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 import pesquisarProd from './funçãoListar';
 
 function pageADMLista() {
+    fetch('', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(response => console.log(JSON.stringify(response)))
 
     return (
         <div className="background">
@@ -21,13 +29,13 @@ function pageADMLista() {
                         </div>
                         <br></br>
                         <table id='tabela'>
-                                <tr>
-                                    <th>&nbsp;</th>
-                                    <th>Marca</th>
-                                    <th>Categoria</th>
-                                    <th>Nome</th>
-                                    <th>Valor</th>
-                                </tr>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Marca</th>
+                                <th>Categoria</th>
+                                <th>Nome</th>
+                                <th>Valor</th>
+                            </tr>
                             <tbody id='tbodyProd'>
                                 <tr>
                                     <td>id_1</td>
