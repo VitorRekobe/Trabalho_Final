@@ -4,6 +4,8 @@ import Header from "../../../componentes/Header/Header";
 import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 
 function pageADMCad() {
+
+    
     return (
         <div className="background">
             <Header></Header>
