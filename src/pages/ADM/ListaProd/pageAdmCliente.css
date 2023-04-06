@@ -1,6 +1,7 @@
 .ListaCliente{
     display: flex;
     flex-direction: column;
+    overflow-x: auto;
 }
 
 table, th, td {
@@ -14,7 +15,6 @@ th{
 
 table{
     text-align: center;
-    overflow: auto;
     max-height: 50vh;
     width: 100%;
 }

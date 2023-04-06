@@ -5,6 +5,7 @@ function TableProd(props) {
     let table = document.getElementById("tbodyProd");
     // let row = table.insertRow(props.names);
     let produtos = (props.produtos);
+    console.log(produtos)
 
     return (
         <div className="divListCliente">
@@ -17,9 +18,10 @@ function TableProd(props) {
             <table id='tabela'>
                 <tr>
                     <th>&nbsp;</th>
+                    <th>Marca</th>
                     <th>Nome</th>
-                    <th>Produto</th>
                     <th>Valor</th>
+                    <th>Descricao</th>
                 </tr>
                 <tbody id='tbodyProd'>
                     {
@@ -28,9 +30,10 @@ function TableProd(props) {
                             return (
                                 <tr key={index}>
                                     <td>{produtos.id}</td>
+                                    <td>{produtos.marca.nome}</td>
                                     <td>{produtos.nome}</td>
-                                    <td>{produtos.descricaoProduto}</td>
                                     <td>{produtos.valor}</td>
+                                    <td>{produtos.descricaoProduto}</td>
                                 </tr>
                             )
                         }
