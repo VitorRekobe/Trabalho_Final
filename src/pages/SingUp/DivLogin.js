@@ -18,11 +18,11 @@ function DivLogin() {
                 <div id="sumir">
                     <div id="Login" className='divStyle'>
                         <div id="Formulario">
-                            <input id="email" type="email" className="StyleInputUser" placeholder="Email" />
-                            <input id="LoginSenha" type="password" className="StyleInputUser" placeholder="Senha" />
+                            <input id="email" type="email" className="StyleInputUser fontCad" placeholder="Email" />
+                            <input id="LoginSenha" type="password" className="StyleInputUser fontCad" placeholder="Senha" />
                             <div className="divButtonLogin">
-                                <button className="Botao">Sing Up</button>
-                                <button className="Botao Esqueceu">Esqueceu a senha?</button>
+                                <button className="Botao tamanhoButton">Sing Up</button> 
+                                <button className="Botao Esqueceu tamanhoButton">Esqueceu a senha?</button>
                             </div>
                         </div>
                     </div>

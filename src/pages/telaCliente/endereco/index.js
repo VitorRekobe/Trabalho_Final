@@ -16,7 +16,7 @@ function pageClienteEndereco() {
                             <input id="Cidade" type="password" className="StyleInputUser" placeholder="Cidade" />
                             <input id="Rua" type="email" className="StyleInputUser" placeholder="Rua" />
                             <label for="numberHouse">Numero da Casa/apto:
-                                <input id="numberHouse" type="number" min='0' className="StyleInputUser" />
+                                <input id="numberHouse" type="number" min='0' className="StyleInputUser dtNascimento" />
                             </label>
 
                             <button className="Botao" onClick={"Salvar"}>Salvar</button>

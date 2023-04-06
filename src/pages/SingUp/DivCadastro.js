@@ -19,14 +19,14 @@ function DivCadastro() {
 
                 <div id="Cadastro" className='divStyle'>
                     <div id="Formulario">
-                        <input id="name" type="text" className="StyleInputUser" placeholder="Nome" />
-                        <input id="email" type="email" className="StyleInputUser" placeholder="Email" />
-                        <label for="dtNascimento">Data de Nascimento:
-                            <input id="dtNascimento" type="date" className="StyleInputUser" />
+                        <input id="name" type="text" className="StyleInputUser fontCad" placeholder="Nome" />
+                        <input id="email" type="email" className="StyleInputUser fontCad" placeholder="Email" />
+                        <label for="dtNascimento">Dt_Nascimento:
+                            <input id="dtNascimento" type="date" className="StyleInputUser dtNascimento fontCad"/>
                         </label>
-                        <input id="CadSenha"  type="password" className="StyleInputUser" placeholder="Criar Senha" />
-                        <input id="ComSenha"  type="password" className="StyleInputUser" placeholder="Comfirmar Senha" />
-                        <button className="Botao" onClick={Cadastrar}>Cadastrar</button>
+                        <input id="CadSenha"  type="password" className="StyleInputUser fontCad" placeholder="Criar Senha" />
+                        <input id="ComSenha"  type="password" className="StyleInputUser fontCad" placeholder="Comfirmar Senha" />
+                        <button className="Botao tamanhoButton" onClick={Cadastrar}>Cadastrar</button>
                     </div>
                 </div>
             </div >

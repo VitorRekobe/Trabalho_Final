@@ -17,6 +17,8 @@ import PageADMCad from './pages/ADM/CadastroADM';
 import PageADMLista from './pages/ADM/ListaProd';
 import PageADMVendas from './pages/ADM/Vendas';
 import PageAdmClientes from './pages/ADM/ListaCliente';
+import PageADMcadMarcas from './pages/ADM/cadMarcas';
+import PageADMcadCategorias from './pages/ADM/cadCategorias';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -42,6 +44,8 @@ function Rotas() {
           <Route path='/ADM/ListProd' element={<PageADMLista></PageADMLista>}></Route>
           <Route path='/ADM/ListCliente' element={<PageAdmClientes></PageAdmClientes>}></Route>
           <Route path='/ADM/Vendas' element={<PageADMVendas></PageADMVendas>}></Route>
+          <Route path='/ADM/cadMarcas' element={<PageADMcadMarcas></PageADMcadMarcas>}></Route>
+          <Route path='/ADM/cadCategorias' element={<PageADMcadCategorias></PageADMcadCategorias>}></Route>
         </Routes>
       </Router>
     </div>

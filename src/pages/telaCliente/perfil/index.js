@@ -13,7 +13,7 @@ function pageClientePerfil() {
                             <input id="name" type="text" className="StyleInputUser" placeholder="Nome" />
                             <input id="email" type="email" className="StyleInputUser" placeholder="Email" />
                             <label for="dtNascimento">Data de Nascimento:
-                                <input id="dtNascimento" type="date" className="StyleInputUser" />
+                                <input id="dtNascimento" type="date" className="StyleInputUser dtNascimento" />
                             </label>
                             <input id="Senha" type="password" className="StyleInputUser" placeholder="Senha" />
                             <button className="Botao" onClick={"Salvar"}>Salvar</button>
