@@ -1,0 +1,41 @@
+.PrincipalProd{
+    width: 100%;
+    margin: auto;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    border-top: 2px solid black;
+    overflow: hidden;
+}
+
+.filtros{
+    padding: 5%;
+    height: 100%;
+    height: 100vh;
+    border-right: 2px solid black;
+    background-image: url("./banner3.png");
+    background-size: cover;
+}
+
+.selectFiltros{
+    color: white;
+    padding: 5px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.089);
+    backdrop-filter: blur(10px);
+}
+
+.selectFiltros option{
+    background-color: black;
+    color: white;
+}
+
+.cardsProdutosDiv{
+    height: 100%;
+    padding: 5%;
+    padding-bottom: 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow-y: scroll;
+}
