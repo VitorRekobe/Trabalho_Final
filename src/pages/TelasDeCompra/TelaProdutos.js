@@ -3,9 +3,15 @@ import HeaderPesquisa from "../../componentes/HeaderItens.js/BarraPesquisa"
 
 import { useEffect, useState } from 'react';
 import "./TelaProd.css"
+import { useLocation } from "react-router-dom";
 
 function TelaProd() {
     const [infoProd, setInfoProd] = useState('');
+
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const valorDaPesquisa = searchParams.get('Lupa');
+    console.log(valorDaPesquisa)
 
     fetch('http://localhost:8082/api/produto/')
         .then(response => response.json())
