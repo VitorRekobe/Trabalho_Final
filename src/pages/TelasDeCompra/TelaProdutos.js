@@ -63,6 +63,12 @@ function TelaProd() {
                         <option >Selecione o Valor</option>
                         <option >0 a 100,00</option>
                     </select>
+                    <select className='StyleInputUser selectFiltros'>
+                        <option >Selecione o Sexo</option>
+                        <option >Masculino</option>
+                        <option >Feminino</option>
+                        <option >Unisex</option>
+                    </select>
                 </div>
                 <div className="cardsProdutosDiv">
                     {produtos}

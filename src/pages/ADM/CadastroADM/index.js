@@ -1,9 +1,13 @@
-import CadProd from './cadastrarPorduto/cadProd.js';
 import './pageADM.css';
+
+import CadProd from './cadastrarPorduto/cadProd.js';
+
 import Header from "../../../componentes/Header/Header";
 import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 import SelectedMarca from './cadastrarPorduto/selectMarca';
 import SelectedCategoria from './cadastrarPorduto/selectCategoria';
+import SelectedSexo from './cadastrarPorduto/selectSexo';
+
 import { useEffect, useState } from 'react';
 
 function PageADMCad() {
@@ -12,9 +16,16 @@ function PageADMCad() {
 
     const [categoriaId, setCategoriaId] = useState('');
     const [value2, setValue2] = useState('');
+    
+    const [sexoId, setSexoId] = useState('');
+    const [value3, setValue3] = useState('');
 
     const pegarMarca = (setSelectedMarca) => {
         setValue(setSelectedMarca);
+    }
+
+    const pegarSexo = (setSelectedSexo) => {
+        setValue(setSelectedSexo);
     }
 
     const pegarCategoria = (setSelectedCategoria) => {
@@ -50,7 +61,7 @@ function PageADMCad() {
 
     const mandarId = () => {
         if (marcaId, categoriaId) {
-            CadProd(marcaId, categoriaId);
+            CadProd(marcaId, categoriaId, sexoId);
         } else {
             alert('Selecione uma marca antes de cadastrar o produto.');
         }
@@ -69,6 +80,7 @@ function PageADMCad() {
                                 <input id='prodValor' className='StyleInputUser' placeholder='Valor'></input>
                                 <input id='prodDescrição' className='StyleInputUser' placeholder='Descrição'></input>
                                 <SelectedMarca onValueChange={pegarMarca}></SelectedMarca>
+                                <SelectedSexo></SelectedSexo>
                                 <SelectedCategoria onValueChange={pegarCategoria}></SelectedCategoria>
                             </div>
                             <div className='DivimgProdAdm'>

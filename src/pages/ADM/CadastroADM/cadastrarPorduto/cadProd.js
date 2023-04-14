@@ -1,9 +1,9 @@
-const CadProd = (marcaId, categoriaId) => {
+const CadProd = (marcaId, categoriaId, sexoId) => {
     let nome = document.getElementById("prodNome").value;
     let valor = document.getElementById("prodValor").value;
     var descricaoProduto = document.getElementById("prodDescrição").value;
 
-    if (marcaId, categoriaId) {
+    if (marcaId, categoriaId, sexoId) {
         fetch('http://localhost:8082/api/produto/', {
             method: 'POST',
             headers: {
@@ -19,6 +19,9 @@ const CadProd = (marcaId, categoriaId) => {
                 categoria: {
                     id: categoriaId,
                 }
+                // sexo :{
+                //     id: sexoId,
+                // }
             })
         })
             .then(response => {
