@@ -11,16 +11,20 @@ function TelaProd() {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const valorDaPesquisa = searchParams.get('Lupa');
-    console.log(valorDaPesquisa)
 
-    fetch('http://localhost:8082/api/produto/')
-        .then(response => response.json())
-        .then(data => {
-            setInfoProd(data);
-        })
-        .catch(error => {
-            console.error('Ocorreu um erro ao consultar o banco de dados', error);
-        });
+    console.log(valorDaPesquisa)
+    useEffect(() => {
+        if (valorDaPesquisa) {
+            fetch(`http://localhost:8082/api/produto/Lupa?marca=${valorDaPesquisa}&categoria=${valorDaPesquisa}&nome=${valorDaPesquisa}`)
+                .then(response => response.json())
+                .then(data => {
+                    setInfoProd(data);
+                })
+                .catch(error => {
+                    console.error('Ocorreu um erro ao consultar o banco de dados', error);
+                });
+        }
+    }, []);
 
     let produtos = null;
     if (infoProd) {
