@@ -20,6 +20,7 @@
     background-size: cover;
     height: 100vh;
     backdrop-filter: blur(5px);
+    filter: brightness(1.2);
 }
 
 #DivCadastro .divStyle{

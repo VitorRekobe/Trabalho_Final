@@ -1,0 +1,103 @@
+#pageF{
+    height: 100vh;
+}
+
+#div_1_Female {
+    height: 80%;
+    width: 100%;
+    margin: auto;
+    padding-left: 1%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.imagemFemale {
+    width: 300px;
+    height: 400px;
+    min-width: 20%;
+    min-height: 40%;
+    box-shadow: 0 15px 15px -7px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+
+#carrosselFemale {
+    background-color: white;
+    height: 90%;
+    width: 70%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.imgCard{
+    height: 100%;
+    width: 100%;
+}
+
+.nameCard{
+    display: none;
+    color: white;
+    text-align: end;
+    animation: text-slide-in 1s forwards;
+}
+
+#casacoF:hover .nameCard{
+    display: block;
+}
+
+#calçadosF:hover .nameCard{
+    display: block;
+}
+
+#calçaF:hover .nameCard{
+    display: block;
+}
+
+#vestidos:hover .nameCard{
+    display: block;
+}
+
+#casacoF{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("./imagensFemale/femalePage_1.png");
+}
+
+#calçadosF{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("./imagensFemale/femalePage_2.png");
+}
+
+#calçaF{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("./imagensFemale/femalePage_3.png");
+}
+
+#vestidos{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("./imagensFemale/femalePage_4.png");
+}
+
+@keyframes text-slide-in {
+    from {
+      opacity: 0; 
+      transform: translateX(100%); 
+    }
+    to {
+      opacity: 1; 
+      transform: translateX(0%);
+    }
+  }

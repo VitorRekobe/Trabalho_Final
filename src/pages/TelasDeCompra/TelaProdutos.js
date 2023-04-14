@@ -15,7 +15,8 @@ function TelaProd() {
     console.log(valorDaPesquisa)
     useEffect(() => {
         if (valorDaPesquisa) {
-            fetch(`http://localhost:8082/api/produto/Lupa?marca=${valorDaPesquisa}&categoria=${valorDaPesquisa}&nome=${valorDaPesquisa}`)
+            fetch(`http://localhost:8082/api/produto/Lupa?marca=${valorDaPesquisa}
+            &categoria=${valorDaPesquisa}&nome=${valorDaPesquisa}`)
                 .then(response => response.json())
                 .then(data => {
                     setInfoProd(data);

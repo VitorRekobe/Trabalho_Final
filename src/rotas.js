@@ -20,6 +20,7 @@ import PageAdmClientes from './pages/ADM/ListaCliente';
 import PageADMcadMarcas from './pages/ADM/cadMarcas';
 import PageADMcadCategorias from './pages/ADM/cadCategorias';
 import TelaProd from './pages/TelasDeCompra/TelaProdutos';
+import PageFeminino from './pages/Feminino';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -48,6 +49,7 @@ function Rotas() {
           <Route path='/ADM/cadMarcas' element={<PageADMcadMarcas></PageADMcadMarcas>}></Route>
           <Route path='/ADM/cadCategorias' element={<PageADMcadCategorias></PageADMcadCategorias>}></Route>
           <Route path='/Produtos' element={<TelaProd></TelaProd>}></Route>
+          <Route path='/Femininas' element={<PageFeminino></PageFeminino>}></Route>
         </Routes>
       </Router>
     </div>
