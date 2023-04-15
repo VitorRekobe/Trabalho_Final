@@ -4,9 +4,9 @@ import CadProd from './cadastrarPorduto/cadProd.js';
 
 import Header from "../../../componentes/Header/Header";
 import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
-import SelectedMarca from './cadastrarPorduto/selectMarca';
-import SelectedCategoria from './cadastrarPorduto/selectCategoria';
-import SelectedSexo from './cadastrarPorduto/selectSexo';
+import SelectedMarca from '../../../componentes/selectMarca/selectMarca';
+import SelectedCategoria from '../../../componentes/selectCategoria/selectCategoria';
+import SelectedSexo from '../../../componentes/selectSexo/selectSexo';
 
 import { useEffect, useState } from 'react';
 

@@ -4,6 +4,8 @@ import HeaderPesquisa from "../../componentes/HeaderItens.js/BarraPesquisa"
 import { useEffect, useState } from 'react';
 import "./TelaProd.css"
 import { useLocation } from "react-router-dom";
+import SelectedMarca from "../../componentes/selectMarca/selectMarca";
+import SelectCategoria from "../../componentes/selectCategoria/selectCategoria";
 
 function TelaProd() {
     const [infoProd, setInfoProd] = useState('');
@@ -12,20 +14,38 @@ function TelaProd() {
     const searchParams = new URLSearchParams(location.search);
     const valorDaPesquisa = searchParams.get('Lupa');
 
-    console.log(valorDaPesquisa)
-    useEffect(() => {
-        if (valorDaPesquisa) {
-            fetch(`http://localhost:8082/api/produto/Lupa?marca=${valorDaPesquisa}
-            &categoria=${valorDaPesquisa}&nome=${valorDaPesquisa}`)
-                .then(response => response.json())
-                .then(data => {
-                    setInfoProd(data);
-                })
-                .catch(error => {
-                    console.error('Ocorreu um erro ao consultar o banco de dados', error);
-                });
-        }
-    }, []);
+    const [dadoMarca, setDadoMarca] = useState('');
+    const [dadoCategoria, setDadoCategoria] = useState('');
+
+    const pegarMarca = (setSelectedMarca) => {
+        setDadoMarca(setSelectedMarca)
+    }
+
+    const pegarCategoria = (setSelectedCategoria) => {
+        setDadoCategoria(setSelectedCategoria)
+    }
+
+    if (dadoMarca || dadoCategoria) {
+        fetch(`http://localhost:8082/api/produto/Lupa?marca=${dadoMarca}
+        &categoria=${dadoCategoria}&nome=${valorDaPesquisa}`)
+            .then(response => response.json())
+            .then(data => {
+                setInfoProd(data);
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro', error);
+            });
+    } else {
+        fetch(`http://localhost:8082/api/produto/Lupa?marca=${valorDaPesquisa}
+        &categoria=${valorDaPesquisa}&nome=${valorDaPesquisa}`)
+            .then(response => response.json())
+            .then(data => {
+                setInfoProd(data);
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro', error);
+            });
+    }
 
     let produtos = null;
     if (infoProd) {
@@ -52,18 +72,8 @@ function TelaProd() {
             </div>
             <div className="PrincipalProd">
                 <div className="filtros">
-                    <select className='StyleInputUser selectFiltros'>
-                        <option >Selecione uma Categoria</option>
-                        <option >Selecione uma Categoria</option>
-                    </select>
-                    <select className='StyleInputUser selectFiltros'>
-                        <option >Selecione uma Marca</option>
-                        <option >Selecione uma Marca</option>
-                    </select>
-                    <select className='StyleInputUser selectFiltros'>
-                        <option >Selecione o Valor</option>
-                        <option >0 a 100,00</option>
-                    </select>
+                    <SelectedMarca onValueChange={pegarMarca}></SelectedMarca>
+                    <SelectCategoria onValueChange={pegarCategoria}></SelectCategoria>
                     <select className='StyleInputUser selectFiltros'>
                         <option >Selecione o Sexo</option>
                         <option >Masculino</option>

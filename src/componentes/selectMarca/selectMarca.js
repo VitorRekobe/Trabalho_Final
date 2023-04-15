@@ -21,7 +21,8 @@ function SelectedMarca({ onValueChange }) {
 
     return (
         <select onChange={pegarMarca} className='StyleInputUser select'>
-            <option >Selecione uma marca</option>
+            <option value="">Selecione uma marca</option>
+            <option >Nike</option>
             {marcas.map(marca => (
                 <option key={marca.id} value={marca.nome}>{marca?.nome}</option>
             ))}
