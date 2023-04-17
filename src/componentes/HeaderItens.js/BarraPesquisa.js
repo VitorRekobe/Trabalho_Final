@@ -6,7 +6,7 @@ function HeaderPesquisa() {
     const [valor, setValor] = useState();
 
     function mandarValueProd() {
-      window.location.replace(`/Produtos?Lupa=${valor}`);
+      window.location.replace(`/TelaDeCompra?Lupa=${valor}`);
     }
   
     function pegarValueInput(event) {

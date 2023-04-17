@@ -19,7 +19,7 @@ import PageADMVendas from './pages/ADM/Vendas';
 import PageAdmClientes from './pages/ADM/ListaCliente';
 import PageADMcadMarcas from './pages/ADM/cadMarcas';
 import PageADMcadCategorias from './pages/ADM/cadCategorias';
-import TelaProd from './pages/TelasDeCompra/TelaProdutos';
+import TelaBusca from './pages/TelasDeCompra/TelaProdutos';
 import PageFeminino from './pages/Feminino';
 import TelaProduto from './pages/TelaDoProduto';
 
@@ -49,7 +49,7 @@ function Rotas() {
           <Route path='/ADM/Vendas' element={<PageADMVendas></PageADMVendas>}></Route>
           <Route path='/ADM/cadMarcas' element={<PageADMcadMarcas></PageADMcadMarcas>}></Route>
           <Route path='/ADM/cadCategorias' element={<PageADMcadCategorias></PageADMcadCategorias>}></Route>
-          <Route path='/Produtos' element={<TelaProd></TelaProd>}></Route>
+          <Route path='/TelaDeCompra' element={<TelaBusca></TelaBusca>}></Route>
           <Route path='/Femininas' element={<PageFeminino></PageFeminino>}></Route>
           <Route path='/Produto' element={<TelaProduto></TelaProduto>}></Route>,
         </Routes>

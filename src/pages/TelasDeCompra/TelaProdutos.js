@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import SelectedMarca from "../../componentes/selectMarca/selectMarca";
 import SelectCategoria from "../../componentes/selectCategoria/selectCategoria";
 
-function TelaProd() {
+function TelaBusca() {
     const [infoProd, setInfoProd] = useState('');
 
     const location = useLocation();
@@ -50,8 +50,9 @@ function TelaProd() {
     let produtos = null;
     if (infoProd) {
         produtos = infoProd.map((produto, index) => {
+            let id = produto.id
             return (
-                <div className="cardsProdutos" key={index}>
+                <div className="cardsProdutos" key={index} onClick={mandarInfoProd(id)}>
                     <div className='ImagemProd'></div>
                     <div>
                         <hr></hr>
@@ -62,6 +63,12 @@ function TelaProd() {
                 </div>
             )
         });
+    }
+
+    function mandarInfoProd(id){
+        return () => {
+            window.location.replace(`/Produto?id=${id}`);
+          }
     }
 
     return (
@@ -89,4 +96,4 @@ function TelaProd() {
     )
 }
 
-export default TelaProd;
+export default TelaBusca;
