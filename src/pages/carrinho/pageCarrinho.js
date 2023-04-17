@@ -8,7 +8,7 @@ function pageCarrinho() {
 
     return (
         <div className="background">
-        <Header></Header>
+            <Header></Header>
             <div>
                 <div id="carrinho">
                     <div className="itemPaiCarinho">
@@ -23,7 +23,7 @@ function pageCarrinho() {
                             <div>
                                 <h2 id='qtdProduto'>RESUMO DE ITENS ( )</h2>
                             </div>
-                            <div>
+                            <div id='listaCarrinhoItens'>
                                 <CardCarrinho></CardCarrinho>
                                 <CardCarrinho></CardCarrinho>
                                 <CardCarrinho></CardCarrinho>
@@ -38,19 +38,14 @@ function pageCarrinho() {
                             <div>
                                 <p color="black">Subtotal</p>
                                 <hr></hr>
+                                <div>
+
+                                </div>
                                 <h3>R$0,00</h3>
                             </div>
                             <div className="flexBotao">
                                 <button className="BotaoPedido" ><Link to={'/pagamento-e-entrega'}>Finalizar Pedido</Link></button>
                             </div>
-                        </div>
-
-                        <div id="divFormasPagamento">
-                            <p>Formas de pagamento</p>
-                            <hr></hr>
-                            <p>Cartão de debito</p>
-                            <p>Cartão de credito</p>
-                            <p>PIX</p>
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ function Pagamento_Entrega() {
 
     return (
         <div className="background">
-        <Header></Header>
+            <Header></Header>
             <div>
                 <div id="carrinho">
                     <div className="itemPaiPagamento">
@@ -36,6 +36,13 @@ function Pagamento_Entrega() {
                             <div className="flexBotao">
                                 <button className="BotaoPedido" ><Link to={'/pagamento-e-entrega'}>Finalizar Pedido</Link></button>
                             </div>
+                        </div>
+                        <div id="divFormasPagamento">
+                            <p>Formas de pagamento</p>
+                            <hr></hr>
+                            <p>Cartão de debito</p>
+                            <p>Cartão de credito</p>
+                            <p>PIX</p>
                         </div>
 
                     </div>
