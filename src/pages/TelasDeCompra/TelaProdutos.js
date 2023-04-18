@@ -25,27 +25,30 @@ function TelaBusca() {
         setDadoCategoria(setSelectedCategoria)
     }
 
-    if (dadoMarca || dadoCategoria) {
-        fetch(`http://localhost:8082/api/produto/Lupa?marca=${dadoMarca}
-        &categoria=${dadoCategoria}&nome=${valorDaPesquisa}`)
-            .then(response => response.json())
-            .then(data => {
-                setInfoProd(data);
-            })
-            .catch(error => {
-                console.error('Ocorreu um erro', error);
-            });
-    } else {
-        fetch(`http://localhost:8082/api/produto/Lupa?marca=${valorDaPesquisa}
-        &categoria=${valorDaPesquisa}&nome=${valorDaPesquisa}`)
-            .then(response => response.json())
-            .then(data => {
-                setInfoProd(data);
-            })
-            .catch(error => {
-                console.error('Ocorreu um erro', error);
-            });
+    function Filtrar(){
+        fetch(`http://localhost:8082/api/produto/Filtro?marca=${dadoMarca}&categoria=${dadoCategoria}&nome=${valorDaPesquisa}`)
+        .then(response => response.json())
+        .then(data => {
+            setInfoProd(data);
+        })
+        .catch(error => {
+            console.error('Ocorreu um erro', error);
+        });
     }
+
+    useEffect(() => {
+        if (valorDaPesquisa) {
+            fetch(`http://localhost:8082/api/produto/Lupa?marca=${valorDaPesquisa}&categoria=${valorDaPesquisa}&nome=${valorDaPesquisa}`)
+                .then(response => response.json())
+                .then(data => {
+                    setInfoProd(data);
+                })
+                .catch(error => {
+                    console.error('Ocorreu um erro ao consultar o banco de dados', error);
+                });
+        }
+    }, []);
+
 
     let produtos = null;
     if (infoProd) {
@@ -65,10 +68,10 @@ function TelaBusca() {
         });
     }
 
-    function mandarInfoProd(id){
+    function mandarInfoProd(id) {
         return () => {
             window.location.replace(`/Produto?id=${id}`);
-          }
+        }
     }
 
     return (
@@ -87,6 +90,7 @@ function TelaBusca() {
                         <option >Feminino</option>
                         <option >Unisex</option>
                     </select>
+                    <button className="Botao" onClick={Filtrar}>Filtrar</button>
                 </div>
                 <div className="cardsProdutosDiv">
                     {produtos}
