@@ -1,10 +1,24 @@
 import Header from '../../componentes/Header/Header';
 import './carrinhoStyle.css'
-import CardCarrinho from '../../componentes/cardCarrinho/index.js';
+import "./cardCarrinhoStyle.css"
 import { Link } from 'react-router-dom'
 
 function pageCarrinho() {
+    const produtosJSON = localStorage.getItem('produtos');
+    const produtos = JSON.parse(produtosJSON);
 
+    const listaProdutos = produtos.map((produto) => (
+        <div className='CardCarrinho' key={produto.id}>
+            <p className="imgCardCarrinho">
+                IMAGEM PRODUTO
+            </p>
+            <br></br>
+            <p className='desImgCarrinho'>
+                <h2>{produto.nome}</h2>
+                <p>{produto.valor}</p>
+                <p>{produto.descricaoProduto}</p></p>
+        </div>
+    ));
 
     return (
         <div className="background">
@@ -24,10 +38,8 @@ function pageCarrinho() {
                                 <h2 id='qtdProduto'>RESUMO DE ITENS ( )</h2>
                             </div>
                             <div id='listaCarrinhoItens'>
-                                <CardCarrinho></CardCarrinho>
-                                <CardCarrinho></CardCarrinho>
-                                <CardCarrinho></CardCarrinho>
-                                <CardCarrinho></CardCarrinho>
+                                {listaProdutos}
+
                             </div>
                         </div>
                     </div>

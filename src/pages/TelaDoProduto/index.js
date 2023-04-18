@@ -11,7 +11,7 @@ function TelaProduto() {
     const searchParams = new URLSearchParams(location.search);
     const idProd = searchParams.get('id');
 
-    const [produto, setProduto] = useState('')
+    const [produto, setProduto] = useState('');
 
     useEffect(() => {
         fetch(`http://localhost:8082/api/produto/id=${idProd}`)
@@ -23,6 +23,11 @@ function TelaProduto() {
                 console.error('Ocorreu um erro ao consultar o banco de dados', error);
             });
     }, [])
+
+    function mandarProCarrinho() {
+        const produtoJSON = JSON.stringify(produto);
+        localStorage.setItem('produto', produtoJSON);
+    }
 
     return (
         <div>
@@ -47,7 +52,8 @@ function TelaProduto() {
                                     <div>
                                         <p>{produto.descricaoProduto}</p>
                                     </div>
-                                    <button className="Botao">Comprar</button>
+                                    <input type="number" value="1" min="1" max="100" id="qtd"></input>
+                                    <button className="Botao" onClick={mandarProCarrinho}>Comprar</button>
                                 </div>
                             )
                         }
