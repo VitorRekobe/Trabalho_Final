@@ -38,14 +38,21 @@ function TelaProduto() {
                     <div id="efeitoZoom">
                         <div id="imagemPrincipalProd"></div>
                     </div>
-                    <div id="infoPageProduto">
-                        <h1>Nome do Produto</h1>
-                        <h3>Valor</h3>
-                        <div>
-                            <p>Descrição</p>
-                        </div>
-                        <button className="Botao">Comprar</button>
-                    </div>
+                    {
+                        produto.map((produto, index) => {
+                            return (
+                                <div id="infoPageProduto" key={index}>
+                                    <h1>{produto.nome}</h1>
+                                    <h3>{produto.valor}</h3>
+                                    <div>
+                                        <p>{produto.descricaoProduto}</p>
+                                    </div>
+                                    <button className="Botao">Comprar</button>
+                                </div>
+                            )
+                        }
+                        )
+                    }
                 </div>
             </div>
         </div>
