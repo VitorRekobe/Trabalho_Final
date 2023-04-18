@@ -10,14 +10,15 @@ function pageCarrinho() {
     if (produtos) {
         var listaProdutos = produtos.map((produto) => (
             <div className='CardCarrinho' key={produto.id}>
-                <p className="imgCardCarrinho">
+                <div className="imgCardCarrinho">
                     IMAGEM PRODUTO
-                </p>
+                </div>
                 <br></br>
-                <p className='desImgCarrinho'>
+                <div className='desImgCarrinho'>
                     <h2>{produto.nome}</h2>
                     <p>{produto.valor}</p>
-                    <p>{produto.descricaoProduto}</p></p>
+                    <p>{produto.descricaoProduto}</p>
+                </div>
             </div>
         ));
     }
