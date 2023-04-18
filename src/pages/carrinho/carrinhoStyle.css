@@ -20,7 +20,7 @@
 }
 
 #listaCarrinhoItens{
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 60vh;
     width: 100%;
     padding: 1%;

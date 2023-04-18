@@ -7,18 +7,20 @@ function pageCarrinho() {
     const produtosJSON = localStorage.getItem('produtos');
     const produtos = JSON.parse(produtosJSON);
 
-    const listaProdutos = produtos.map((produto) => (
-        <div className='CardCarrinho' key={produto.id}>
-            <p className="imgCardCarrinho">
-                IMAGEM PRODUTO
-            </p>
-            <br></br>
-            <p className='desImgCarrinho'>
-                <h2>{produto.nome}</h2>
-                <p>{produto.valor}</p>
-                <p>{produto.descricaoProduto}</p></p>
-        </div>
-    ));
+    if (produtos) {
+        var listaProdutos = produtos.map((produto) => (
+            <div className='CardCarrinho' key={produto.id}>
+                <p className="imgCardCarrinho">
+                    IMAGEM PRODUTO
+                </p>
+                <br></br>
+                <p className='desImgCarrinho'>
+                    <h2>{produto.nome}</h2>
+                    <p>{produto.valor}</p>
+                    <p>{produto.descricaoProduto}</p></p>
+            </div>
+        ));
+    }
 
     return (
         <div className="background">
@@ -39,7 +41,6 @@ function pageCarrinho() {
                             </div>
                             <div id='listaCarrinhoItens'>
                                 {listaProdutos}
-
                             </div>
                         </div>
                     </div>
