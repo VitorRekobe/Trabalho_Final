@@ -33,6 +33,17 @@ function TelaProduto() {
         } else {
           carrinho = [];
         }
+
+        const produtoExistente = carrinho.find((p) => p.id === produto.id);
+
+        if (produtoExistente) {
+          // Se o produto já existe no carrinho, incrementa a quantidade
+          produtoExistente.quantidade++;
+        } else {
+          // Se o produto não existe no carrinho, adiciona ao carrinho com quantidade 1
+          produto.quantidade = 1;
+          carrinho.push(produto);
+        }
       
         carrinho.push(produto);
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
