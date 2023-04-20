@@ -12,6 +12,8 @@ function TelaProduto() {
     const idProd = searchParams.get('id');
 
     const [produto, setProduto] = useState('');
+    const [qtd, setQtd] = useState(1);
+
 
     useEffect(() => {
         fetch(`http://localhost:8082/api/produto/${idProd}`)
@@ -41,8 +43,9 @@ function TelaProduto() {
           produtoExistente.quantidade++;
         } else {
           // Se o produto não existe no carrinho, adiciona ao carrinho com quantidade 1
-          produto.quantidade = 1;
+          produto.quantidade = qtd;
           carrinho.push(produto);
+          console.log(produto.quantidade)
         }
       
         carrinho.push(produto);
@@ -72,7 +75,7 @@ function TelaProduto() {
                                 <div>
                                     <p>{produto.descricaoProduto}</p>
                                 </div>
-                                {/* <input type="number" value="1" min="1" max="100" id="qtd"></input> */}
+                                <input type="number" defaultValue ="1" min="1" max="100" id="qtd" onChange={(e) => setQtd(parseInt(e.target.value))}></input>
                                 <button className="Botao" onClick={mandarProCarrinho}>Comprar</button>
                             </div>
                         )) : null
