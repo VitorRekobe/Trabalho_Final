@@ -22,7 +22,6 @@ function SelectCategoria({ onValueChange }) {
     return (
         <select onChange={pegarCategoria} className='StyleInputUser select'>
             <option value="">Selecione uma Categoria</option>
-            <option >calçados</option>
             {categorias.map(categorias => (
                 <option key={categorias.id} value={categorias.nome}>{categorias?.nome}</option>
             ))}

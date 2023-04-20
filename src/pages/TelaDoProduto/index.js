@@ -14,7 +14,7 @@ function TelaProduto() {
     const [produto, setProduto] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:8082/api/produto/id=${idProd}`)
+        fetch(`http://localhost:8082/api/produto/${idProd}`)
             .then((response) => response.json())
             .then((data) => {
                 setProduto(data)
@@ -25,9 +25,19 @@ function TelaProduto() {
     }, [])
 
     function mandarProCarrinho() {
-        const produtoJSON = JSON.stringify(produto);
-        localStorage.setItem('produto', produtoJSON);
-    }
+        const carrinhoJSON = localStorage.getItem('carrinho');
+        let carrinho;
+      
+        if (carrinhoJSON) {
+          carrinho = JSON.parse(carrinhoJSON);
+        } else {
+          carrinho = [];
+        }
+      
+        carrinho.push(produto);
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      }
+      
 
     return (
         <div>
@@ -44,20 +54,17 @@ function TelaProduto() {
                         <div id="imagemPrincipalProd"></div>
                     </div>
                     {
-                        produto.map((produto, index) => {
-                            return (
-                                <div id="infoPageProduto" key={index}>
-                                    <h1>{produto.nome}</h1>
-                                    <h3>{produto.valor}</h3>
-                                    <div>
-                                        <p>{produto.descricaoProduto}</p>
-                                    </div>
-                                    <input type="number" value="1" min="1" max="100" id="qtd"></input>
-                                    <button className="Botao" onClick={mandarProCarrinho}>Comprar</button>
+                        produto ? produto.map((produto, index) => (
+                            <div id="infoPageProduto" key={index}>
+                                <h1>{produto.nome}</h1>
+                                <h3>{produto.valor}</h3>
+                                <div>
+                                    <p>{produto.descricaoProduto}</p>
                                 </div>
-                            )
-                        }
-                        )
+                                {/* <input type="number" value="1" min="1" max="100" id="qtd"></input> */}
+                                <button className="Botao" onClick={mandarProCarrinho}>Comprar</button>
+                            </div>
+                        )) : null
                     }
                 </div>
             </div>

@@ -49,6 +49,7 @@ function TelaBusca() {
         }
     }, []);
 
+    console.log(dadoCategoria,dadoMarca)
 
     let produtos = null;
     if (infoProd) {
