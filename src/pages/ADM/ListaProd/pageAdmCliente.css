@@ -11,17 +11,33 @@ table, th, td {
 th{
     width: 20%;
     max-width: 50%;
+    padding: 2%;
+    font-size: 20px;
+}
+
+.idTable{
+    width: 10%;
+}
+
+.valorTable{
+    width: 15%;
 }
 
 table{
     text-align: center;
     max-height: 50vh;
-    width: 100%;
+    width: 100%; /* largura total */
+    overflow: auto;
+    white-space: nowrap; 
 }
 
-th {
-    padding: 2%;
-    font-size: 20px;
+.AlinharPesquisaEnovo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.NovoTable{
+    width: 100%;
 }
 
 #buscarProd{

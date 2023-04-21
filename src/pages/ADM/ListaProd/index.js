@@ -3,6 +3,7 @@ import './pageAdmCliente.css';
 import Header from "../../../componentes/Header/Header";
 import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 import { useEffect, useState } from 'react';
+import PageADMCad from '../CadastroADM';
 
 function PageADMLista(props) {
     const [produtos, setProdutos] = useState([])
@@ -19,6 +20,7 @@ function PageADMLista(props) {
         <div className="background">
             <Header></Header>
             <div className="principalCliente">
+            <PageADMCad></PageADMCad> 
                 <TelaAdm></TelaAdm>
                 <div className="telaO">
                     <TableProd produtos={produtos}>

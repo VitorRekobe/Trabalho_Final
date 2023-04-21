@@ -13,7 +13,7 @@ import PageClientePagamentos from './pages/telaCliente/pagamento';
 import PageClienteAtendimento from './pages/telaCliente/atendimento';
 import PageClienteReebolso from './pages/telaCliente/reembolso';
 import PageClienteEndereco from './pages/telaCliente/endereco';
-import PageADMCad from './pages/ADM/CadastroADM';
+// import PageADMCad from './pages/ADM/CadastroADM';
 import PageADMLista from './pages/ADM/ListaProd';
 import PageADMVendas from './pages/ADM/Vendas';
 import PageAdmClientes from './pages/ADM/ListaCliente';
@@ -43,7 +43,7 @@ function Rotas() {
           <Route path='/atendimento' element={<PageClienteAtendimento></PageClienteAtendimento>}></Route>
           <Route path='/reembolso' element={<PageClienteReebolso></PageClienteReebolso>}></Route>
           <Route path='/endereço' element={<PageClienteEndereco></PageClienteEndereco>}></Route>
-          <Route path='/ADM' element={<PageADMCad></PageADMCad>}></Route>
+          {/* <Route path='/ADM' element={<PageADMCad></PageADMCad>}></Route> */}
           <Route path='/ADM/ListProd' element={<PageADMLista></PageADMLista>}></Route>
           <Route path='/ADM/ListCliente' element={<PageAdmClientes></PageAdmClientes>}></Route>
           <Route path='/ADM/Vendas' element={<PageADMVendas></PageADMVendas>}></Route>

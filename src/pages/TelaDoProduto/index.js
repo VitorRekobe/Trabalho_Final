@@ -51,7 +51,6 @@ function TelaProduto() {
         carrinho.push(produto);
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
       }
-      
 
     return (
         <div>
@@ -78,7 +77,7 @@ function TelaProduto() {
                                 <input type="number" defaultValue ="1" min="1" max="100" id="qtd" onChange={(e) => setQtd(parseInt(e.target.value))}></input>
                                 <button className="Botao" onClick={mandarProCarrinho}>Comprar</button>
                             </div>
-                        )) : null
+                        )) :  null
                     }
                 </div>
             </div>

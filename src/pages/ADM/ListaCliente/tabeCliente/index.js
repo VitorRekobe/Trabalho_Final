@@ -13,7 +13,7 @@ function TableCliente(props) {
             <br></br>
             <table id='tabela'>
                 <tr>
-                    <th>&nbsp;</th>
+                    <th className='idTable'>&nbsp;</th>
                     <th>Nome</th>
                     <th>Email</th>
                 </tr>

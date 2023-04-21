@@ -2,25 +2,32 @@ import pesquisarProd from '../funçãoListar';
 import PageADMLista from '..';
 
 function TableProd(props) {
-    let table = document.getElementById("tbodyProd");
-    // let row = table.insertRow(props.names);
+
+    function AbrirModalCad() {
+        document.getElementById("cadModal").style.display = "block";
+    }
+
     let produtos = (props.produtos);
     console.log(produtos)
 
     return (
         <div className="divListCliente">
-            <div><label>
-                Pesquisar produtos: &ensp;
-                <input placeholder="  &#x1F50E;&#xFE0E;  Buscar" id='buscarProd' onChange={pesquisarProd}></input>
-            </label>
+            <div className='AlinharPesquisaEnovo'>
+                <label>
+                    Pesquisar produtos: &ensp;
+                    <input placeholder="  &#x1F50E;&#xFE0E;  Buscar" id='buscarProd' onChange={pesquisarProd}></input>
+                </label>
+                <div>
+                    <button className='Botao NovoTable' onClick={AbrirModalCad}>Novo</button>
+                </div>
             </div>
             <br></br>
             <table id='tabela'>
                 <tr>
-                    <th>&nbsp;</th>
+                    <th className='idTable'>&nbsp;</th>
                     <th>Marca</th>
                     <th>Nome</th>
-                    <th>Valor</th>
+                    <th className='valorTable'>Valor</th>
                     <th>Descricao</th>
                 </tr>
                 <tbody id='tbodyProd'>

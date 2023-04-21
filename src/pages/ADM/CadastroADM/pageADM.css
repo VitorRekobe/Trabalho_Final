@@ -1,6 +1,33 @@
+.cadModal{
+    display: none;/* não exibido por padrão */
+    position: fixed; /* posição fixa na tela */
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100%;
+    background-color: black; /* fundo preto semi-transparente */
+    border: 3px solid #E8D1C5;
+    border-radius: 5px;
+    z-index: 999; 
+}
+
 .cadProdutos{
     display: flex;
     flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* centralizado horizontal e verticalmente */
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.divModal{
+    padding: 0;
+    display: flex;
+    width: 100%;
+    margin: 0;
 }
 
 .cadProdutos .Botao{
@@ -10,19 +37,19 @@
 .alinharCadProd{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .crudProduto{
-    width: 60%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     margin-right: 5%;
 }
 
 .DivimgProdAdm{
-    height: 45vh;
-    width: 40%;
+    height: 100%;
+    width: 30%;
     overflow: hidden;
 }
 
@@ -50,3 +77,36 @@ input[type="file"] {
 .select option{
     background-color: black;
 }
+
+.alinharButtonModalAdm{
+    width: 85%;
+    margin: auto;
+}
+
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  .fechar::before,
+  .fechar::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 25px;
+    background-color: #E8D1C5;
+    top: 8px;
+    left: 18px;
+  }
+  
+  .fechar::before {
+    transform: rotate(45deg);
+  }
+  
+  .fechar::after {
+    transform: rotate(-45deg);
+  }

@@ -2,8 +2,6 @@ import './pageADM.css';
 
 import CadProd from './cadastrarPorduto/cadProd.js';
 
-import Header from "../../../componentes/Header/Header";
-import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 import SelectedMarca from '../../../componentes/selectMarca/selectMarca';
 import SelectedCategoria from '../../../componentes/selectCategoria/selectCategoria';
 import SelectedSexo from '../../../componentes/selectSexo/selectSexo';
@@ -16,9 +14,16 @@ function PageADMCad() {
 
     const [categoriaId, setCategoriaId] = useState('');
     const [value2, setValue2] = useState('');
-    
+
     const [sexoId, setSexoId] = useState('');
     const [value3, setValue3] = useState('');
+
+    function fecharModal() {
+        document.getElementById("cadModal").style.display = "none";
+        document.getElementById("prodNome").value = '';
+        document.getElementById("prodValor").value = '';
+        document.getElementById("prodDescrição").value = '';
+    }
 
     const pegarMarca = (setSelectedMarca) => {
         setValue(setSelectedMarca);
@@ -63,34 +68,33 @@ function PageADMCad() {
         if (marcaId, categoriaId) {
             CadProd(marcaId, categoriaId, sexoId);
         } else {
-            alert('Selecione uma marca antes de cadastrar o produto.');
+            alert('Algum campo vazio');
         }
     };
 
     return (
-        <div className="background">
-            <Header></Header>
-            <div className="principalCliente">
-                <TelaAdm></TelaAdm>
-                <div className="telaO">
-                    <div className="cadProdutos">
-                        <div className='alinharCadProd'>
-                            <div className='crudProduto'>
-                                <input id='prodNome' className='StyleInputUser' placeholder='Nome'></input>
-                                <input id='prodValor' className='StyleInputUser' placeholder='Valor'></input>
-                                <input id='prodDescrição' className='StyleInputUser' placeholder='Descrição'></input>
-                                <SelectedMarca onValueChange={pegarMarca}></SelectedMarca>
-                                <SelectedSexo></SelectedSexo>
-                                <SelectedCategoria onValueChange={pegarCategoria}></SelectedCategoria>
-                            </div>
-                            <div className='DivimgProdAdm'>
-                                <div className='imgProdAdm'>
-                                </div>
-                                <label className='Botao botaoImage'> Enviar imagem
-                                    <input id='imgFile' type="file"></input>
-                                </label>
-                            </div>
+        <div className="cadModal" id='cadModal'>
+            <div className="fechar" onClick={fecharModal}></div>
+            <div className="divModal">
+                <div className="cadProdutos">
+                    <div className='alinharCadProd'>
+                        <div className='crudProduto'>
+                            <input id='prodNome' className='StyleInputUser' placeholder='Nome'></input>
+                            <input id='prodValor' className='StyleInputUser' placeholder='Valor'></input>
+                            <input id='prodDescrição' className='StyleInputUser' placeholder='Descrição'></input>
+                            <SelectedMarca onValueChange={pegarMarca}></SelectedMarca>
+                            <SelectedSexo></SelectedSexo>
+                            <SelectedCategoria onValueChange={pegarCategoria}></SelectedCategoria>
                         </div>
+                        <div className='DivimgProdAdm'>
+                            <div className='imgProdAdm'>
+                            </div>
+                            <label className='Botao botaoImage'> Enviar imagem
+                                <input id='imgFile' type="file"></input>
+                            </label>
+                        </div>
+                    </div>
+                    <div className='alinharButtonModalAdm'>
                         <button onClick={mandarId} className="Botao">Cadastrar</button>
                     </div>
                 </div>

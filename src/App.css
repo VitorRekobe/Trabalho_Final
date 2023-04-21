@@ -37,9 +37,10 @@
 }
 
 .telaO{
-    width: 60%;
+    width: 70%;
     height: 60vh;
     margin: auto;
+    margin-right: 0 ;
     border: 2px solid #E8D1C5;
     border-radius: 5px;
     padding: 2%;
