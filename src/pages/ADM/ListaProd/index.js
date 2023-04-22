@@ -1,5 +1,5 @@
 import TableProd from './tabe/index'
-import './pageAdmCliente.css';
+import './pageAdmProd.css';
 import Header from "../../../componentes/Header/Header";
 import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 import { useEffect, useState } from 'react';

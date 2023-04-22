@@ -1,5 +1,4 @@
 import pesquisarProd from '../funçãoListar';
-import PageADMLista from '..';
 
 function TableCliente(props) {
     let clientes = (props.clientes);
