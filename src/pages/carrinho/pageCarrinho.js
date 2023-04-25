@@ -8,25 +8,25 @@ function pageCarrinho() {
     const produtos = JSON.parse(produtosJSON);
 
     // localStorage.clear();
-    if(produtos){
+    if (produtos) {
         var listaProdutos = produtos.map((produto) => {
             return produto.map((p) => {
                 return (
                     <div className='CardCarrinho' key={p.id}>
-              <div className="imgCardCarrinho">
-                IMAGEM PRODUTO
-              </div>
-              <br></br>
-              <div className='desImgCarrinho'>
-                <h2>{p.nome}</h2>
-                <p>{p.valor}</p>
-                <p>{p.descricaoProduto}</p>
-              </div>
-            </div>
-          );
+                        <div className="imgCardCarrinho">
+                            IMAGEM PRODUTO
+                        </div>
+                        <br></br>
+                        <div className='desImgCarrinho'>
+                            <h2>{p.nome}</h2>
+                            <p>{p.valor}</p>
+                            <p>{p.descricaoProduto}</p>
+                        </div>
+                    </div>
+                );
+            });
         });
-    });
-}
+    }
 
     return (
         <div className="background">
@@ -36,9 +36,9 @@ function pageCarrinho() {
                     <div className="itemPaiCarinho">
                         <div id='Etapa'>
                             <h5 className='EtapaCarrinhoName'> Carrinho </h5>
-                            <h5> > </h5>
+                            <h5> {">"} </h5>
                             <h5> Pagamento e Entrega </h5>
-                            <h5> > </h5>
+                            <h5> {"<"} </h5>
                             <h5> Finalização </h5>
                         </div>
                         <div>
