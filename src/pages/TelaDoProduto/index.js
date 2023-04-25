@@ -27,28 +27,31 @@ function TelaProduto() {
     }, [])
 
     function mandarProCarrinho() {
-        const carrinhoJSON = localStorage.getItem('carrinho');
+        let carrinhoJSON = localStorage.getItem('carrinho');
         let carrinho;
-      
+
         if (carrinhoJSON) {
-          carrinho = JSON.parse(carrinhoJSON);
+            carrinho = JSON.parse(carrinhoJSON);
         } else {
-          carrinho = [];
+            carrinho = [];
         }
+        var produtoExistente;
+        var listaProdutosExistentes = carrinho.map((produto) => {
+            produtoExistente = produto.find((p) => p.id === idProd);
 
-        const produtoExistente = carrinho.find((p) => p.id === idProd);
+            if (produtoExistente) {
+                // Se o produto já existe no carrinho, incrementa a quantidade
+                produtoExistente.quantidade += qtd;
+            } else {
+                // Se o produto não existe no carrinho, adiciona ao carrinho com quantidade 1
+                produto.quantidade = qtd;
+                carrinho.push(produto);
+                console.log(produto.quantidade)
+            }
+        });
 
-        if (produtoExistente) {
-          // Se o produto já existe no carrinho, incrementa a quantidade
-          produtoExistente.quantidade += qtd;
-        } else {
-          // Se o produto não existe no carrinho, adiciona ao carrinho com quantidade 1
-          produto.quantidade = qtd;
-          carrinho.push(produto);
-          console.log(produto.quantidade)
-        }
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
-      }
+    }
 
     return (
         <div>
@@ -72,10 +75,10 @@ function TelaProduto() {
                                 <div>
                                     <p>{produto.descricaoProduto}</p>
                                 </div>
-                                <input type="number" defaultValue ="1" min="1" max="100" id="qtd" onChange={(e) => setQtd(parseInt(e.target.value))}></input>
+                                <input type="number" defaultValue="1" min="1" max="100" id="qtd" onChange={(e) => setQtd(parseInt(e.target.value))}></input>
                                 <button className="Botao" onClick={mandarProCarrinho}>Comprar</button>
                             </div>
-                        )) :  null
+                        )) : null
                     }
                 </div>
             </div>
