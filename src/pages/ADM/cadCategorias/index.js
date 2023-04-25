@@ -10,7 +10,7 @@ function PageADMcadCategorias() {
             <div className="principalCliente">
                 <TelaAdm></TelaAdm>
                 <div className="telaO">
-                        <div className="divCadMarcas">
+                        <div className="divCadCategoria">
                             <input id='prodCategoria' className='StyleInputUser' placeholder='Categoria'></input>
                             <button onClick={CadCategoria} className="Botao">Cadastrar</button>
                         </div>
