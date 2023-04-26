@@ -1,11 +1,24 @@
 .CardCarrinho{
     width: 100%;
-    border: 3px solid #E8D1C5;
-    display: flex;
-    justify-content: space-around;
-    height: 25vh;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 15vh;
     margin-bottom: 5%;
     align-items: center;
-    border-radius: 5px;
     color: #E8D1C5;
+}
+
+#nomePartedoCarrinho{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+    padding: 5px;
+    margin: 0;
+    border-bottom: 2px solid #E8D1C5;
+}
+
+.arrumarNomeParteCrrinho{
+    display: flex;
+    justify-content: center;
 }

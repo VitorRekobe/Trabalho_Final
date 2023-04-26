@@ -29,9 +29,9 @@ function PageADMCad() {
         setValue(setSelectedMarca);
     }
 
-    // const pegarSexo = (setSelectedSexo) => {
-    //     setValue(setSelectedSexo);
-    // }
+    const pegarSexo = (setSelectedSexo) => {
+        setValue(setSelectedSexo);
+    }
 
     const pegarCategoria = (setSelectedCategoria) => {
         setValue2(setSelectedCategoria);
@@ -83,7 +83,7 @@ function PageADMCad() {
                             <input id='prodValor' className='StyleInputUser' placeholder='Valor'></input>
                             <input id='prodDescrição' className='StyleInputUser' placeholder='Descrição'></input>
                             <SelectedMarca onValueChange={pegarMarca}></SelectedMarca>
-                            {/* <SelectedSexo></SelectedSexo> */}
+                            <SelectedSexo></SelectedSexo>
                             <SelectedCategoria onValueChange={pegarCategoria}></SelectedCategoria>
                         </div>
                         <div className='DivimgProdAdm'>

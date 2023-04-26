@@ -44,6 +44,7 @@
     border-radius: 5px;
     padding: 1%;
     color: #E8D1C5;
+    overflow-y: hidden;
 }
 
 #divpagamentoCarrinho{
