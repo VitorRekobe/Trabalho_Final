@@ -10,22 +10,23 @@ function pageCarrinho() {
     // localStorage.clear();
     if (produtos) {
         var listaProdutos = produtos.map((produto) => {
-            return produto.map((p) => {
+                console.log(listaProdutos)
                 return (
-                    <div className='CardCarrinho' key={p.id}>
+                    <div className='CardCarrinho' key={produto.id}>
                         <div className="imgCardCarrinho">
                             IMAGEM PRODUTO
                         </div>
                         <br></br>
                         <div className='desImgCarrinho'>
-                            <h2>{p.nome}</h2>
-                            <p>{p.valor}</p>
-                            <p>{p.descricaoProduto}</p>
+                            <h2>{produto.nome}</h2>
+                            <p>{produto.valor}</p>
+                            <p>{produto.descricaoProduto}</p>
+                            <p>{produto.quantidade}</p>
                         </div>
                     </div>
                 );
             });
-        });
+
     }
 
     return (

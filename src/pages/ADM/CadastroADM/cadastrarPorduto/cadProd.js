@@ -3,7 +3,7 @@ const CadProd = (marcaId, categoriaId, sexoId) => {
     let valor = document.getElementById("prodValor").value;
     var descricaoProduto = document.getElementById("prodDescrição").value;
 
-    if (marcaId, categoriaId, sexoId) {
+    if (marcaId, categoriaId) {
         fetch('http://localhost:8082/api/produto/', {
             method: 'POST',
             headers: {

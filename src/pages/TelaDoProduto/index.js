@@ -7,51 +7,71 @@ import HeaderPesquisa from "../../componentes/HeaderItens.js/BarraPesquisa";
 import "./TelaProduto.css";
 
 function TelaProduto() {
-    const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
-    const idProd = searchParams.get('id');
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const idProd = searchParams.get("id");
 
-    const [produto, setProduto] = useState('');
-    const [qtd, setQtd] = useState(1);
+  const [produto, setProduto] = useState();
+  const [qtd, setQtd] = useState(1);
 
+  const apiGetProd = () => {
+    fetch(`http://localhost:8082/api/produto/${idProd}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setProduto(data);
+      })
+      .catch((error) => {
+        console.error("Ocorreu um erro ao consultar o banco de dados", error);
+      });
+  };
 
-    useEffect(() => {
-        fetch(`http://localhost:8082/api/produto/${idProd}`)
-            .then((response) => response.json())
-            .then((data) => {
-                setProduto(data)
-            })
-            .catch(error => {
-                console.error('Ocorreu um erro ao consultar o banco de dados', error);
-            });
-    }, [])
+  useEffect(() => {
+    fetch(`http://localhost:8082/api/produto/${idProd}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setProduto(data);
+      })
+      .catch((error) => {
+        console.error("Ocorreu um erro ao consultar o banco de dados", error);
+      });
+  }, []);
 
-    function mandarProCarrinho() {
-        let carrinhoJSON = localStorage.getItem('carrinho');
-        let carrinho;
+  function mandarProCarrinho() {
+    if (produto) {
+      let carrinhoJSON = localStorage.getItem("carrinho");
+      let carrinho;
 
-        if (carrinhoJSON) {
-            carrinho = JSON.parse(carrinhoJSON);
-        } else {
-            carrinho = [];
-        }
-        var produtoExistente;
-        var listaProdutosExistentes = carrinho.map((produto) => {
-            produtoExistente = produto.find((p) => p.id === idProd);
+      if (carrinhoJSON) {
+        carrinho = JSON.parse(carrinhoJSON);
+      } else {
+        carrinho = [];
+      }
 
-            if (produtoExistente) {
-                // Se o produto já existe no carrinho, incrementa a quantidade
-                produtoExistente.quantidade += qtd;
-            } else {
-                // Se o produto não existe no carrinho, adiciona ao carrinho com quantidade 1
-                produto.quantidade = qtd;
-                carrinho.push(produto);
-                console.log(produto.quantidade)
-            }
-        });
+      let produtoExistente = carrinho.find((p) => p.id === idProd);
 
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      if (produtoExistente) {
+        // Se o produto já existe no carrinho, incrementa a quantidade
+        produtoExistente.quantidade += qtd;
+        console.log("Tem no carrinho", produtoExistente.quantidade);
+      } else {
+        // Se o produto não existe no carrinho, adiciona ao carrinho com quantidade 1
+        apiGetProd();
+        let novoProduto = {
+          id: idProd,
+          quantidade: qtd,
+          nome: produto[0].nome,
+          valor: produto[0].valor,
+          descricaoProduto: produto[0].descricaoProduto,
+        };
+        
+        carrinho.push(novoProduto);
+        console.log("nao tem no carrinho");
+      }
+      console.log(carrinho);
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
     }
+  }
+    
 
     return (
         <div>
@@ -68,12 +88,12 @@ function TelaProduto() {
                         <div id="imagemPrincipalProd"></div>
                     </div>
                     {
-                        produto ? produto.map((produto, index) => (
+                        produto ? produto.map((produ, index) => (
                             <div id="infoPageProduto" key={index}>
-                                <h1>{produto.nome}</h1>
-                                <h3>{produto.valor}</h3>
+                                <h1>{produ.nome}</h1>
+                                <h3>{produ.valor}</h3>
                                 <div>
-                                    <p>{produto.descricaoProduto}</p>
+                                    <p>{produ.descricaoProduto}</p>
                                 </div>
                                 <input type="number" defaultValue="1" min="1" max="100" id="qtd" onChange={(e) => setQtd(parseInt(e.target.value))}></input>
                                 <button className="Botao" onClick={mandarProCarrinho}>Comprar</button>
