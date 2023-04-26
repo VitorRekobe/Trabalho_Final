@@ -61,42 +61,6 @@ function pageCarrinho() {
                             </div >
                             <div id='listaCarrinhoItens'>
                                 {listaProdutos}
-                                <div className='CardCarrinho'>
-                                    <div className="imgCardCarrinho">
-                                        <p>IMAGEM PRODUTO</p>
-                                    </div>
-                                    <div className='arrumarNomeParteCrrinho'>
-                                        <p>Air force</p>
-                                    </div>
-                                    <div className='arrumarNomeParteCrrinho'>
-                                        <p>
-                                            R$300,00
-                                        </p>
-                                    </div>
-                                    <div className='arrumarNomeParteCrrinho'>
-                                        <p>
-                                            - &nbsp; 2 &nbsp; +
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className='CardCarrinho'>
-                                    <div className="imgCardCarrinho">
-                                        <p>IMAGEM PRODUTO</p>
-                                    </div>
-                                    <div className='arrumarNomeParteCrrinho'>
-                                        <p>Air force</p>
-                                    </div>
-                                    <div className='arrumarNomeParteCrrinho'>
-                                        <p>
-                                            R$300,00
-                                        </p>
-                                    </div>
-                                    <div className='arrumarNomeParteCrrinho'>
-                                        <p>
-                                            - &nbsp; 2 &nbsp; +
-                                        </p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
