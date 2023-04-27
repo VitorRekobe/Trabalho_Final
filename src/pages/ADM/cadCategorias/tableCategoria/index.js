@@ -1,48 +1,41 @@
 import pesquisarProd from '../funçãoListar';
-import PageADMLista from '..';
-import { FaRegTrashAlt } from 'react-icons/fa';
+import { FaRegTrashAlt } from "react-icons/fa";
 
-function TableProd(props) {
+function TableCategoria(props) {
 
-    function AbrirModalCad() {
-        document.getElementById("cadModal").style.display = "block";
+    function AbrirModalCadCategoria() {
+        document.getElementById("divCadCategoria").style.display = "block";
     }
 
-    let produtos = (props.produtos);
-    console.log(produtos)
+    let Categoria = (props.Categoria);
+    console.log(Categoria)
 
     return (
         <div className="divListCliente">
             <div className='AlinharPesquisaEnovo'>
                 <label>
-                    Pesquisar produtos: &ensp;
+                    Pesquisar Categoria: &ensp;
                     <input placeholder="  &#x1F50E;&#xFE0E;  Buscar" id='buscarProd' onChange={pesquisarProd}></input>
                 </label>
                 <div>
-                    <button className='Botao NovoTable' onClick={AbrirModalCad}>Novo</button>
+                    <button className='Botao NovoTableCategoria' onClick={AbrirModalCadCategoria}>Novo</button>
                 </div>
             </div>
             <br></br>
             <table id='tabela'>
                 <tr>
                     <th className='idTable'>&nbsp;</th>
-                    <th>Marca</th>
-                    <th>Nome</th>
-                    <th className='valorTable'>Valor</th>
-                    {/* <th>Descricao</th> */}
-                    <th className='apagarTable'></th>
+                    <th>Categoria</th>
+                    <th className='apagarTable'>DEL</th>
                 </tr>
                 <tbody id='tbodyProd'>
                     {
-                        produtos.map((produtos, index) => {
+                        Categoria?.map((Categoria, index) => {
 
                             return (
                                 <tr key={index}>
-                                    <td>{produtos.id}</td>
-                                    <td>{produtos.marca.nome}</td>
-                                    <td>{produtos.nome}</td>
-                                    <td>{produtos.valor}</td>
-                                    {/* <td>{produtos.descricaoProduto}</td> */}
+                                    <td>{Categoria.id}</td>
+                                    <td>{Categoria.nome}</td>
                                     <td>
                                         <button style={{ backgroundColor: 'transparent' }}>
                                             <FaRegTrashAlt style={{ color: 'white' }}></FaRegTrashAlt>
@@ -53,10 +46,19 @@ function TableProd(props) {
                         }
                         )
                     }
+
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button style={{ backgroundColor: 'transparent', boxShadow: 'none', border: 'none' }}>
+                            <FaRegTrashAlt style={{ color: 'white' }}></FaRegTrashAlt>
+                        </button>
+                    </td>
+
                 </tbody>
             </table>
         </div>
     )
 }
 
-export default TableProd;
+export default TableCategoria;

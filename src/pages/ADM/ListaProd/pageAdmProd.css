@@ -23,6 +23,10 @@ th{
     width: 15%;
 }
 
+.apagarTable{
+    width: 5%;
+}
+
 table{
     text-align: center;
     max-height: 50vh;

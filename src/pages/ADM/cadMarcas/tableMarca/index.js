@@ -1,3 +1,4 @@
+import { FaRegTrashAlt } from 'react-icons/fa';
 import pesquisarProd from '../funçãoListar';
 
 function TableMarca(props) {
@@ -25,6 +26,7 @@ function TableMarca(props) {
                 <tr>
                     <th className='idTable'>&nbsp;</th>
                     <th>Marca</th>
+                    <th className='apagarTable'>DEL</th>
                 </tr>
                 <tbody id='tbodyProd'>
                     {
@@ -34,6 +36,11 @@ function TableMarca(props) {
                                 <tr key={index}>
                                     <td>{Marcas.id}</td>
                                     <td>{Marcas.nome}</td>
+                                    <td>
+                                        <button style={{ backgroundColor: 'transparent' }}>
+                                            <FaRegTrashAlt style={{ color: 'white' }}></FaRegTrashAlt>
+                                        </button>
+                                    </td>
                                 </tr>
                             )
                         }
