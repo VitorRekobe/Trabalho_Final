@@ -1,6 +1,6 @@
 const CadProd = (marcaId, categoriaId, sexoId) => {
     let nome = document.getElementById("prodNome").value;
-    let valor = document.getElementById("prodValor").value;
+    let valor = document.getElementById("prodValor").value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });;
     var descricaoProduto = document.getElementById("prodDescrição").value;
 
     if (marcaId, categoriaId) {

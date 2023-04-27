@@ -6,33 +6,34 @@ import { Link } from 'react-router-dom'
 function pageCarrinho() {
     const produtosJSON = localStorage.getItem('carrinho');
     const produtos = JSON.parse(produtosJSON);
+    let qtdTotal = produtos.length
+
+    const valorTotal = produtos.reduce((acumulador, produto) => {
+        return acumulador + parseFloat(produto.valor) * produto.quantidade;
+    }, 0);
+
+    var valorTotalFormatado = valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
     // localStorage.clear();
     if (produtos) {
         var listaProdutos = produtos.map((produto) => {
-            console.log(listaProdutos)
             return (
                 <div className='CardCarrinho' key={produto.id}>
                     <div className="imgCardCarrinho">
                         IMAGEM PRODUTO
                     </div>
-                    <br></br>
-                    <div>
-                        <h2>{produto.nome}</h2>
+                    <div className='arrumarNomeParteCrrinho'>
+                        <h4>{produto.nome}</h4>
                     </div>
-                    <div>
-                        <p>{produto.valor}</p>
+                    <div className='arrumarNomeParteCrrinho'>
+                        <p>{(parseFloat(produto.valor) * produto.quantidade).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
                     </div>
-                    <div>
-                        <p>{produto.descricaoProduto}</p>
-                    </div>
-                    <div>
+                    <div className='arrumarNomeParteCrrinho'>
                         <p>{produto.quantidade}</p>
                     </div>
                 </div >
             );
         });
-
     }
 
     return (
@@ -45,14 +46,14 @@ function pageCarrinho() {
                             <h5 className='EtapaCarrinhoName'> Carrinho </h5>
                             <h5> {">"} </h5>
                             <h5> Pagamento e Entrega </h5>
-                            <h5> {"<"} </h5>
+                            <h5> {">"} </h5>
                             <h5> Finalização </h5>
                         </div>
                         <div>
-                            <div>
-                                <h2 id='qtdProduto'>RESUMO DE ITENS ( )</h2>
-                            </div>
                             <br></br>
+                            <div>
+                                <h4 id='qtdProduto'>PRODUTOS ( {qtdTotal} )</h4>
+                            </div>
                             <div id='nomePartedoCarrinho'>
                                 <div></div>
                                 <div className='arrumarNomeParteCrrinho'>Nome</div>
@@ -64,17 +65,22 @@ function pageCarrinho() {
                             </div>
                         </div>
                     </div>
-
                     <div className="itemMãeCarinho">
                         <h3>Resumo do pedido</h3>
                         <div id="divpagamentoCarrinho">
                             <div>
                                 <p color="black">Subtotal</p>
                                 <hr></hr>
-                                <div>
-
+                                <div className='subvalores tamanhoSubValor'>
+                                    {produtos.map((produto) => {
+                                        return (
+                                            <p>{(parseFloat(produto.valor) * produto.quantidade).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
+                                        )
+                                    })}
                                 </div>
-                                <h3>R$0,00</h3>
+                                <hr></hr>
+                                <h2 className='subvalores'>Valor Total</h2>
+                                <h3>{valorTotalFormatado}</h3>
                             </div>
                             <div className="flexBotao">
                                 <button className="BotaoPedido" ><Link to={'/pagamento-e-entrega'}>Finalizar Pedido</Link></button>

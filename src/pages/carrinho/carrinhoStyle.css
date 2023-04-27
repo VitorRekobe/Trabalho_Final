@@ -77,3 +77,13 @@
 #qtdProduto{
     margin-bottom: 1%;
 }
+
+.subvalores{
+    text-align: end;
+}
+
+.tamanhoSubValor{
+    height: 150px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
