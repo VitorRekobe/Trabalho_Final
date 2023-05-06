@@ -1,7 +1,17 @@
+import { useEffect, useState } from 'react';
 import pesquisarProd from '../funçãoListar';
 
-function TableCliente(props) {
-    let clientes = (props.clientes);
+function TableCliente() {
+    const [clientes, setClientes] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:8082/api/cliente/')
+            .then((response) => response.json())
+            .then((data) => {
+                setClientes(data)
+            })
+    }, [])
+    
     return (
         <div className="divListCliente">
             <div><label>

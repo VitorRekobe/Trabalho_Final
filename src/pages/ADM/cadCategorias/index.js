@@ -7,18 +7,44 @@ import { useEffect, useState } from 'react';
 
 function PageADMcadCategorias() {
 
-    const [categoria, setCategoria] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:8082/api/Categoria/')
-            .then((response) => response.json())
-            .then((data) => {
-                setCategoria(data)
-            })
-    }, [])
+    const [idcategoria, setIdCategoria] = useState([]);
 
     function fecharModalCategoria() {
         document.getElementById("divCadCategoria").style.display = "none";
+    }
+
+    function fecharModalCategoriaALT() {
+        document.getElementById("divCadCategoriaALT").style.display = "none";
+        document.getElementById("prodAltCategoria").value = null;
+    }
+
+    function pegarIDCategoria(CategoriaID) {
+        setIdCategoria(CategoriaID)
+    }
+
+    function ALTCategoria() {
+        let nome = document.getElementById("prodCategoriaALT").value;
+        fetch(`http://localhost:8082/api/categoria/${idcategoria}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ "nome": nome })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Categoria atualizada:', data)
+                console.log(nome);
+            })
+            .catch(error => {
+                console.error('Erro ao atualizar categoria:', error);
+            });
     }
 
     return (
@@ -27,8 +53,10 @@ function PageADMcadCategorias() {
             <div className="principalCliente">
                 <TelaAdm></TelaAdm>
                 <div className="telaO">
-                    <TableCategoria categoria={categoria}></TableCategoria>
+                    <TableCategoria onpegarIDCategoria={pegarIDCategoria}></TableCategoria>
                     <div className="divCadCategoria" id='divCadCategoria'>
+
+                        {/* CADASTRAR */}
                         <div className="alinhaModalCategoria">
                             <div className="fecharCategoria" onClick={fecharModalCategoria}></div>
                             <h1>Cadastrar uma Categoria</h1>
@@ -36,6 +64,18 @@ function PageADMcadCategorias() {
                             <input id='prodCategoria' className='StyleInputUser' placeholder='Categoria'></input>
                             <br></br>
                             <button onClick={CadCategoria} className="Botao">Cadastrar</button>
+                        </div>
+                    </div>
+
+                    {/* ALTERAR */}
+                    <div className="divCadCategoriaALT">
+                        <div className="alinhaModalCategoria">
+                            <div className="fecharCategoria" onClick={fecharModalCategoriaALT}></div>
+                            <h1>Cadastrar uma Categoria</h1>
+                            <br></br>
+                            <input id='prodCategoriaALT' className='StyleInputUser' placeholder='Categoria'></input>
+                            <br></br>
+                            <button onClick={ALTCategoria} className="Botao">Alterar</button>
                         </div>
                     </div>
                 </div>

@@ -1,15 +1,24 @@
 import pesquisarProd from '../funçãoListar';
 import PageADMLista from '..';
 import { FaRegTrashAlt } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
 
-function TableProd(props) {
+function TableProd() {
+    const [produtos, setProdutos] = useState([])
 
     function AbrirModalCad() {
         document.getElementById("cadModal").style.display = "block";
     }
 
-    let produtos = (props.produtos);
-    console.log(produtos)
+    useEffect(() => {
+        fetch('http://localhost:8082/api/produto/')
+            .then((response) => response.json())
+            .then((data) => {
+                setProdutos(data)
+            })
+    }, [])
+
+    
 
     return (
         <div className="divListCliente">
@@ -33,7 +42,7 @@ function TableProd(props) {
                     <th className='apagarTable'></th>
                 </tr>
                 <tbody id='tbodyProd'>
-                    {
+                    {   
                         produtos.map((produtos, index) => {
 
                             return (

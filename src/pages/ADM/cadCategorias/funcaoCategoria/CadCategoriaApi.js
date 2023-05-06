@@ -22,6 +22,7 @@ function CadMarca() {
         })
         .catch(error => {
             console.error(error);
+            console.log(categoria)
             alert('Erro no Cadastro')
         });
 }

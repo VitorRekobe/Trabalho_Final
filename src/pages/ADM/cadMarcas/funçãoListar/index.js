@@ -10,7 +10,7 @@ function pesquisarProd() {
             var td = tr.childNodes;
 
             for (let j = 0; j < td.length; j++) {
-                var value = td[j].childNodes[0].nodeValue.toLowerCase();
+                var value = td[j].textContent.toLowerCase();
                 console.log((value.indexOf(busca)))
                 if(value.indexOf(busca) >= 0){
                     achou = true;
