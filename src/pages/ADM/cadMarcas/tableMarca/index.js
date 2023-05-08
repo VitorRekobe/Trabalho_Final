@@ -1,14 +1,21 @@
 import { FaRegTrashAlt } from 'react-icons/fa';
 import pesquisarProd from '../funçãoListar';
+import { useEffect, useState } from 'react';
 
-function TableMarca(props) {
+function TableMarca() {
+    const [Marca, setMarca] = useState([]);
 
     function AbrirModalCadMarca() {
         document.getElementById("divCadMarcas").style.display = "block";
     }
 
-    let Marcas = (props.Marcas);
-    console.log(Marcas)
+    useEffect(() => {
+        fetch('http://localhost:8082/api/marca/')
+            .then((response) => response.json())
+            .then((data) => {
+                setMarca(data)
+            })
+    }, [])
 
     return (
         <div className="divListCliente">
@@ -30,7 +37,7 @@ function TableMarca(props) {
                 </tr>
                 <tbody id='tbodyProd'>
                     {
-                        Marcas?.map((Marcas, index) => {
+                        Marca?.map((Marcas, index) => {
 
                             return (
                                 <tr key={index}>

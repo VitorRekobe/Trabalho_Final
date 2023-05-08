@@ -7,16 +7,6 @@ import { useEffect, useState } from 'react';
 
 function PageADMcadMarcas() {
 
-    const [Marca, setMarca] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:8082/api/marca/')
-            .then((response) => response.json())
-            .then((data) => {
-                setMarca(data)
-            })
-    }, [])
-
     function fecharModalMarca() {
         document.getElementById("divCadMarcas").style.display = "none";
     }
@@ -27,7 +17,7 @@ function PageADMcadMarcas() {
             <div className="principalCliente">
                 <TelaAdm></TelaAdm>
                 <div className="telaO">
-                    <TableMarca Marca={Marca}></TableMarca>
+                    <TableMarca></TableMarca>
                     <div className="divCadMarcas" id='divCadMarcas'>
                         <div className='alinhaModalMarca'>
                             <div className="fecharMarca" onClick={fecharModalMarca}></div>

@@ -2,7 +2,6 @@ import TableCliente from './tabeCliente';
 import './pageAdmCliente.css';
 import Header from "../../../componentes/Header/Header";
 import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
-import { useEffect, useState } from 'react';
 
 function PageAdmClientes() {
 

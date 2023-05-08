@@ -11,7 +11,7 @@ function TableCliente() {
                 setClientes(data)
             })
     }, [])
-    
+
     return (
         <div className="divListCliente">
             <div><label>
@@ -28,12 +28,12 @@ function TableCliente() {
                 </tr>
                 <tbody id='tbodyProd'>
                     {
-                        clientes.map((clientes, index) => {
+                        clientes.map((cliente, index) => {
                             return (
                                 <tr key={index}>
-                                    <td>{clientes.id}</td>
-                                    <td>{clientes.nome}</td>
-                                    <td>{clientes.email}</td>
+                                    <td>{cliente.id}</td>
+                                    <td>{cliente.nome}</td>
+                                    <td>{cliente.email}</td>
                                 </tr>
                             )
                         }
