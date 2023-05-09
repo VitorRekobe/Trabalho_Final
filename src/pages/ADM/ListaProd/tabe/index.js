@@ -1,7 +1,7 @@
 import pesquisarProd from '../funçãoListar';
-import PageADMLista from '..';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+import { FiEdit } from "react-icons/fi";
 
 function TableProd() {
     const [produtos, setProdutos] = useState([])
@@ -18,7 +18,23 @@ function TableProd() {
             })
     }, [])
 
-    
+    function deleteProd(prodId) {
+        fetch(`http://localhost:8082/api/produto/${prodId}`, {
+            method: 'DELETE'
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Pessoa excluída com sucesso');
+                    setProdutos(produtos.filter((produto) => produto.id !== prodId));
+                } else {
+                    console.log('Erro ao excluir pessoa');
+                }
+            })
+            .catch(error => {
+                console.error('Erro na requisição:', error);
+            });
+    }
+
 
     return (
         <div className="divListCliente">
@@ -38,11 +54,13 @@ function TableProd() {
                     <th>Marca</th>
                     <th>Nome</th>
                     <th className='valorTable'>Valor</th>
-                    {/* <th>Descricao</th> */}
-                    <th className='apagarTable'></th>
+                    <th className='apagarTable'>
+                        <FaRegTrashAlt style={{ color: 'white' }}>
+                        </FaRegTrashAlt>
+                    </th>
                 </tr>
                 <tbody id='tbodyProd'>
-                    {   
+                    {
                         produtos.map((produtos, index) => {
 
                             return (
@@ -51,10 +69,9 @@ function TableProd() {
                                     <td>{produtos.marca.nome}</td>
                                     <td>{produtos.nome}</td>
                                     <td>{produtos.valor}</td>
-                                    {/* <td>{produtos.descricaoProduto}</td> */}
                                     <td>
-                                        <button style={{ backgroundColor: 'transparent' }}>
-                                            <FaRegTrashAlt style={{ color: 'white' }}></FaRegTrashAlt>
+                                        <button style={{ backgroundColor: 'transparent', color: 'white', border: 'none'  }} onClick={() => deleteProd(produtos.id)}>
+                                            X
                                         </button>
                                     </td>
                                 </tr>

@@ -3,7 +3,6 @@ import Header from "../../../componentes/Header/Header";
 import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 import CadMarca from './funcaoMarcas/CadMarcaApi';
 import TableMarca from './tableMarca';
-import { useEffect, useState } from 'react';
 
 function PageADMcadMarcas() {
 

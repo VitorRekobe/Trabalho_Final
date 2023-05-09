@@ -1,4 +1,4 @@
-import { FaRegTrashAlt } from 'react-icons/fa';
+import { FiEdit, FiEdit3 } from "react-icons/fi";
 import pesquisarProd from '../funçãoListar';
 import { useEffect, useState } from 'react';
 
@@ -33,19 +33,19 @@ function TableMarca() {
                 <tr>
                     <th className='idTable'>&nbsp;</th>
                     <th>Marca</th>
-                    <th className='apagarTable'>DEL</th>
+                    <th className='apagarTable'><FiEdit style={{ color: 'white' }}></FiEdit>
+                    </th>
                 </tr>
                 <tbody id='tbodyProd'>
                     {
-                        Marca?.map((Marcas, index) => {
-
+                        Marca?.map((Marca, index) => {
                             return (
                                 <tr key={index}>
-                                    <td>{Marcas.id}</td>
-                                    <td>{Marcas.nome}</td>
+                                    <td>{Marca.id}</td>
+                                    <td>{Marca.nome}</td>
                                     <td>
-                                        <button style={{ backgroundColor: 'transparent' }}>
-                                            <FaRegTrashAlt style={{ color: 'white' }}></FaRegTrashAlt>
+                                        <button style={{ backgroundColor: 'transparent', border: 'none'  }}>
+                                            <FiEdit3 style={{ color: 'white'}}></FiEdit3>
                                         </button>
                                     </td>
                                 </tr>

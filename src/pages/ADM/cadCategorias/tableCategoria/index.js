@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import pesquisarProd from '../funçãoListar';
 import { FaRegTrashAlt } from "react-icons/fa";
+import { FiEdit, FiEdit3 } from "react-icons/fi";
 
 function TableCategoria(props) {
     const [categorias, setCategorias] = useState([]);
@@ -39,7 +40,8 @@ function TableCategoria(props) {
                     <tr>
                         <th className='idTable'>&nbsp;</th>
                         <th>Categoria</th>
-                        <th className='apagarTable'>DEL</th>
+                        <th className='apagarTable'><FiEdit style={{ color: 'white' }}></FiEdit>
+                        </th>
                     </tr>
                 </thead>
                 <tbody id='tbodyProd'>
@@ -50,10 +52,10 @@ function TableCategoria(props) {
                                 <td>{categoria.nome}</td>
                                 <td>
                                     <button
-                                        style={{ backgroundColor: 'transparent' }}
+                                        style={{ backgroundColor: 'transparent', border: 'none' }}
                                         onClick={() => AbrirModalALTCategoria(categoria.id)}
                                     >
-                                        <FaRegTrashAlt style={{ color: 'white' }} />
+                                        <FiEdit3 style={{ color: 'white' }} />
                                     </button>
                                 </td>
                             </tr>
