@@ -2,11 +2,16 @@ import { FiEdit, FiEdit3 } from "react-icons/fi";
 import pesquisarProd from '../funçãoListar';
 import { useEffect, useState } from 'react';
 
-function TableMarca() {
+function TableMarca(props) {
     const [Marca, setMarca] = useState([]);
 
     function AbrirModalCadMarca() {
         document.getElementById("divCadMarcas").style.display = "block";
+    }
+
+    function AbrirModalALTMarca(MarcaID) {
+        document.getElementById("divCadMarcasALT").style.display = "block";
+        props.onpegarMarca(MarcaID);
     }
 
     useEffect(() => {
@@ -44,7 +49,9 @@ function TableMarca() {
                                     <td>{Marca.id}</td>
                                     <td>{Marca.nome}</td>
                                     <td>
-                                        <button style={{ backgroundColor: 'transparent', border: 'none'  }}>
+                                        <button style={{ backgroundColor: 'transparent', border: 'none'  }}
+                                        onClick={() => AbrirModalALTMarca(Marca.id)}
+                                        >
                                             <FiEdit3 style={{ color: 'white'}}></FiEdit3>
                                         </button>
                                     </td>

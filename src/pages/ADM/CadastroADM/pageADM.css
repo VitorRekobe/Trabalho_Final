@@ -1,84 +1,87 @@
-.cadModal{
-    display: none;/* não exibido por padrão */
-    position: fixed; /* posição fixa na tela */
+.cadModal {
+    display: none;
+    /* não exibido por padrão */
+    position: fixed;
+    /* posição fixa na tela */
     top: 0;
     right: 0;
     width: 70%;
     height: 100%;
-    background-color: black; /* fundo preto semi-transparente */
-    border: 3px solid #E8D1C5;
-    border-radius: 5px;
-    z-index: 999; 
+    background-color: rgb(0, 0, 0);
+    /* fundo preto semi-transparente */
+    border: 1px solid #E8D1C5;
+    z-index: 999;
 }
 
-.cadProdutos{
+.cadProdutos {
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* centralizado horizontal e verticalmente */
+    transform: translate(-50%, -50%);
+    /* centralizado horizontal e verticalmente */
     padding: 10px;
     border-radius: 5px;
     width: 100%;
 }
 
-.divModal{
+.divModal {
     padding: 0;
     display: flex;
     width: 100%;
     margin: 0;
 }
 
-.cadProdutos .Botao{
+.cadProdutos .Botao {
     width: 30%;
 }
 
-.alinharCadProd{
+.alinharCadProd {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.crudProduto{
+.crudProduto {
     width: 50%;
     display: flex;
     flex-direction: column;
     margin-right: 5%;
 }
 
-.DivimgProdAdm{
+.DivimgProdAdm {
     height: 100%;
     width: 30%;
     overflow: hidden;
 }
 
-.imgProdAdm{
-    height: 220px;
+.imgProdAdm {
+    height: 300px;
     width: 100%;
-    border: 2px solid #E8D1C5;
     border-radius: 2%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-top: 60px;
 }
 
 input[type="file"] {
     display: none;
 }
 
-.botaoImage{
+.botaoImage {
     width: 80% !important;
-    text-align: center ;
+    text-align: center;
     margin-top: 5%;
 }
 
-.select option{
-    background-color: black;
+.select option {
+    background-color: rgba(0, 0, 0, 0.545);
 }
 
-.alinharButtonModalAdm{
+.alinharButtonModalAdm {
     width: 85%;
     margin: auto;
 }
@@ -90,10 +93,11 @@ input[type="file"] {
     width: 40px;
     height: 40px;
     cursor: pointer;
-  }
-  
-  .fechar::before,
-  .fechar::after {
+    z-index: 1;
+}
+
+.fechar::before,
+.fechar::after {
     content: '';
     position: absolute;
     width: 3px;
@@ -101,12 +105,12 @@ input[type="file"] {
     background-color: #E8D1C5;
     top: 8px;
     left: 18px;
-  }
-  
-  .fechar::before {
+}
+
+.fechar::before {
     transform: rotate(45deg);
-  }
-  
-  .fechar::after {
+}
+
+.fechar::after {
     transform: rotate(-45deg);
-  }
+}

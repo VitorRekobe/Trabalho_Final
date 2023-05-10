@@ -1,22 +1,17 @@
 import './pageADM.css';
-
 import CadProd from './cadastrarPorduto/cadProd.js';
-
 import SelectedMarca from '../../../componentes/selectMarca/selectMarca';
 import SelectedCategoria from '../../../componentes/selectCategoria/selectCategoria';
 import SelectedSexo from '../../../componentes/selectSexo/selectSexo';
-
 import { useEffect, useState } from 'react';
 
 function PageADMCad() {
     const [marcaId, setMarcaId] = useState('');
     const [value, setValue] = useState('');
-
     const [categoriaId, setCategoriaId] = useState('');
     const [value2, setValue2] = useState('');
-
-    const [sexoId, setSexoId] = useState('');
-    const [value3, setValue3] = useState('');
+    const [sexoId] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
 
     function fecharModal() {
         document.getElementById("cadModal").style.display = "none";
@@ -25,12 +20,12 @@ function PageADMCad() {
         document.getElementById("prodDescrição").value = '';
     }
 
+    const imagemChange = (event) => {
+        setImageUrl(event.target.value);
+    };
+
     const pegarMarca = (setSelectedMarca) => {
         setValue(setSelectedMarca);
-    }
-
-    const pegarSexo = (setSelectedSexo) => {
-        setValue(setSelectedSexo);
     }
 
     const pegarCategoria = (setSelectedCategoria) => {
@@ -43,7 +38,6 @@ function PageADMCad() {
                 .then(response => response.json())
                 .then(data => {
                     setMarcaId(data);
-
                 })
                 .catch(error => {
                     console.error('Ocorreu um erro ao consultar o banco de dados', error);
@@ -71,7 +65,6 @@ function PageADMCad() {
             alert('Algum campo vazio');
         }
     };
-
     return (
         <div className="cadModal" id='cadModal'>
             <div className="fechar" onClick={fecharModal}></div>
@@ -82,16 +75,15 @@ function PageADMCad() {
                             <input id='prodNome' className='StyleInputUser' placeholder='Nome'></input>
                             <input id='prodValor' className='StyleInputUser' placeholder='Valor'></input>
                             <input id='prodDescrição' className='StyleInputUser' placeholder='Descrição'></input>
+                            <input id='urlImagenproduto' className='StyleInputUser' placeholder='URL do imagem' type="text" value={imageUrl} onChange={imagemChange} />
                             <SelectedMarca onValueChange={pegarMarca}></SelectedMarca>
                             <SelectedSexo></SelectedSexo>
                             <SelectedCategoria onValueChange={pegarCategoria}></SelectedCategoria>
                         </div>
                         <div className='DivimgProdAdm'>
                             <div className='imgProdAdm'>
+                                {imageUrl && <img src={imageUrl} alt="Imagem" />}
                             </div>
-                            <label className='Botao botaoImage'> Enviar imagem
-                                <input id='imgFile' type="file"></input>
-                            </label>
                         </div>
                     </div>
                     <div className='alinharButtonModalAdm'>

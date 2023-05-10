@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import pesquisarProd from '../funçãoListar';
-import { FaRegTrashAlt } from "react-icons/fa";
 import { FiEdit, FiEdit3 } from "react-icons/fi";
 
 function TableCategoria(props) {

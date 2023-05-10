@@ -68,7 +68,7 @@ function PageADMcadCategorias() {
                     </div>
 
                     {/* ALTERAR */}
-                    <div className="divCadCategoriaALT">
+                    <div className="divCadCategoriaALT" id='divCadCategoriaALT'>
                         <div className="alinhaModalCategoria">
                             <div className="fecharCategoria" onClick={fecharModalCategoriaALT}></div>
                             <h1>Cadastrar uma Categoria</h1>
