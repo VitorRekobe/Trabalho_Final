@@ -15,7 +15,7 @@ function PageADMcadCategorias() {
 
     function fecharModalCategoriaALT() {
         document.getElementById("divCadCategoriaALT").style.display = "none";
-        document.getElementById("prodAltCategoria").value = null;
+        document.getElementById("prodCategoriaALT").value = null;
     }
 
     function pegarIDCategoria(CategoriaID) {
@@ -25,7 +25,7 @@ function PageADMcadCategorias() {
     function ALTCategoria() {
         let nome = document.getElementById("prodCategoriaALT").value;
         fetch(`http://localhost:8082/api/categoria/${idcategoria}`, {
-            method: 'PUT',
+            methods: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'

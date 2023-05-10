@@ -1,7 +1,6 @@
 import pesquisarProd from '../funçãoListar';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
-import { FiEdit } from "react-icons/fi";
 
 function TableProd() {
     const [produtos, setProdutos] = useState([])
@@ -19,8 +18,13 @@ function TableProd() {
     }, [])
 
     function deleteProd(prodId) {
+
         fetch(`http://localhost:8082/api/produto/${prodId}`, {
-            method: 'DELETE'
+            methods: 'DELETE',
+            mode: 'cors',
+            header: {
+                'Access-Control-Allow-Origin':'*',
+            }
         })
             .then(response => {
                 if (response.ok) {
@@ -70,7 +74,8 @@ function TableProd() {
                                     <td>{produtos.nome}</td>
                                     <td>{produtos.valor}</td>
                                     <td>
-                                        <button style={{ backgroundColor: 'transparent', color: 'white', border: 'none'  }} onClick={() => deleteProd(produtos.id)}>
+                                        <button style={{ backgroundColor: 'transparent', color: 'white', border: 'none'  }} 
+                                        onClick={() => deleteProd(produtos.id)}>
                                             X
                                         </button>
                                     </td>
