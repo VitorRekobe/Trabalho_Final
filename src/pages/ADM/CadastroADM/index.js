@@ -1,5 +1,5 @@
 import './pageADM.css';
-import CadProd from './cadastrarPorduto/cadProd.js';
+import CadProd from './cadastrarProduto/cadProd.js';
 import SelectedMarca from '../../../componentes/selectMarca/selectMarca';
 import SelectedCategoria from '../../../componentes/selectCategoria/selectCategoria';
 import SelectedSexo from '../../../componentes/selectSexo/selectSexo';
@@ -11,17 +11,18 @@ function PageADMCad() {
     const [categoriaId, setCategoriaId] = useState('');
     const [value2, setValue2] = useState('');
     const [sexoId] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
+    const [imagem, setimagem] = useState('');
 
     function fecharModal() {
         document.getElementById("cadModal").style.display = "none";
         document.getElementById("prodNome").value = '';
         document.getElementById("prodValor").value = '';
         document.getElementById("prodDescrição").value = '';
+        document.getElementById("urlImagenproduto").value = '';
     }
 
     const imagemChange = (event) => {
-        setImageUrl(event.target.value);
+        setimagem(event.target.value);
     };
 
     const pegarMarca = (setSelectedMarca) => {
@@ -60,11 +61,14 @@ function PageADMCad() {
 
     const mandarId = () => {
         if (marcaId, categoriaId) {
-            CadProd(marcaId, categoriaId, sexoId);
+            CadProd(marcaId, categoriaId, sexoId, imagem);
         } else {
             alert('Algum campo vazio');
         }
     };
+
+    // console.log(imagem)
+
     return (
         <div className="cadModal" id='cadModal'>
             <div className="fechar" onClick={fecharModal}></div>
@@ -75,14 +79,14 @@ function PageADMCad() {
                             <input id='prodNome' className='StyleInputUser' placeholder='Nome'></input>
                             <input id='prodValor' className='StyleInputUser' placeholder='Valor'></input>
                             <input id='prodDescrição' className='StyleInputUser' placeholder='Descrição'></input>
-                            <input id='urlImagenproduto' className='StyleInputUser' placeholder='URL do imagem' type="text" value={imageUrl} onChange={imagemChange} />
+                            <input id='urlImagenproduto' className='StyleInputUser' placeholder='URL do imagem' type="text" value={imagem} onChange={imagemChange} />
                             <SelectedMarca onValueChange={pegarMarca}></SelectedMarca>
                             <SelectedSexo></SelectedSexo>
                             <SelectedCategoria onValueChange={pegarCategoria}></SelectedCategoria>
                         </div>
                         <div className='DivimgProdAdm'>
                             <div className='imgProdAdm'>
-                                {imageUrl && <img src={imageUrl} alt="Imagem" />}
+                                {imagem && <img src={imagem} alt="Imagem" />}
                             </div>
                         </div>
                     </div>

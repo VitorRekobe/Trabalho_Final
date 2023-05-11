@@ -30,7 +30,7 @@ function PageADMcadMarcas() {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({ "nome": nome })
+            body: nome
         })
             .then(response => {
                 if (!response.ok) {
@@ -39,11 +39,11 @@ function PageADMcadMarcas() {
                 return response.json();
             })
             .then(data => {
-                console.log('Categoria atualizada:', data)
+                console.log('Marca atualizada:', data)
                 console.log(nome);
             })
             .catch(error => {
-                console.error('Erro ao atualizar categoria:', error);
+                console.error('Erro ao atualizar Marca:', error);
             });
     }
 

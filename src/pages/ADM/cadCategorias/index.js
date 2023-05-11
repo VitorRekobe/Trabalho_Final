@@ -24,13 +24,14 @@ function PageADMcadCategorias() {
 
     function ALTCategoria() {
         let nome = document.getElementById("prodCategoriaALT").value;
+        console.log(idcategoria)
         fetch(`http://localhost:8082/api/categoria/${idcategoria}`, {
-            methods: 'PUT',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({ "nome": nome })
+            body: nome 
         })
             .then(response => {
                 if (!response.ok) {
