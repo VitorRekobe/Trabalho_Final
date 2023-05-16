@@ -1,0 +1,30 @@
+#errorDivPage {
+    height: 65vh;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+#errorDivPage h1 {
+    font-size: 200px;
+}
+
+#errorDivPage p {
+    font-size: 20px;
+}
+
+#erro404{
+    border-right: solid 2px black;
+    padding-right: 5%;
+}
+
+.NDPAGE{
+    padding-left: 5%;
+    width: 80%;
+}
+
+.NDPAGE h2{
+    font-size: 50px;
+}

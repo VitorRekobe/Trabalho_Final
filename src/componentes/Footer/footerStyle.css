@@ -1,10 +1,14 @@
 #footer{
-    height: 20vh;
+    height: 15vh;
     width: 100vw;
     background-color: black;
     display: flex;
     margin-top: 1%;
     color: #E8D1C5;
+}
+
+#footer h3{
+    font-size: 20px;
 }
 
 .footerMargin{

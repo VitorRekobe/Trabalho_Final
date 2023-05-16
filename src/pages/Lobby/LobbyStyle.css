@@ -25,20 +25,21 @@ img{
     width: 20%;
     border-radius: 5px;
     border: 0;
-    color: #E8D1C5;
+    color: black;
     background-color: transparent;
-    border: 2px solid #E8D1C5;
+    border: 2px solid black;
     cursor: pointer;
     border-radius: 15px;
     margin-top: 2%;
     width: 15%;
     padding-top: 5px;
     padding-bottom: 5px;
+    transition: 0.5s;
 }
 
 .BotaoHome:hover{
     color: white;
-    background-color: #E8D1C5;
+    background-color: black;
 }
 
 .textMargin{

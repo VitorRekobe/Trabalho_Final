@@ -67,8 +67,6 @@ function PageADMCad() {
         }
     };
 
-    // console.log(imagem)
-
     return (
         <div className="cadModal" id='cadModal'>
             <div className="fechar" onClick={fecharModal}></div>

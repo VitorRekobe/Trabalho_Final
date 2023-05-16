@@ -7,9 +7,9 @@ function footer() {
         <div id='footer'>
             <div className="footerMargin">
                 <h3>Suporte</h3>
-                <h3>Sobre a G.O.A.T STORE</h3>
+                <h3>Sobre a empresa</h3>
                 <h3>Redes Sociais</h3>
-                <h3>Formas de pagamento</h3>
+                <h3><Link to={'/ADM/ListProd'}>Administrador</Link></h3>
                 <div class="spinner is-animating"><p><Link to={'/secret'}>.</Link></p></div>
             </div>
         </div>

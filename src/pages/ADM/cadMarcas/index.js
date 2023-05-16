@@ -67,10 +67,10 @@ function PageADMcadMarcas() {
                     <div className="divCadMarcas" id='divCadMarcasALT'>
                         <div className='alinhaModalMarca'>
                             <div className="fecharMarca" onClick={fecharModalMarcaALT}></div>
-                            <h1>Cadastrar uma marca</h1>
+                            <h1>Alterar uma marca</h1>
                             <br></br>
                             <input id='prodMarcaALT' className='StyleInputUser' placeholder='Marca'></input>
-                            <button onClick={ALTMarca} className="Botao BotaoCadastrarMarca">Cadastrar</button>
+                            <button onClick={ALTMarca} className="Botao BotaoCadastrarMarca">Alterar</button>
                         </div>
                     </div>
                 </div>

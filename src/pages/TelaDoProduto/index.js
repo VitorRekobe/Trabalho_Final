@@ -71,8 +71,6 @@ function TelaProduto() {
       localStorage.setItem("carrinho", JSON.stringify(carrinho));
     }
   }
-    
-
     return (
         <div>
             <Header></Header>

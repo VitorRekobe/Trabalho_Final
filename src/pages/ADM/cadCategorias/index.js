@@ -72,7 +72,7 @@ function PageADMcadCategorias() {
                     <div className="divCadCategoriaALT" id='divCadCategoriaALT'>
                         <div className="alinhaModalCategoria">
                             <div className="fecharCategoria" onClick={fecharModalCategoriaALT}></div>
-                            <h1>Cadastrar uma Categoria</h1>
+                            <h1>Alterar uma Categoria</h1>
                             <br></br>
                             <input id='prodCategoriaALT' className='StyleInputUser' placeholder='Categoria'></input>
                             <br></br>

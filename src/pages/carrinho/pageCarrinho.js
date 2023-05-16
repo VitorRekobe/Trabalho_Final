@@ -6,17 +6,18 @@ import { Link } from 'react-router-dom'
 function pageCarrinho() {
     const produtosJSON = localStorage.getItem('carrinho');
     const produtos = JSON.parse(produtosJSON);
-    let qtdTotal = produtos.length
 
-    const valorTotal = produtos.reduce((acumulador, produto) => {
-        return acumulador + parseFloat(produto.valor) * produto.quantidade;
-    }, 0);
-
-    var valorTotalFormatado = valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-    // localStorage.clear();
+    var listaProdutos;
+    var Valores;
     if (produtos) {
-        var listaProdutos = produtos.map((produto) => {
+        var qtdTotal = produtos.length
+
+        const valorTotal = produtos.reduce((acumulador, produto) => {
+            return acumulador + parseFloat(produto.valor) * produto.quantidade;
+        }, 0);
+
+        var valorTotalFormatado = valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+        listaProdutos = produtos.map((produto) => {
             return (
                 <div className='CardCarrinho' key={produto.id}>
                     <div className="imgCardCarrinho">
@@ -34,6 +35,15 @@ function pageCarrinho() {
                 </div >
             );
         });
+
+        Valores = produtos.map((produto) => {
+            return (
+                <p>{(parseFloat(produto.valor) * produto.quantidade).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
+            )
+        });
+    } else {
+        listaProdutos = null;
+        Valores = null;
     }
 
     return (
@@ -72,11 +82,7 @@ function pageCarrinho() {
                                 <p color="black">Subtotal</p>
                                 <hr></hr>
                                 <div className='subvalores tamanhoSubValor'>
-                                    {produtos.map((produto) => {
-                                        return (
-                                            <p>{(parseFloat(produto.valor) * produto.quantidade).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
-                                        )
-                                    })}
+                                {Valores}
                                 </div>
                                 <hr></hr>
                                 <h2 className='subvalores'>Valor Total</h2>
