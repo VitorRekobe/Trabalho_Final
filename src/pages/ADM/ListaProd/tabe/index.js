@@ -18,17 +18,15 @@ function TableProd() {
     }, [])
 
     function deleteProd(prodId) {
-
         fetch(`http://localhost:8082/api/produto/${prodId}`, {
-            methods: 'DELETE',
-            mode: 'cors',
+            method: 'DELETE',
             header: {
                 'Access-Control-Allow-Origin':'*',
             }
         })
             .then(response => {
                 if (response.ok) {
-                    console.log('Pessoa excluída com sucesso');
+                    console.log('Pessoa excluída com sucesso', response);
                     setProdutos(produtos.filter((produto) => produto.id !== prodId));
                 } else {
                     console.log('Erro ao excluir pessoa');
@@ -38,8 +36,7 @@ function TableProd() {
                 console.error('Erro na requisição:', error);
             });
     }
-
-
+      
     return (
         <div className="divListCliente">
             <div className='AlinharPesquisaEnovo'>

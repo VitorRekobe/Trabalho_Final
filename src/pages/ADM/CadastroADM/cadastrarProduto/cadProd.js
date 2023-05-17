@@ -20,9 +20,6 @@ const CadProd = (marcaId, categoriaId, sexoId, imagem) => {
                 categoria: {
                     id: categoriaId,
                 }
-                // , sexo: {
-                //     id: sexoId,
-                // }
             })
         })
             .then(response => {

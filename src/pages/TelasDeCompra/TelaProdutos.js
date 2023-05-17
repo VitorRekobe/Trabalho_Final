@@ -25,15 +25,15 @@ function TelaBusca() {
         setDadoCategoria(setSelectedCategoria)
     }
 
-    function Filtrar(){
+    function Filtrar() {
         fetch(`http://localhost:8082/api/produto/Filtro?marca=${dadoMarca}&categoria=${dadoCategoria}&nome=${valorDaPesquisa}`)
-        .then(response => response.json())
-        .then(data => {
-            setInfoProd(data);
-        })
-        .catch(error => {
-            console.error('Ocorreu um erro', error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                setInfoProd(data);
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro', error);
+            });
     }
 
     useEffect(() => {
@@ -49,7 +49,7 @@ function TelaBusca() {
         }
     }, []);
 
-    console.log(dadoCategoria,dadoMarca)
+    console.log(dadoCategoria, dadoMarca)
 
     let produtos = null;
     if (infoProd) {
@@ -57,7 +57,9 @@ function TelaBusca() {
             let id = produto.id
             return (
                 <div className="cardsProdutos" key={index} onClick={mandarInfoProd(id)}>
-                    <div className='ImagemProd'></div>
+                    <div className='ImagemProd'>
+                        <img src={produto?.imagem} />
+                    </div>
                     <div>
                         <hr></hr>
                         <h2 className='nomeProd'>{produto.nome}</h2>

@@ -21,10 +21,10 @@ function pageCarrinho() {
             return (
                 <div className='CardCarrinho' key={produto.id}>
                     <div className="imgCardCarrinho">
-                        IMAGEM PRODUTO
+                        <img src={produto?.imagem} />
                     </div>
                     <div className='arrumarNomeParteCrrinho'>
-                        <h4>{produto.nome}</h4>
+                        <p>{produto.nome}</p>
                     </div>
                     <div className='arrumarNomeParteCrrinho'>
                         <p>{(parseFloat(produto.valor) * produto.quantidade).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
@@ -82,7 +82,7 @@ function pageCarrinho() {
                                 <p color="black">Subtotal</p>
                                 <hr></hr>
                                 <div className='subvalores tamanhoSubValor'>
-                                {Valores}
+                                    {Valores}
                                 </div>
                                 <hr></hr>
                                 <h2 className='subvalores'>Valor Total</h2>

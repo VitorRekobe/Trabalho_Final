@@ -52,15 +52,12 @@
     padding: 5%;
     overflow: hidden;
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .ImagemProd{
     height: 50%;
-    width: 100%;
-    background-image: url('https://http2.mlstatic.com/camisa-blusa-social-masculina-premium-luxo-slim-fit-top-5045-D_NQ_NP_781512-MLB40115966322_122019-F.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 70%;
+    border-radius: 5px;
+    margin: auto;
 }
