@@ -1,12 +1,18 @@
 import pesquisarProd from '../funçãoListar';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+import { FiEdit, FiEdit3 } from "react-icons/fi";
+
 
 function TableProd() {
     const [produtos, setProdutos] = useState([])
 
     function AbrirModalCad() {
         document.getElementById("cadModal").style.display = "block";
+    }
+
+    function AbrirModalALT() {
+        document.getElementById("AltProdutos").style.display = "block";
     }
 
     useEffect(() => {
@@ -59,6 +65,7 @@ function TableProd() {
                         <FaRegTrashAlt style={{ color: 'white' }}>
                         </FaRegTrashAlt>
                     </th>
+                    <th className='apagarTable'><FiEdit style={{ color: 'white' }}></FiEdit></th>
                 </tr>
                 <tbody id='tbodyProd'>
                     {
@@ -74,6 +81,13 @@ function TableProd() {
                                         <button style={{ backgroundColor: 'transparent', color: 'white', border: 'none'  }} 
                                         onClick={() => deleteProd(produtos.id)}>
                                             X
+                                        </button>
+                                    </td>
+                                    <td>
+                                    <button style={{ backgroundColor: 'transparent', border: 'none'  }}
+                                        onClick={() => AbrirModalALT(produtos.id)}
+                                        >
+                                            <FiEdit3 style={{ color: 'white'}}></FiEdit3>
                                         </button>
                                     </td>
                                 </tr>

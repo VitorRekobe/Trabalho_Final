@@ -114,3 +114,7 @@ input[type="file"] {
 .fechar::after {
     transform: rotate(-45deg);
 }
+
+.AltProdutos{
+    display: none
+}
