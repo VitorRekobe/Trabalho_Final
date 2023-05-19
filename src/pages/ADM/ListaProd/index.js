@@ -5,6 +5,7 @@ import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 import PageADMCad from '../CadastroADM';
 
 function PageADMLista() {
+
     return (
         <div className="background">
             <Header></Header>

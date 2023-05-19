@@ -5,7 +5,7 @@
     /* posição fixa na tela */
     top: 0;
     right: 0;
-    width: 70%;
+    width: 75%;
     height: 100%;
     background-color: rgb(0, 0, 0);
     /* fundo preto semi-transparente */
@@ -20,7 +20,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* centralizado horizontal e verticalmente */
     padding: 10px;
     border-radius: 5px;
     width: 100%;
@@ -115,6 +114,6 @@ input[type="file"] {
     transform: rotate(-45deg);
 }
 
-.AltProdutos{
-    display: none
+#AltProdutos{
+    display: none;
 }

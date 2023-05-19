@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import AltProd from './AlterarProduto/altProd';
 
 function PageADMCad() {
-    
     const [marcaId, setMarcaId] = useState('');
     const [value, setValue] = useState('');
     const [categoriaId, setCategoriaId] = useState('');
@@ -19,6 +18,7 @@ function PageADMCad() {
 
     function fecharModal() {
         document.getElementById("cadModal").style.display = "none";
+        document.getElementById("AltProdutos").style.display = "none";
         document.getElementById("prodNome").value = '';
         document.getElementById("prodValor").value = '';
         document.getElementById("prodDescrição").value = '';
@@ -74,7 +74,7 @@ function PageADMCad() {
             alert('Algum campo vazio');
         }
     };
-
+    
     const mandarIdAlt = () => {
         if (marcaId, categoriaId) {
             AltProd(marcaId, categoriaId, sexoId, imagemALT);
@@ -112,7 +112,7 @@ function PageADMCad() {
                 </div>
             </div>
             {/* /////////////////////// ALTERAR //////////////////////*/}
-            <div className="cadModal AltProdutos" id='AltProdutos'>
+            <div className="cadModal" id='AltProdutos'>
                 <div className="fechar" onClick={fecharModal}></div>
                 <div className="divModal">
                     <div className="cadProdutos">
@@ -121,14 +121,14 @@ function PageADMCad() {
                                 <input id='prodNomeALT' className='StyleInputUser' placeholder='Nome'></input>
                                 <input id='prodValorALT' className='StyleInputUser' placeholder='Valor'></input>
                                 <input id='prodDescriçãoALT' className='StyleInputUser' placeholder='Descrição'></input>
-                                <input id='urlImagenprodutoALT' className='StyleInputUser' placeholder='URL do imagem' type="text" value={imagem} onChange={imagemChangeALT} />
+                                <input id='urlImagenprodutoALT' className='StyleInputUser' placeholder='URL do imagem' type="text" value={imagemALT} onChange={imagemChangeALT} />
                                 <SelectedMarca onValueChange={pegarMarca}></SelectedMarca>
                                 <SelectedSexo></SelectedSexo>
                                 <SelectedCategoria onValueChange={pegarCategoria}></SelectedCategoria>
                             </div>
-                            <div className='DivimgProdAdmALT'>
+                            <div className='DivimgProdAdm'>
                                 <div className='imgProdAdm'>
-                                    {imagem && <img src={imagem} alt="Imagem" />}
+                                    {imagemALT && <img src={imagemALT} alt="Imagem" />}
                                 </div>
                             </div>
                         </div>

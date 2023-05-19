@@ -3,7 +3,6 @@ import { FaRegTrashAlt } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { FiEdit, FiEdit3 } from "react-icons/fi";
 
-
 function TableProd() {
     const [produtos, setProdutos] = useState([])
 
@@ -11,8 +10,14 @@ function TableProd() {
         document.getElementById("cadModal").style.display = "block";
     }
 
-    function AbrirModalALT() {
+    function AbrirModalALT(prodIdAlt) {
         document.getElementById("AltProdutos").style.display = "block";
+        let idAlt = localStorage.getItem("altId");
+        let novoProduto = {
+            id: prodIdAlt,
+        };
+        idAlt = novoProduto;
+        localStorage.setItem("AltProdutos", JSON.stringify(idAlt));
     }
 
     useEffect(() => {
@@ -27,7 +32,7 @@ function TableProd() {
         fetch(`http://localhost:8082/api/produto/${prodId}`, {
             method: 'DELETE',
             header: {
-                'Access-Control-Allow-Origin':'*',
+                'Access-Control-Allow-Origin': '*',
             }
         })
             .then(response => {
@@ -42,7 +47,7 @@ function TableProd() {
                 console.error('Erro na requisição:', error);
             });
     }
-      
+
     return (
         <div className="divListCliente">
             <div className='AlinharPesquisaEnovo'>
@@ -78,16 +83,16 @@ function TableProd() {
                                     <td>{produtos.nome}</td>
                                     <td>{produtos.valor}</td>
                                     <td>
-                                        <button style={{ backgroundColor: 'transparent', color: 'white', border: 'none'  }} 
-                                        onClick={() => deleteProd(produtos.id)}>
+                                        <button style={{ backgroundColor: 'transparent', color: 'white', border: 'none' }}
+                                            onClick={() => deleteProd(produtos.id)}>
                                             X
                                         </button>
                                     </td>
                                     <td>
-                                    <button style={{ backgroundColor: 'transparent', border: 'none'  }}
-                                        onClick={() => AbrirModalALT(produtos.id)}
+                                        <button style={{ backgroundColor: 'transparent', border: 'none' }}
+                                            onClick={() => AbrirModalALT(produtos.id)}
                                         >
-                                            <FiEdit3 style={{ color: 'white'}}></FiEdit3>
+                                            <FiEdit3 style={{ color: 'white' }}></FiEdit3>
                                         </button>
                                     </td>
                                 </tr>

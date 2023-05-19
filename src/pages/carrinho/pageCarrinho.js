@@ -9,6 +9,7 @@ function pageCarrinho() {
 
     var listaProdutos;
     var Valores;
+    
     if (produtos) {
         var qtdTotal = produtos.length
 
