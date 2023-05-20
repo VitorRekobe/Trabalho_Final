@@ -89,9 +89,7 @@ function TableProd() {
                                         </button>
                                     </td>
                                     <td>
-                                        <button style={{ backgroundColor: 'transparent', border: 'none' }}
-                                            onClick={() => AbrirModalALT(produtos.id)}
-                                        >
+                                        <button className="buttonEdit" onClick={() => AbrirModalALT(produtos.id)}>
                                             <FiEdit3 style={{ color: 'white' }}></FiEdit3>
                                         </button>
                                     </td>

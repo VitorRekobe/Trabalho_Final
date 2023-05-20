@@ -1,17 +1,21 @@
+import React, { useState } from 'react';
 import Header from '../../componentes/Header/Header';
-import './carrinhoStyle.css'
-import "./cardCarrinhoStyle.css"
-import { Link } from 'react-router-dom'
+import './carrinhoStyle.css';
+import "./cardCarrinhoStyle.css";
+import { Link } from 'react-router-dom';
+import { FaRegTrashAlt } from 'react-icons/fa';
 
-function pageCarrinho() {
+function PageCarrinho() {
+    const [produtosExibicao, setProdutosExibicao] = useState(true);
+
     const produtosJSON = localStorage.getItem('carrinho');
     const produtos = JSON.parse(produtosJSON);
 
     var listaProdutos;
     var Valores;
-    
+
     if (produtos) {
-        var qtdTotal = produtos.length
+        var qtdTotal = produtos.length;
 
         const valorTotal = produtos.reduce((acumulador, produto) => {
             return acumulador + parseFloat(produto.valor) * produto.quantidade;
@@ -33,6 +37,13 @@ function pageCarrinho() {
                     <div className='arrumarNomeParteCrrinho'>
                         <p>{produto.quantidade}</p>
                     </div>
+                    <div>
+                        <div className='arrumarNomeParteCrrinho'>
+                            <button style={{ backgroundColor: 'transparent', border: 'none' }}>
+                                <FaRegTrashAlt style={{ color: 'white' }}></FaRegTrashAlt>
+                            </button>
+                        </div>
+                    </div>
                 </div >
             );
         });
@@ -40,12 +51,17 @@ function pageCarrinho() {
         Valores = produtos.map((produto) => {
             return (
                 <p>{(parseFloat(produto.valor) * produto.quantidade).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
-            )
+            );
         });
     } else {
         listaProdutos = null;
         Valores = null;
     }
+
+    const apagarCarrinho = () => {
+        localStorage.clear();
+        setProdutosExibicao(false);
+    };
 
     return (
         <div className="background">
@@ -62,18 +78,22 @@ function pageCarrinho() {
                         </div>
                         <div>
                             <br></br>
-                            <div>
+                            <div className='headerQTDprod'>
                                 <h4 id='qtdProduto'>PRODUTOS ( {qtdTotal} )</h4>
                             </div>
                             <div id='nomePartedoCarrinho'>
                                 <div></div>
-                                <div className='arrumarNomeParteCrrinho'>Nome</div>
-                                <div className='arrumarNomeParteCrrinho'>Preço</div>
-                                <div rclassName='arrumarNomeParteCrinho'>Quantidade</div>
-                            </div >
-                            <div id='listaCarrinhoItens'>
-                                {listaProdutos}
+                                <div className='arrumarNomeParteCarrinho'>Nome</div>
+                                <div className='arrumarNomeParteCarrinho'>Preço</div>
+                                <div className='arrumarNomeParteCarrinho'>Quantidade</div>
+                                <div className='arrumarNomeParteCarrinho'>
+                                    <FaRegTrashAlt style={{ color: 'white' }}></FaRegTrashAlt>
+                                </div>
                             </div>
+                            <div id='listaCarrinhoItens'>
+                                {produtosExibicao ? listaProdutos : null}
+                            </div>
+                            <button className='Botao limparCarrinho' onClick={apagarCarrinho}>Limpar Carrinho</button>
                         </div>
                     </div>
                     <div className="itemMãeCarinho">
@@ -97,7 +117,6 @@ function pageCarrinho() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
-
-export default pageCarrinho;
+export default PageCarrinho;

@@ -21,9 +21,14 @@
 
 #listaCarrinhoItens{
     overflow-y: auto;
-    height: 60vh;
+    height: 40vh;
     width: 100%;
     padding: 1%;
+}
+
+.limparCarrinho{
+    font-size: 20px;
+    margin-top: 2% ;
 }
 
 #Etapa{
@@ -83,7 +88,7 @@
 }
 
 .tamanhoSubValor{
-    height: 150px;
+    height: 100px;
     overflow-y: auto;
     padding-right: 10px;
 }
