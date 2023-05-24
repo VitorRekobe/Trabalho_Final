@@ -16,6 +16,21 @@ function TableProd() {
         let novoProduto = {
             id: prodIdAlt,
         };
+
+        const produto = produtos.find((produto) => produto.id === prodIdAlt);
+
+        if (produto) {
+            document.getElementById("prodNomeALT").value = produto.nome;
+            document.getElementById("prodValorALT").value = produto.valor;
+            document.getElementById("prodDescriçãoALT").value = produto.descricaoProduto;
+            document.getElementById("urlImagenprodutoALT").value = produto.imagem;
+            
+            document.getElementById("SelectMarca").value = produto.marca.nome;
+            document.getElementById("selectCategoria").value = produto.categoria.nome;
+
+            // Definir os valores dos outros campos de input conforme necessário
+        }
+
         idAlt = novoProduto;
         localStorage.setItem("AltProdutos", JSON.stringify(idAlt));
     }
@@ -88,8 +103,9 @@ function TableProd() {
                                             X
                                         </button>
                                     </td>
-                                    <td>
-                                        <button className="buttonEdit" onClick={() => AbrirModalALT(produtos.id)}>
+                                    <td className='AlinhaAltButProd'>
+                                        <button className="buttonEdit"
+                                            onClick={() => AbrirModalALT(produtos.id)}>
                                             <FiEdit3 style={{ color: 'white' }}></FiEdit3>
                                         </button>
                                     </td>

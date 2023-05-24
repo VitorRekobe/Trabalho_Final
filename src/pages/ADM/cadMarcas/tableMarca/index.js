@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 function TableMarca(props) {
     const [Marca, setMarca] = useState([]);
 
+
     function AbrirModalCadMarca() {
         document.getElementById("divCadMarcas").style.display = "block";
     }
@@ -12,6 +13,10 @@ function TableMarca(props) {
     function AbrirModalALTMarca(MarcaID) {
         document.getElementById("divCadMarcasALT").style.display = "block";
         props.onpegarMarca(MarcaID);
+
+        const marca = Marca.find((Marca) => Marca.id === MarcaID);
+
+        document.getElementById("prodMarcaALT").value = marca.nome;
     }
 
     useEffect(() => {

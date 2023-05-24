@@ -3,12 +3,13 @@ import Header from "../../../componentes/Header/Header";
 import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
 import CadMarca from './funcaoMarcas/CadMarcaApi';
 import TableMarca from './tableMarca';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function PageADMcadMarcas() {
 
-    const [idMarca, setIdMarca ] = useState();
-    
+    const [idMarca, setIdMarca] = useState();
+    const [Marca, setMarca] = useState();
+
     function fecharModalMarca() {
         document.getElementById("divCadMarcas").style.display = "none";
     }
@@ -23,7 +24,7 @@ function PageADMcadMarcas() {
 
     function ALTMarca() {
         let nome = document.getElementById("prodMarcaALT").value;
-        console.log(idMarca)
+
         fetch(`http://localhost:8082/api/marca/${idMarca}`, {
             method: 'PUT',
             headers: {
@@ -69,7 +70,8 @@ function PageADMcadMarcas() {
                             <div className="fecharMarca" onClick={fecharModalMarcaALT}></div>
                             <h1>Alterar uma marca</h1>
                             <br></br>
-                            <input id='prodMarcaALT' className='StyleInputUser' placeholder='Marca'></input>
+                            <input id='prodMarcaALT' className='StyleInputUser' placeholder='Marca'>
+                            </input>
                             <button onClick={ALTMarca} className="Botao BotaoCadastrarMarca">Alterar</button>
                         </div>
                     </div>

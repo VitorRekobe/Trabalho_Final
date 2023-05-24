@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 function CadMarca() {
     let marca = document.getElementById("prodMarca").value;
 

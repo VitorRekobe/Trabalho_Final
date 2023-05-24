@@ -12,9 +12,8 @@ function PageADMCad() {
     const [categoriaId, setCategoriaId] = useState('');
     const [value2, setValue2] = useState('');
     const [sexoId] = useState('');
-    const [imagem, setimagem] = useState('');
-
-    const [imagemALT, setimagemALT] = useState('');
+    const [imagem, setImagem] = useState('');
+    const [imagemALT, setImagemALT] = useState('');
 
     function fecharModal() {
         document.getElementById("cadModal").style.display = "none";
@@ -23,23 +22,24 @@ function PageADMCad() {
         document.getElementById("prodValor").value = '';
         document.getElementById("prodDescrição").value = '';
         document.getElementById("urlImagenproduto").value = '';
+        // window.location.reload();
     }
 
     const imagemChange = (event) => {
-        setimagem(event.target.value);
+        setImagem(event.target.value);
     };
 
     const imagemChangeALT = (event) => {
-        setimagemALT(event.target.value);
+        setImagemALT(event.target.value);
     };
 
     const pegarMarca = (setSelectedMarca) => {
         setValue(setSelectedMarca);
-    }
+    };
 
     const pegarCategoria = (setSelectedCategoria) => {
         setValue2(setSelectedCategoria);
-    }
+    };
 
     useEffect(() => {
         if (value) {
@@ -68,21 +68,21 @@ function PageADMCad() {
     }, [value2]);
 
     const mandarId = () => {
-        if (marcaId, categoriaId) {
-            CadProd(marcaId, categoriaId, sexoId, imagemALT);
+        if (marcaId && categoriaId) {
+            CadProd(marcaId, categoriaId, sexoId, imagem);
+            console.log(imagem);
         } else {
             alert('Algum campo vazio');
         }
     };
     
     const mandarIdAlt = () => {
-        if (marcaId, categoriaId) {
+        if (marcaId && categoriaId) {
             AltProd(marcaId, categoriaId, sexoId, imagemALT);
         } else {
             alert('Algum campo vazio');
         }
     };
-
     return (
         <div>
             <div className="cadModal" id='cadModal'>

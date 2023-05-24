@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 function PageADMcadCategorias() {
 
     const [idcategoria, setIdCategoria] = useState([]);
+    const [categoriaNome, setCategoriaNome] = useState('');
 
     function fecharModalCategoria() {
         document.getElementById("divCadCategoria").style.display = "none";
@@ -19,12 +20,33 @@ function PageADMcadCategorias() {
     }
 
     function pegarIDCategoria(CategoriaID) {
-        setIdCategoria(CategoriaID)
+        setIdCategoria(CategoriaID);
     }
+
+    function buscarCategoriaPorID(id) {
+        fetch(`http://localhost:8082/api/categoria/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.nome) {
+                    setCategoriaNome(data.nome);
+                } else {
+                    setCategoriaNome('');
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao buscar categoria por ID:', error);
+            });
+    }
+
+    useEffect(() => {
+        if (idcategoria) {
+            buscarCategoriaPorID(idcategoria);
+        }
+    }, [idcategoria]);
 
     function ALTCategoria() {
         let nome = document.getElementById("prodCategoriaALT").value;
-        console.log(idcategoria)
+        console.log(idcategoria);
         fetch(`http://localhost:8082/api/categoria/${idcategoria}`, {
             method: 'PUT',
             headers: {
@@ -40,14 +62,13 @@ function PageADMcadCategorias() {
                 return response.json();
             })
             .then(data => {
-                console.log('Categoria atualizada:', data)
+                console.log('Categoria atualizada:', data);
                 console.log(nome);
             })
             .catch(error => {
                 console.error('Erro ao atualizar categoria:', error);
             });
     }
-
     return (
         <div className="background">
             <Header></Header>

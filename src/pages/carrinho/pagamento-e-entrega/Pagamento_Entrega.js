@@ -18,10 +18,14 @@ function Pagamento_Entrega() {
                             <h5> > </h5>
                             <h5> Finalização </h5>
                         </div>
-                        <div>
-                            <div>
+                        <div id='divP_E'>
+                            <select className='StyleInputUser select'>
+                                <option value="">Forma de pagamento</option>
+                                <option >PIX</option>
+                                <option >BOLETO</option>
+                                <option >CARTÃO</option>
+                            </select>
 
-                            </div>
                         </div>
                     </div>
 

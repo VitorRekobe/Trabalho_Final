@@ -20,6 +20,10 @@ function TableCategoria(props) {
     function AbrirModalALTCategoria(categoriaID) {
         document.getElementById("divCadCategoriaALT").style.display = "block";
         props.onpegarIDCategoria(categoriaID);
+
+        const categoria = categorias.find((categoria) => categoria.id === categoriaID);
+
+        document.getElementById("prodCategoriaALT").value = categoria.nome;
     }
 
     return (
