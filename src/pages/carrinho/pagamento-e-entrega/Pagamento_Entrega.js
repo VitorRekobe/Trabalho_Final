@@ -11,6 +11,18 @@ function Pagamento_Entrega() {
     const [bairro, setBairro] = useState('');
     const [cidade, setCidade] = useState('');
     const [estado, setEstado] = useState('');
+    const [taxaEntrega, setTaxaEntrega] = useState(0); // Estado para armazenar a taxa de entrega selecionada
+
+    const produtosJSON = localStorage.getItem('carrinho');
+    const produtos = JSON.parse(produtosJSON);
+    var valorTotal;
+
+    if (produtos) {
+        valorTotal = produtos.reduce((acumulador, produto) => {
+            return acumulador + parseFloat(produto.valor) * produto.quantidade;
+        }, 0);
+        var valorTotalFormatado = valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+    }
 
     const buscarEndereco = async () => {
         try {
@@ -23,6 +35,20 @@ function Pagamento_Entrega() {
         } catch (error) {
             console.error('Erro ao buscar endereço:', error);
         }
+    };
+
+    const FormaEntregaTaxa = (event) => {
+        const taxaSelecionada = parseFloat(event.target.value);
+        setTaxaEntrega(taxaSelecionada);
+    };
+
+    const totalPedido = valorTotal + taxaEntrega; // Calcula o total do pedido
+
+    
+    const IrFinalizar = (event) => {
+        localStorage.setItem('totalPedido', totalPedido);
+        console.log(totalPedido)
+        // window.location.href = '/Finalizar_Compra'; 
     };
 
     return (
@@ -54,7 +80,6 @@ function Pagamento_Entrega() {
                                     </button>
                                 </div>
                                 <div className='AlinhaCrudEn'>
-
                                     <input
                                         placeholder="Rua"
                                         value={endereco}
@@ -67,7 +92,8 @@ function Pagamento_Entrega() {
                                         value={numero}
                                         style={{ width: '10%' }}
                                         className='StyleInputUser'
-                                        onChange={(e) => setNumero(e.target.value)}
+                                        onChange={(e) => setNumero(e
+                                            .target.value)}
                                     />
                                 </div>
                                 <div className='AlinhaCrudEn'>
@@ -87,7 +113,6 @@ function Pagamento_Entrega() {
                                         className='StyleInputUser'
                                         onChange={(e) => setCidade(e.target.value)}
                                     />
-
                                     <input
                                         placeholder="UF"
                                         value={estado}
@@ -106,7 +131,7 @@ function Pagamento_Entrega() {
                                 <div className='AlinhaCrudEn'>
                                     <button className='Botao'
                                         style={{ width: '30%', height: '50%' }}
-                                        onClick={buscarEndereco}>Calcular
+                                        onClick={IrFinalizar}>Próximo
                                     </button>
                                 </div>
                             </div>
@@ -115,15 +140,15 @@ function Pagamento_Entrega() {
 
                     <div className="itemMãePgamaneto">
                         <h3>Resumo do pedido</h3>
-                        <div id="divpagamento">
-                            <div id="preçoDivPagamento">
+                        <div id="divpagamentoTaxa">
+                            <div id="preçoDivPagamentoTaxa">
                                 <p color="black">Subtotal</p>
                                 <hr></hr>
-                                <h3>R$0,00</h3>
+                                <h3>Produtos - {valorTotalFormatado}</h3>
+                                <h5>Taxa de Entrega - {taxaEntrega.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h5>
+                                <hr></hr>
                             </div>
-                            <div className="flexBotao">
-                                <button className="BotaoPedido"><Link to={'/pagamento-e-entrega'}>Próximo</Link></button>
-                            </div>
+                            <h3>Total - {totalPedido.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h3>
                         </div>
 
                         <div id="divFormasPagamento">
@@ -134,8 +159,9 @@ function Pagamento_Entrega() {
                                 <input
                                     className='labelPa'
                                     type="radio"
-                                    name="formaPagamento"
-                                    value="cartao"
+                                    name="formaEntrega"
+                                    value={30.00}
+                                    onChange={FormaEntregaTaxa}
                                 />
                             </label>
                             <br />
@@ -144,8 +170,9 @@ function Pagamento_Entrega() {
                                 <input
                                     className='labelPa'
                                     type="radio"
-                                    name="formaPagamento"
-                                    value="pix"
+                                    name="formaEntrega"
+                                    value={20.00}
+                                    onChange={FormaEntregaTaxa}
                                 />
                             </label>
                         </div>

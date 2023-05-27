@@ -29,19 +29,14 @@
     overflow: hidden;
 }
 
-#divpagamento{
+#divpagamentoTaxa{
     padding: 5%;
     border-radius: 3px;
     color: #E8D1C5;
     height: 50%;
     margin-bottom: 3%;
     border: 3px solid #E8D1C5;
-    overflow-y: auto;
-}
-
-#preçoDivPagamento{
-    overflow-y: auto;
-    max-height: 80%;
+    overflow: hidden;
 }
 
 #divFormasPagamento{
@@ -59,7 +54,7 @@
     margin-bottom: 1%;
 }
 
-#divpagamento h3{
+#divpagamentoTaxa h3{
     text-align: end;
     margin-right: 2%;
 }
@@ -140,4 +135,8 @@
     margin: auto;
     display: flex;
     justify-content: space-between;
+}
+
+#preçoDivPagamentoTaxa{
+    text-align: end;
 }

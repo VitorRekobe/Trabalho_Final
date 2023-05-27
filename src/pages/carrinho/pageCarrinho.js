@@ -22,6 +22,7 @@ function PageCarrinho() {
         }, 0);
 
         var valorTotalFormatado = valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
         listaProdutos = produtos.map((produto) => {
             return (
                 <div className='CardCarrinho' key={produto.id}>
