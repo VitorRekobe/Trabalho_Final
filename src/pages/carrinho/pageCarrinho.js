@@ -72,7 +72,7 @@ function PageCarrinho() {
                         <div id='Etapa'>
                             <h5 className='EtapaCarrinhoName'> Carrinho </h5>
                             <h5> {">"} </h5>
-                            <h5> Pagamento e Entrega </h5>
+                            <h5> Entrega </h5>
                             <h5> {">"} </h5>
                             <h5> Finalização </h5>
                         </div>
@@ -110,7 +110,7 @@ function PageCarrinho() {
                                 <h3>{valorTotalFormatado}</h3>
                             </div>
                             <div className="flexBotao">
-                                <button className="BotaoPedido" ><Link to={'/pagamento-e-entrega'}>Pagamento</Link></button>
+                                <button className="BotaoPedido" ><Link to={'/pagamento-e-entrega'}>Próximo</Link></button>
                             </div>
                         </div>
                     </div>

@@ -106,4 +106,38 @@
     height: 85%;
     border: 2px solid #E8D1C5;
     padding: 5%;
+    overflow: hidden;
+}
+
+.divCartao{
+    margin: 0;
+    display: flex;
+}
+
+.divCartao input{
+    border: 2px solid #E8D1C5;
+}
+
+.divCartao select{
+    border: 2px solid #E8D1C5;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.labelPa{
+    margin-left: 10px;
+}
+
+#DivEndereçoCarrinho{
+    border: 2px solid #E8D1C5;
+    height: 60%;
+    border-radius: 10px;
+    color: black;
+}
+
+.AlinhaCrudEn{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
 }
