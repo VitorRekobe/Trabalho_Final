@@ -1,0 +1,46 @@
+#Pagamento{
+    height: 80%;
+    width: 100%;
+    border: 2px solid #E8D1C5;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+}
+
+.divCartao{
+    margin: 0;
+    display: flex;
+}
+
+.divCartao input{
+    border-bottom: 2px solid #E8D1C5;
+}
+
+.divCartao select{
+    border: 2px solid #E8D1C5;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 5px;
+}
+
+#preçoDivPagamentoTaxa{
+    text-align: end;
+}
+
+
+#divpagamentoTaxa{
+    padding: 5%;
+    border-radius: 3px;
+    color: #E8D1C5;
+    height: 60%;
+    margin-bottom: 3%;
+    border: 3px solid #E8D1C5;
+    overflow: hidden;
+}
+
+#divpagamentoTaxa h3{
+    text-align: end;
+    margin-right: 2%;
+}

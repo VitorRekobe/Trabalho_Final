@@ -48,7 +48,7 @@ function Pagamento_Entrega() {
     const IrFinalizar = (event) => {
         localStorage.setItem('totalPedido', totalPedido);
         console.log(totalPedido)
-        // window.location.href = '/Finalizar_Compra'; 
+        window.location.href = '/Finalizar_Compra'; 
     };
 
     return (

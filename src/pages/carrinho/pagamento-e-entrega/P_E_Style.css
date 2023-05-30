@@ -29,16 +29,6 @@
     overflow: hidden;
 }
 
-#divpagamentoTaxa{
-    padding: 5%;
-    border-radius: 3px;
-    color: #E8D1C5;
-    height: 50%;
-    margin-bottom: 3%;
-    border: 3px solid #E8D1C5;
-    overflow: hidden;
-}
-
 #divFormasPagamento{
     padding: 5%;
     border-radius: 3px;
@@ -52,11 +42,6 @@
 
 #divFormasPagamento p{
     margin-bottom: 1%;
-}
-
-#divpagamentoTaxa h3{
-    text-align: end;
-    margin-right: 2%;
 }
 
 .BotaoPedido{
@@ -75,7 +60,6 @@
     justify-content: end;
     margin-top: 5%;
 }
-
 
 #divFormasPagamento{
     padding: 5%;
@@ -104,21 +88,6 @@
     overflow: hidden;
 }
 
-.divCartao{
-    margin: 0;
-    display: flex;
-}
-
-.divCartao input{
-    border: 2px solid #E8D1C5;
-}
-
-.divCartao select{
-    border: 2px solid #E8D1C5;
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
 .labelPa{
     margin-left: 10px;
 }
@@ -135,8 +104,4 @@
     margin: auto;
     display: flex;
     justify-content: space-between;
-}
-
-#preçoDivPagamentoTaxa{
-    text-align: end;
 }

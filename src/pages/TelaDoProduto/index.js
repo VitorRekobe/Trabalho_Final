@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import Header from "../../componentes/Header/Header";
 import HeaderPesquisa from "../../componentes/HeaderItens.js/BarraPesquisa";
+import Footer from '../../componentes/Footer/index'
 
 import "./TelaProduto.css";
 
@@ -75,20 +76,25 @@ function TelaProduto() {
           produto.map((produ, index) => (
             <div id="ProdutoDivPrincipal">
               <div id="efeitoZoom" key={index}>
-                <div id="imagemPrincipalProd" style={{ backgroundImage: `url(${produ.imagem})` }}></div>
+                <div id="imagemPrincipalProd">
+                  <img src={produ?.imagem}></img>
+                </div>
               </div><div id="infoPageProduto" key={index}>
+                <div>
                   <h1>{produ.nome}</h1>
                   <h3>{produ.valor}</h3>
-                  <div>
-                    <p>{produ.descricaoProduto}</p>
-                  </div>
-                  <input type="number" defaultValue="1" min="1" max="100" id="qtd" onChange={(e) => setQtd(parseInt(e.target.value))}></input>
-                  <button className="Botao" onClick={mandarProCarrinho}>Comprar</button>
                 </div>
+                <div style={{ height: '20%', border: 'solid', padding: '2%' }}>
+                  <p>{produ.descricaoProduto}</p>
+                </div>
+                <input type="number" defaultValue="1" min="1" max="100" id="qtd" onChange={(e) => setQtd(parseInt(e.target.value))}></input>
+                <button className="Botao" onClick={mandarProCarrinho}>Comprar</button>
+              </div>
             </div>
           ))
         ) : null}
       </div>
+      <Footer></Footer>
     </div>
   );
 }
