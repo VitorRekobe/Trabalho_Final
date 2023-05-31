@@ -140,8 +140,8 @@ function Pagamento_Entrega() {
 
                     <div className="itemMãePgamaneto">
                         <h3>Resumo do pedido</h3>
-                        <div id="divpagamentoTaxa">
-                            <div id="preçoDivPagamentoTaxa">
+                        <div id="divpagamentoTaxa" style={{height:"50%"}}>
+                            <div id="preçoDivPagamentoTaxa" >
                                 <p color="black">Subtotal</p>
                                 <hr></hr>
                                 <h3>Produtos - {valorTotalFormatado}</h3>

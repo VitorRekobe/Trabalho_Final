@@ -1,56 +1,81 @@
-#Pagamento{
+#Pagamento {
     height: 80%;
     width: 100%;
     border: 2px solid #E8D1C5;
 }
 
-.flex{
+.flex {
     display: flex;
     flex-direction: column;
 }
 
-.divCartao{
+.divCartao {
     margin: 0;
     display: flex;
 }
 
-.divCartao input{
+.divCartao input {
     border-bottom: 2px solid #E8D1C5;
 }
 
-.divCartao select{
+.divCartao select {
     border: 2px solid #E8D1C5;
     padding-left: 2%;
     padding-right: 2%;
     border-radius: 5px;
 }
 
-#preçoDivPagamentoTaxa{
+#preçoDivPagamentoTaxa {
     text-align: end;
 }
 
-
-#divpagamentoTaxa{
+#divpagamentoTaxa {
     padding: 5%;
     border-radius: 3px;
     color: #E8D1C5;
-    height: 60%;
+    height: 65%;
+    width: 80%;
+    margin: auto;
     margin-bottom: 3%;
     border: 3px solid #E8D1C5;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#divpagamentoTaxa h3{
+#divpagamentoTaxa h3 {
     text-align: end;
     margin-right: 2%;
 }
 
-
-.labelPa{
+.labelPa {
     margin: 10px;
 }
 
-.labelFont{
+.labelFont {
     font-size: 25px;
     margin-bottom: 5%;
+}
+
+.alinhaMãe {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divPix {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemMãePgamaneto {
+    text-align: center;
+}
+
+.alinhaInput{
+    display:  flex;
+    justify-content: center;
 }

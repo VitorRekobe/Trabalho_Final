@@ -10,6 +10,11 @@ function FinalizaCompra() {
 
     const [formaPagamento, setFormaPagamento] = useState('');
 
+    const [opcaoSelecionada, setOpcaoSelecionada] = useState('');
+
+    const OpçãoDebitoCredito = (event) => {
+        setOpcaoSelecionada(event.target.value);
+    };
 
     var valorTotal;
     if (produtos) {
@@ -35,8 +40,6 @@ function FinalizaCompra() {
                 idUsuario: 9,
                 itens: itens
             };
-
-            console.log(dadosCompra);
 
             const response = await fetch('http://localhost:8082/vendas/', {
                 method: 'POST',
@@ -83,52 +86,70 @@ function FinalizaCompra() {
                         <div id="divpagamentoTaxa">
                             {formaPagamento === 'cartao' && (
                                 <div>
-                                    <div className="divCartao">
-                                        <input placeholder='n° Cartão' className='StyleInputUser'></input>
-                                        <select className='StyleInputUser select'>
-                                            <option>Débito</option>
-                                            <option>Crédito</option>
-                                        </select>
+                                    <div className='alinhaInput' style={{ display: 'flex' }}>
+                                        <label className='labelFont'>
+                                            Crédito
+                                            <input
+                                                className='labelPa'
+                                                type='radio'
+                                                value='credito'
+                                                checked={opcaoSelecionada === 'credito'}
+                                                onChange={OpçãoDebitoCredito}
+                                            />
+                                        </label>
+                                        <label className='labelFont'>
+                                            Débito
+                                            <input
+                                                className='labelPa'
+                                                type='radio'
+                                                value='debito'
+                                                checked={opcaoSelecionada === 'debito'}
+                                                onChange={OpçãoDebitoCredito}
+                                            />
+                                        </label>
                                     </div>
+                                    <input placeholder='n° Cartão' className='StyleInputUser'></input>
                                     <input placeholder='nome no Cartão' className='StyleInputUser MarginDivCartaoItens'></input>
                                     <input placeholder='data expedição' className='StyleInputUser MarginDivCartaoItens'></input>
                                     <input placeholder='CVV' className='StyleInputUser MarginDivCartaoItens'></input>
-
                                 </div>
                             )}
 
                             {formaPagamento === 'pix' && (
                                 <div className="divCartao divPix" >
-                                    <QRCode style={{width: "80%", height:"80%"}} value="https://www.example.com" />
+                                    <QRCode style={{ width: "100%", height: "100%", border: "6px solid #E8D1C5" }} value="https://www.example.com" />
                                 </div>
                             )}
 
                         </div>
-                        <div style={{ display: 'flex' }}>
-                            <label className='labelFont'>
-                                Cartão
-                                <input
-                                    className='labelPa'
-                                    type="radio"
-                                    name="formaPagamento"
-                                    value="cartao"
-                                    checked={formaPagamento === 'cartao'}
-                                    onChange={() => setFormaPagamento('cartao')}
-                                />
-                            </label>
-                            <br />
-                            <label className='labelFont'>
-                                PIX
-                                <input
-                                    className='labelPa'
-                                    type="radio"
-                                    name="formaPagamento"
-                                    value="pix"
-                                    checked={formaPagamento === 'pix'}
-                                    onChange={() => setFormaPagamento('pix')}
-                                />
-                            </label>
-                            <br></br>
+                        <div className='alinhaInput' style={{ display: 'flex' }}>
+
+                            <div style={{ display: 'flex' }}>
+                                <label className='labelFont'>
+                                    Cartão
+                                    <input
+                                        className='labelPa'
+                                        type="radio"
+                                        name="formaPagamento"
+                                        value="cartao"
+                                        checked={formaPagamento === 'cartao'}
+                                        onChange={() => setFormaPagamento('cartao')}
+                                    />
+                                </label>
+                                <br />
+                                <label className='labelFont'>
+                                    PIX
+                                    <input
+                                        className='labelPa'
+                                        type="radio"
+                                        name="formaPagamento"
+                                        value="pix"
+                                        checked={formaPagamento === 'pix'}
+                                        onChange={() => setFormaPagamento('pix')}
+                                    />
+                                </label>
+                                <br></br>
+                            </div>
                         </div>
                         <button className='Botao' style={{ width: '80%' }} onClick={finalizarCompra}>Finalizar pedido</button>
                     </div>
