@@ -83,7 +83,7 @@ function FinalizaCompra() {
                     </div>
                     <div className='itemMãePgamaneto'>
                         <h3>Resumo do pedido</h3>
-                        <div id="divpagamentoTaxa">
+                        <div id="divpagamentoTaxa" className='divpagamentoTaxa'>
                             {formaPagamento === 'cartao' && (
                                 <div>
                                     <div className='alinhaInput' style={{ display: 'flex' }}>
