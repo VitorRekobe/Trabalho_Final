@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../../../componentes/Header/Header';
 import { Link } from 'react-router-dom';
 import './Finalização.css';
+import QRCode from 'qrcode.react';
 
 function FinalizaCompra() {
     const produtosJSON = localStorage.getItem('carrinho');
@@ -18,41 +19,46 @@ function FinalizaCompra() {
         var valorTotalFormatado = valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
     }
 
-    function finalizarCompra() {
-        const itens = produtos.map(produto => {
-            return {
+    async function finalizarCompra() {
+        try {
+            if (!produtos) {
+                throw new Error('Nenhum produto no carrinho');
+            }
+
+            const itens = produtos.map(produto => ({
                 idProduto: produto.id,
                 valor: produto.valor,
                 qtd: produto.quantidade
+            }));
+
+            const dadosCompra = {
+                idUsuario: 9,
+                itens: itens
             };
-        });
 
-        const dadosCompra = {
-            idUsuario: 9,
-            itens: itens
-        };
+            console.log(dadosCompra);
 
-        fetch('http://localhost:8082/vendas/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dadosCompra)
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao finalizar a compra');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log(data);
-                alert('Compra finalizada com sucesso');
-            })
-            .catch(error => {
-                console.error(error);
-                alert('Erro ao finalizar a compra');
+            const response = await fetch('http://localhost:8082/vendas/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dadosCompra)
             });
+
+            if (!response.ok) {
+                throw new Error('Erro ao finalizar a compra');
+            }
+
+            const data = await response.json();
+            console.log(data);
+
+
+            alert('Compra finalizada com sucesso');
+        } catch (error) {
+            console.error(error);
+            alert('Erro ao finalizar a compra');
+        }
     }
 
     return (
@@ -84,44 +90,46 @@ function FinalizaCompra() {
                                             <option>Crédito</option>
                                         </select>
                                     </div>
-                                        <input placeholder='nome no Cartão' className='StyleInputUser MarginDivCartaoItens'></input>
-                                        <input placeholder='data expedição' className='StyleInputUser MarginDivCartaoItens'></input>
-                                        <input placeholder='CVV' className='StyleInputUser MarginDivCartaoItens'></input>
+                                    <input placeholder='nome no Cartão' className='StyleInputUser MarginDivCartaoItens'></input>
+                                    <input placeholder='data expedição' className='StyleInputUser MarginDivCartaoItens'></input>
+                                    <input placeholder='CVV' className='StyleInputUser MarginDivCartaoItens'></input>
 
                                 </div>
                             )}
 
                             {formaPagamento === 'pix' && (
-                                <div className="divCartao">
-
+                                <div className="divCartao divPix" >
+                                    <QRCode style={{width: "80%", height:"80%"}} value="https://www.example.com" />
                                 </div>
                             )}
 
                         </div>
-                        <label>
-                            Cartão
-                            <input
-                                className='labelPa'
-                                type="radio"
-                                name="formaPagamento"
-                                value="cartao"
-                                checked={formaPagamento === 'cartao'}
-                                onChange={() => setFormaPagamento('cartao')}
-                            />
-                        </label>
-                        <br />
-                        <label>
-                            PIX
-                            <input
-                                className='labelPa'
-                                type="radio"
-                                name="formaPagamento"
-                                value="pix"
-                                checked={formaPagamento === 'pix'}
-                                onChange={() => setFormaPagamento('pix')}
-                            />
-                        </label>
-                        <br></br>
+                        <div style={{ display: 'flex' }}>
+                            <label className='labelFont'>
+                                Cartão
+                                <input
+                                    className='labelPa'
+                                    type="radio"
+                                    name="formaPagamento"
+                                    value="cartao"
+                                    checked={formaPagamento === 'cartao'}
+                                    onChange={() => setFormaPagamento('cartao')}
+                                />
+                            </label>
+                            <br />
+                            <label className='labelFont'>
+                                PIX
+                                <input
+                                    className='labelPa'
+                                    type="radio"
+                                    name="formaPagamento"
+                                    value="pix"
+                                    checked={formaPagamento === 'pix'}
+                                    onChange={() => setFormaPagamento('pix')}
+                                />
+                            </label>
+                            <br></br>
+                        </div>
                         <button className='Botao' style={{ width: '80%' }} onClick={finalizarCompra}>Finalizar pedido</button>
                     </div>
                 </div>
