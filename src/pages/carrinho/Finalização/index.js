@@ -6,47 +6,47 @@ import QRCode from 'qrcode.react';
 
 function FinalizaCompra() {
     const produtosJSON = localStorage.getItem('carrinho');
+    const produtostotalJSON = localStorage.getItem('totalPedido');
     const produtos = JSON.parse(produtosJSON);
+    const produtosTotal = JSON.parse(produtostotalJSON);
+    
 
     const [formaPagamento, setFormaPagamento] = useState('');
-
     const [opcaoSelecionada, setOpcaoSelecionada] = useState('');
 
     const OpçãoDebitoCredito = (event) => {
         setOpcaoSelecionada(event.target.value);
     };
 
-    var valorTotal;
-    if (produtos) {
-        valorTotal = produtos.reduce((acumulador, produto) => {
-            return acumulador + parseFloat(produto.valor) * produto.quantidade;
-        }, 0);
-        var valorTotalFormatado = valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-    }
+    var valorTotal = produtosTotal;
+    var valorTotalFormatado = valorTotal.toLocaleString('pt-br', {
+        style: 'currency',
+        currency: 'BRL',
+    });
 
     async function finalizarCompra() {
         try {
-            if (!produtos) {
+            if (!Array.isArray(produtos)) {
                 throw new Error('Nenhum produto no carrinho');
             }
 
-            const itens = produtos.map(produto => ({
+            const itens = produtos.map((produto) => ({
                 idProduto: produto.id,
                 valor: produto.valor,
-                qtd: produto.quantidade
+                qtd: produto.quantidade,
             }));
 
             const dadosCompra = {
                 idUsuario: 9,
-                itens: itens
+                itens: itens,
             };
 
             const response = await fetch('http://localhost:8082/vendas/', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(dadosCompra)
+                body: JSON.stringify(dadosCompra),
             });
 
             if (!response.ok) {
@@ -55,7 +55,6 @@ function FinalizaCompra() {
 
             const data = await response.json();
             console.log(data);
-
 
             alert('Compra finalizada com sucesso');
         } catch (error) {

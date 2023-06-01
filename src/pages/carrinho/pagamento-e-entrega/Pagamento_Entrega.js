@@ -42,13 +42,13 @@ function Pagamento_Entrega() {
         setTaxaEntrega(taxaSelecionada);
     };
 
-    const totalPedido = valorTotal + taxaEntrega; // Calcula o total do pedido
+    var totalPedido = valorTotal + taxaEntrega; // Calcula o total do pedido
 
-    
+
     const IrFinalizar = (event) => {
         localStorage.setItem('totalPedido', totalPedido);
         console.log(totalPedido)
-        window.location.href = '/Finalizar_Compra'; 
+        window.location.href = '/Finalizar_Compra';
     };
 
     return (
@@ -140,7 +140,7 @@ function Pagamento_Entrega() {
 
                     <div className="itemMãePgamaneto">
                         <h3>Resumo do pedido</h3>
-                        <div id="divpagamentoTaxa" style={{height:"50%"}}>
+                        <div id="divpagamentoTaxa" style={{ height: "50%" }}>
                             <div id="preçoDivPagamentoTaxa" >
                                 <p color="black">Subtotal</p>
                                 <hr></hr>
