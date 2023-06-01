@@ -31,14 +31,14 @@ function FinalizaCompra() {
             }
 
             const itens = produtos.map((produto) => ({
-                idProduto: produto.id,
-                valor: produto.valor,
-                qtd: produto.quantidade,
+                preco: produto.valor,
+                qtdVendas: produto.quantidade,
+                id_produto: produto.id,
             }));
 
             const dadosCompra = {
-                idUsuario: 9,
-                itens: itens,
+                id_usuario: 9,
+                itensVenda: itens,
             };
 
             const response = await fetch('http://localhost:8082/vendas/', {
