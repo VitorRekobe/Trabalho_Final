@@ -9,12 +9,12 @@ function PageCarrinho() {
     const [produtosExibicao, setProdutosExibicao] = useState(true);
 
     const produtosJSON = localStorage.getItem('carrinho');
-    const produtos = produtosJSON ? JSON.parse(produtosJSON) : [];
+    const produtos = JSON.parse(produtosJSON);
 
     var listaProdutos;
     var Valores;
 
-    if (produtos && Array.isArray(produtos)) {
+    if (produtos) {
         var qtdTotal = produtos.length;
 
         const valorTotal = produtos.reduce((acumulador, produto) => {
@@ -27,7 +27,7 @@ function PageCarrinho() {
             return (
                 <div className='CardCarrinho' key={produto.id}>
                     <div className="imgCardCarrinho">
-                        <img src={produto?.imagem} alt={produto.nome} />
+                        <img src={produto?.imagem} />
                     </div>
                     <div className='arrumarNomeParteCrrinho'>
                         <p>{produto.nome}</p>
@@ -45,13 +45,13 @@ function PageCarrinho() {
                             </button>
                         </div>
                     </div>
-                </div>
+                </div >
             );
         });
 
         Valores = produtos.map((produto) => {
             return (
-                <p key={produto.id}>{(parseFloat(produto.valor) * produto.quantidade).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
+                <p>{(parseFloat(produto.valor) * produto.quantidade).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
             );
         });
     } else {
@@ -60,7 +60,7 @@ function PageCarrinho() {
     }
 
     const apagarCarrinho = () => {
-        localStorage.removeItem('carrinho');
+        localStorage.clear();
         setProdutosExibicao(false);
     };
 
@@ -82,40 +82,42 @@ function PageCarrinho() {
                             <div className='headerQTDprod'>
                                 <h4 id='qtdProduto'>PRODUTOS ( {qtdTotal} )</h4>
                             </div>
-                            <div className='arrumarNomeParteCarrinho'>Nome</div>
-                            <div className='arrumarNomeParteCarrinho'>Preço</div>
-                            <div className='arrumarNomeParteCarrinho'>Quantidade</div>
-                            <div className='arrumarNomeParteCarrinho'>
-                                <FaRegTrashAlt style={{ color: 'white' }}></FaRegTrashAlt>
+                            <div id='nomePartedoCarrinho'>
+                                <div></div>
+                                <div className='arrumarNomeParteCarrinho'>Nome</div>
+                                <div className='arrumarNomeParteCarrinho'>Preço</div>
+                                <div className='arrumarNomeParteCarrinho'>Quantidade</div>
+                                <div className='arrumarNomeParteCarrinho'>
+                                    <FaRegTrashAlt style={{ color: 'white' }}></FaRegTrashAlt>
+                                </div>
                             </div>
+                            <div id='listaCarrinhoItens'>
+                                {produtosExibicao ? listaProdutos : null}
+                            </div>
+                            <button className='Botao limparCarrinho' onClick={apagarCarrinho}>Limpar Carrinho</button>
                         </div>
-                        <div id='listaCarrinhoItens'>
-                            {produtosExibicao ? listaProdutos : null}
-                        </div>
-                        <button className='Botao limparCarrinho' onClick={apagarCarrinho}>Limpar Carrinho</button>
                     </div>
-                </div>
-                <div className="itemMãeCarinho">
-                    <h3>Resumo do pedido</h3>
-                    <div id="divpagamentoCarrinho">
-                        <div>
-                            <p color="black">Subtotal</p>
-                            <hr></hr>
-                            <div className='subvalores tamanhoSubValor'>
-                                {Valores}
+                    <div className="itemMãeCarinho">
+                        <h3>Resumo do pedido</h3>
+                        <div id="divpagamentoCarrinho">
+                            <div>
+                                <p color="black">Subtotal</p>
+                                <hr></hr>
+                                <div className='subvalores tamanhoSubValor'>
+                                    {Valores}
+                                </div>
+                                <hr></hr>
+                                <h2 className='subvalores'>Valor Total</h2>
+                                <h3>{valorTotalFormatado}</h3>
                             </div>
-                            <hr></hr>
-                            <h2 className='subvalores'>Valor Total</h2>
-                            <h3>{valorTotalFormatado}</h3>
-                        </div>
-                        <div className="flexBotao">
-                            <button className="BotaoPedido" ><Link to={'/pagamento-e-entrega'}>Próximo</Link></button>
+                            <div className="flexBotao">
+                                <button className="BotaoPedido" ><Link to={'/pagamento-e-entrega'}>Próximo</Link></button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }
-
 export default PageCarrinho;
