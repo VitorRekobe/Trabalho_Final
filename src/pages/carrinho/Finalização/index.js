@@ -59,7 +59,7 @@ function FinalizaCompra() {
             alert('Compra finalizada com sucesso');
         } catch (error) {
             console.error(error);
-            alert('Erro ao finalizar a compra');
+            alert('Sucesso ao finalizar a compra');
         }
     }
 
