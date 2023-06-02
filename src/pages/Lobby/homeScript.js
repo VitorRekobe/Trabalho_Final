@@ -33,7 +33,7 @@ function Home() {
                     </Carousel.Item>
 
                     <Carousel.Item interval={10000}>
-                        <Link to={'/Feminina'}><img src={carrosel3} /></Link>
+                        <Link to={'/Femininas'}><img src={carrosel3} /></Link>
                     </Carousel.Item>
                 </Carousel>
             </div>
@@ -46,14 +46,14 @@ function Home() {
             </div>
 
             <div class="imgMargin">
-                <Link to={'/Feminina'}><img src={bannerF} ></img></Link>
+                <Link to={'/Femininas'}><img src={bannerF} ></img></Link>
             </div>
 
             <div className="textMargin">
                 <h3 className="t1">Vista roupas que dão</h3>
                 <h1 className="t2">PERFEIÇÃO E CUIDADO</h1>
                 <h3 className="t3">para que você seja a sua melhor versão</h3>
-                <Link to='/Feminina'><button className="BotaoHome">Moda Female</button></Link>
+                <Link to='/Femininas'><button className="BotaoHome">Moda Female</button></Link>
             </div>
 
             <div class="imgMargin">
