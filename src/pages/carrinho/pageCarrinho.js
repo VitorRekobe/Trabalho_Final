@@ -24,6 +24,12 @@ function PageCarrinho() {
         var valorTotalFormatado = valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
         listaProdutos = produtos.map((produto) => {
+            function excluirdoCarrinho() {
+                const novosProdutos = produtos.filter((item) => item.id !== produto.id);
+                setProdutosExibicao(novosProdutos);
+                localStorage.setItem('carrinho', JSON.stringify(novosProdutos));
+            }
+
             return (
                 <div className='CardCarrinho' key={produto.id}>
                     <div className="imgCardCarrinho">
@@ -40,7 +46,7 @@ function PageCarrinho() {
                     </div>
                     <div>
                         <div className='arrumarNomeParteCrrinho'>
-                            <button style={{ backgroundColor: 'transparent', border: 'none' }}>
+                            <button onClick={excluirdoCarrinho} style={{ backgroundColor: 'transparent', border: 'none' }}>
                                 <FaRegTrashAlt style={{ color: 'white' }}></FaRegTrashAlt>
                             </button>
                         </div>
@@ -60,7 +66,7 @@ function PageCarrinho() {
     }
 
     const apagarCarrinho = () => {
-        localStorage.clear();
+        localStorage.clear('carrinho');
         setProdutosExibicao(false);
     };
 
