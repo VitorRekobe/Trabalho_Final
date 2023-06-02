@@ -9,7 +9,7 @@ function FinalizaCompra() {
     const produtostotalJSON = localStorage.getItem('totalPedido');
     const produtos = JSON.parse(produtosJSON);
     const produtosTotal = JSON.parse(produtostotalJSON);
-    
+
 
     const [formaPagamento, setFormaPagamento] = useState('');
     const [opcaoSelecionada, setOpcaoSelecionada] = useState('');
@@ -25,42 +25,37 @@ function FinalizaCompra() {
     });
 
     async function finalizarCompra() {
-        try {
-            if (!Array.isArray(produtos)) {
-                throw new Error('Nenhum produto no carrinho');
-            }
-
-            const itens = produtos.map((produto) => ({
-                preco: produto.valor,
-                qtdVendas: produto.quantidade,
-                id_produto: produto.id,
-            }));
-
-            const dadosCompra = {
-                id_usuario: 9,
-                itensVenda: itens,
-            };
-
-            const response = await fetch('http://localhost:8082/vendas/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dadosCompra),
-            });
-
-            if (!response.ok) {
-                throw new Error('Erro ao finalizar a compra');
-            }
-
-            const data = await response.json();
-            console.log(data);
-
-            alert('Compra finalizada com sucesso');
-        } catch (error) {
-            console.error(error);
-            alert('Sucesso ao finalizar a compra');
+        if (!Array.isArray(produtos)) {
+            throw new Error('Nenhum produto no carrinho');
         }
+
+        const itens = produtos.map((produto) => ({
+            preco: produto.valor,
+            qtdVendas: produto.quantidade,
+            id_produto: produto.id,
+        }));
+
+        const dadosCompra = {
+            id_usuario: 9,
+            itensVenda: itens,
+        };
+
+        const response = await fetch('http://localhost:8082/vendas/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dadosCompra),
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao finalizar a compra');
+        }
+
+        const data = await response.json();
+        console.log(data);
+
+        alert('Compra finalizada com sucesso');
     }
 
     return (

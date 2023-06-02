@@ -9,26 +9,22 @@ function DivLogin() {
   const navigate = useNavigate();
 
   const Login = async () => {
-    try {
-      const response = await fetch("localhost", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, senha }),
-      });
+    const response = await fetch("localhost:8082/cliente/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, senha }),
+    });
 
-      if (response.ok) {
-        console.log("Usuário autenticado!");
-        navigate("/"); // Redirecionar para a página inicial após o login bem-sucedido
-      } else {
-        console.log("Erro ao autenticar o usuário.");
-      }
-    } catch (error) {
-      console.log("Erro ao autenticar o usuário:", error.message);
+    if (response.ok) {
+      console.log("Usuário autenticado!");
+      navigate("/"); // Redirecionar para a página inicial após o login bem-sucedido
+    } else {
+      console.log("Erro ao autenticar o usuário.");
     }
-  };
-
+  }
+  
   return (
     <div className="background">
       <Header></Header>
