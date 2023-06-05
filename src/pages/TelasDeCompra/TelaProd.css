@@ -1,4 +1,4 @@
-.PrincipalProd{
+.PrincipalProd {
     width: 100%;
     margin: auto;
     height: 80vh;
@@ -8,7 +8,7 @@
     overflow: hidden;
 }
 
-.filtros{
+.filtros {
     padding: 5%;
     height: 100%;
     height: 100vh;
@@ -17,7 +17,7 @@
     background-size: cover;
 }
 
-.selectFiltros{
+.selectFiltros {
     color: white;
     padding: 5px;
     border: 2px solid white;
@@ -28,12 +28,12 @@
     width: 100%;
 }
 
-.selectFiltros option{
+.selectFiltros option {
     background-color: black;
     color: white;
 }
 
-.cardsProdutosDiv{
+.cardsProdutosDiv {
     height: 100%;
     padding: 5%;
     padding-bottom: 10%;
@@ -43,7 +43,7 @@
     cursor: pointer;
 }
 
-.cardsProdutos{
+.cardsProdutos {
     width: 20vw;
     height: 60vh;
     background-color: white;
@@ -55,9 +55,18 @@
     flex-direction: column;
 }
 
-.ImagemProd{
+.conteudoCardProd::-webkit-scrollbar {
+    width: 0px;
+}
+
+.ImagemProd::-webkit-scrollbar {
+    width: 0px;
+}
+
+.ImagemProd {
     height: 50%;
     width: 70%;
     border-radius: 5px;
     margin: auto;
+    overflow: hidden;
 }

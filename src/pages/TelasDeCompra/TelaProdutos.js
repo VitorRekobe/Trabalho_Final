@@ -59,9 +59,9 @@ function TelaBusca() {
                 <div className="cardsProdutos" key={index} onClick={mandarInfoProd(id)}>
                     <div className='ImagemProd'>
                         <img src={produto?.imagem} />
-                    </div>
-                    <div>
                         <hr></hr>
+                    </div>
+                    <div className="conteudoCardProd">
                         <h2 className='nomeProd'>{produto.nome}</h2>
                         <h2>{produto.valor}</h2>
                         <h4>{produto.descricaoProduto}</h4>

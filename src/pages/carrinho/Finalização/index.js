@@ -66,9 +66,9 @@ function FinalizaCompra() {
                     <div className="itemPaiPagamento">
                         <div id='EtapaPagamento'>
                             <h5><Link to={'/carrinho'}>Carrinho</Link></h5>
-                            <h5> > </h5>
+                            <h5>  </h5>
                             <h5><Link to={'/pagamento-e-entrega'}>Entrega</Link></h5>
-                            <h5> > </h5>
+                            <h5>  </h5>
                             <h5 className='EtapaCarrinhoName'>Finalização</h5>
                         </div>
                         <div id='Pagamento'>
