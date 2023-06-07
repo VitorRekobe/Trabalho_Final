@@ -42,3 +42,14 @@
   width: 30%;
   border: 2px solid black;
 }
+
+.qtdvalue{
+  text-align: center;
+  border: none;
+}
+
+.qtdvalue:hover {
+  border: none;
+  background-color: transparent;
+  cursor: default;
+}

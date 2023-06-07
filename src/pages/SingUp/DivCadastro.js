@@ -8,7 +8,6 @@ function DivCadastro() {
     return (
         <div className="background">
             <Header></Header>
-
             <div id="DivCadastro">
                 <div className='divStyle'>
                     <ol className="hoverCad"><Link to='/cadastro'>Cadastrar</Link></ol>
@@ -25,7 +24,7 @@ function DivCadastro() {
                             <input id="dtNascimento" type="date" className="StyleInputUser dtNascimento fontCad"/>
                         </label>
                         <input id="CadSenha"  type="password" className="StyleInputUser fontCad" placeholder="Criar Senha" />
-                        <input id="ComSenha"  type="password" className="StyleInputUser fontCad" placeholder="Comfirmar Senha" />
+                        <input id="ComSenha"  type="password" className="StyleInputUser fontCad" placeholder="Confirmar Senha" />
                         <button className="Botao tamanhoButton" onClick={Cadastrar}>Cadastrar</button>
                     </div>
                 </div>

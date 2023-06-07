@@ -7,9 +7,9 @@ import QRCode from 'qrcode.react';
 function FinalizaCompra() {
     const produtosJSON = localStorage.getItem('carrinho');
     const produtostotalJSON = localStorage.getItem('totalPedido');
+
     const produtos = JSON.parse(produtosJSON);
     const produtosTotal = JSON.parse(produtostotalJSON);
-
 
     const [formaPagamento, setFormaPagamento] = useState('');
     const [opcaoSelecionada, setOpcaoSelecionada] = useState('');
@@ -17,6 +17,9 @@ function FinalizaCompra() {
     const OpçãoDebitoCredito = (event) => {
         setOpcaoSelecionada(event.target.value);
     };
+
+    var listaProdutos;
+    var Valores;
 
     var valorTotal = produtosTotal;
     var valorTotalFormatado = valorTotal.toLocaleString('pt-br', {
@@ -58,6 +61,39 @@ function FinalizaCompra() {
         alert('Compra finalizada com sucesso');
     }
 
+    if (produtos) {
+        const valorTotal = produtos.reduce((acumulador, produto) => {
+            return acumulador + parseFloat(produto.valor) * produto.quantidade;
+        }, 0);
+
+        var valorTotalFormatado = valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+        listaProdutos = produtos.map((produto) => {
+            return (
+                <div className='CardCarrinho CardCarrinhoFinalização' key={produto.id}>
+                    <div className='arrumarNomeParteCrrinho'>
+                        <p>{produto.nome}</p>
+                    </div>
+                    <div className='arrumarNomeParteCrrinho'>
+                        <p>{(parseFloat(produto.valor) * produto.quantidade).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
+                    </div>
+                    <div className='arrumarNomeParteCrrinho'>
+                        <p>{produto.quantidade}</p>
+                    </div>
+                </div >
+            );
+        });
+
+        Valores = produtos.map((produto) => {
+            return (
+                <p>{(parseFloat(produto.valor) * produto.quantidade).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
+            );
+        });
+    } else {
+        listaProdutos = null;
+        Valores = null;
+    }
+
     return (
         <div className="background">
             <Header></Header>
@@ -66,13 +102,24 @@ function FinalizaCompra() {
                     <div className="itemPaiPagamento">
                         <div id='EtapaPagamento'>
                             <h5><Link to={'/carrinho'}>Carrinho</Link></h5>
-                            <h5>  </h5>
+                            <h5> > </h5>
                             <h5><Link to={'/pagamento-e-entrega'}>Entrega</Link></h5>
-                            <h5>  </h5>
+                            <h5> > </h5>
                             <h5 className='EtapaCarrinhoName'>Finalização</h5>
                         </div>
                         <div id='Pagamento'>
-                            <h3>Total - {valorTotalFormatado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h3>
+                            <div style={{
+                                width: "90%",
+                                margin: "auto"
+                            }}>
+                                <hr></hr>
+                                <div className='arrumaritensfinal'>
+                                    {listaProdutos}
+                                </div>
+                                <hr></hr>
+                                <h3>Total - {valorTotalFormatado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h3>
+                                <h5>Taxa - 20,00</h5>
+                            </div>
                         </div>
                     </div>
                     <div className='itemMãePgamaneto'>

@@ -9,7 +9,8 @@ function DivLogin() {
   const navigate = useNavigate();
 
   const Login = async () => {
-    const response = await fetch("localhost:8082/cliente/login", {
+
+    const response = await fetch("http://localhost:8082/api/usuario/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +20,11 @@ function DivLogin() {
 
     if (response.ok) {
       console.log("Usuário autenticado!");
-      navigate("/"); // Redirecionar para a página inicial após o login bem-sucedido
+      const data = await response.json();
+      localStorage.setItem("usuario", JSON.stringify(data));
+      
+      console.log(data)
+      navigate("/");
     } else {
       console.log("Erro ao autenticar o usuário.");
     }

@@ -1,11 +1,10 @@
 function Cadastrar() {
-
     let nome = document.getElementById("name").value;
     let email = document.getElementById("email").value;
-    let dtNascimento = document.getElementById("dtNascimento").value;
     let senha = document.getElementById("CadSenha").value;
     let Senha1 = document.getElementById("CadSenha").value;
     let Senha2 = document.getElementById("ComSenha").value;
+    let tipo = 'cliente'
 
     if (Senha1 != Senha2) {
         alert("Senhas diferentes")
@@ -18,8 +17,8 @@ function Cadastrar() {
             "id": "-1",
             nome,
             email,
-            // dtNascimento,
-            senha
+            senha,
+            tipo
         };
         
         console.log((JSON.stringify(data)))

@@ -55,6 +55,10 @@
     flex-direction: column;
 }
 
+.conteudoCardProd {
+    height: 50%;
+}
+
 .conteudoCardProd::-webkit-scrollbar {
     width: 0px;
 }

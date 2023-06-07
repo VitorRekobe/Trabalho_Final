@@ -67,6 +67,16 @@ function TelaProduto() {
     }
   }
 
+  function aumentarQuantidade() {
+    setQtd(qtd + 1);
+  }
+
+  function diminuirQuantidade() {
+    if (qtd > 1) {
+      setQtd(qtd - 1);
+    }
+  }
+
   return (
     <div>
       <Header></Header>
@@ -82,12 +92,16 @@ function TelaProduto() {
               </div><div id="infoPageProduto" key={index}>
                 <div>
                   <h1>{produ.nome}</h1>
-                  <h3>{produ.valor}</h3>
+                  <h3>{parseFloat((produ.valor)).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h3>
                 </div>
                 <div style={{ height: '20%', border: 'solid', padding: '2%' }}>
                   <p>{produ.descricaoProduto}</p>
                 </div>
-                <input type="number" defaultValue="1" min="1" max="100" id="qtd" onChange={(e) => setQtd(parseInt(e.target.value))}></input>
+                <div className="qtdcontainer">
+                  <button className="qtdbutton" onClick={diminuirQuantidade}>-</button>
+                  <input className="qtdvalue" type="number" readOnly value={qtd} min="1" max="100" id="qtd" onChange={(e) => setQtd(parseInt(e.target.value))}></input>
+                  <button className="qtdbutton" onClick={aumentarQuantidade}>+</button>
+                </div>
                 <button className="Botao" onClick={mandarProCarrinho}>Comprar</button>
               </div>
             </div>
