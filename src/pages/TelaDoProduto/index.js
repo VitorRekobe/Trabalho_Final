@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Header from "../../componentes/Header/Header";
@@ -14,6 +14,11 @@ function TelaProduto() {
 
   const [produto, setProduto] = useState();
   const [qtd, setQtd] = useState(1);
+
+  const usuarioJson = localStorage.getItem('usuario');
+  const usuario = JSON.parse(usuarioJson);
+
+  const navigate = useNavigate();
 
   const apiGetProd = () => {
     fetch(`http://localhost:8082/api/produto/${idProd}`)
@@ -31,39 +36,43 @@ function TelaProduto() {
   }, []);
 
   function mandarProCarrinho() {
-    if (produto) {
-      let carrinhoJSON = localStorage.getItem("carrinho");
-      let carrinho;
+    if (usuario) {
+      if (produto) {
+        let carrinhoJSON = localStorage.getItem("carrinho");
+        let carrinho;
 
-      if (carrinhoJSON) {
-        carrinho = JSON.parse(carrinhoJSON);
-      } else {
-        carrinho = [];
+        if (carrinhoJSON) {
+          carrinho = JSON.parse(carrinhoJSON);
+        } else {
+          carrinho = [];
+        }
+
+        let produtoExistente = carrinho.find((p) => p.id === idProd);
+
+        if (produtoExistente) {
+          // Se o produto já existe no carrinho, incrementa a quantidade
+          produtoExistente.quantidade += qtd;
+          console.log("Tem no carrinho", produtoExistente.quantidade);
+        } else {
+          // Se o produto não existe no carrinho, adiciona ao carrinho com quantidade 1
+          apiGetProd();
+          let novoProduto = {
+            id: idProd,
+            quantidade: qtd,
+            nome: produto[0].nome,
+            valor: produto[0].valor,
+            descricaoProduto: produto[0].descricaoProduto,
+            imagem: produto[0].imagem
+          };
+
+          carrinho.push(novoProduto);
+          console.log("nao tem no carrinho");
+        }
+        console.log(carrinho);
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
       }
-
-      let produtoExistente = carrinho.find((p) => p.id === idProd);
-
-      if (produtoExistente) {
-        // Se o produto já existe no carrinho, incrementa a quantidade
-        produtoExistente.quantidade += qtd;
-        console.log("Tem no carrinho", produtoExistente.quantidade);
-      } else {
-        // Se o produto não existe no carrinho, adiciona ao carrinho com quantidade 1
-        apiGetProd();
-        let novoProduto = {
-          id: idProd,
-          quantidade: qtd,
-          nome: produto[0].nome,
-          valor: produto[0].valor,
-          descricaoProduto: produto[0].descricaoProduto,
-          imagem: produto[0].imagem
-        };
-
-        carrinho.push(novoProduto);
-        console.log("nao tem no carrinho");
-      }
-      console.log(carrinho);
-      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    }else{
+      navigate("/Login");
     }
   }
 
