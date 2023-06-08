@@ -1,5 +1,5 @@
 #ProdutoDivPrincipal {
-  height: 80vh;
+  height: 65vh;
   width: 80%;
   margin: auto;
   padding: 1%;
@@ -17,7 +17,6 @@
   height: 15%;
   margin-bottom: 10%;
   border-radius: 5px;
-
 }
 
 #efeitoZoom {
@@ -46,10 +45,33 @@
 .qtdvalue{
   text-align: center;
   border: none;
+  font-size: 25px;
 }
 
 .qtdvalue:hover {
   border: none;
   background-color: transparent;
   cursor: default;
+}
+
+.qtdbutton{
+  width: 8% !important;
+}
+
+.qtdbutton:hover{
+  background-color: black;
+  color: white !important;
+}
+
+.BotaoTelaCompra{
+  margin-top: 5%;
+  font-size: 30px;
+}
+
+.BotaoTelaCompra:hover{
+  background-color: black;
+  color: white !important;
+}
+.aumetFontSiteProd{
+  font-size: 320%;
 }

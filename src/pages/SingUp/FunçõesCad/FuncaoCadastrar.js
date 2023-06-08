@@ -22,7 +22,7 @@ function Cadastrar() {
         };
         
         console.log((JSON.stringify(data)))
-        fetch("http://localhost:8082/api/cliente/", {
+        fetch("http://localhost:8082/api/usuario/cadastro", {
             body: JSON.stringify(data),
             method: "POST",
             headers: {
