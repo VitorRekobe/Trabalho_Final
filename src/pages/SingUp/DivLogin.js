@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./DivCadastroStyle.css";
 import Header from "../../componentes/Header/Header";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function DivLogin() {
   const [email, setEmail] = useState("");
@@ -9,7 +11,6 @@ function DivLogin() {
   const navigate = useNavigate();
 
   const Login = async () => {
-
     const response = await fetch("http://localhost:8082/api/usuario/login", {
       method: "POST",
       headers: {
@@ -22,14 +23,24 @@ function DivLogin() {
       console.log("Usuário autenticado!");
       const data = await response.json();
       localStorage.setItem("usuario", JSON.stringify(data));
-      
-      console.log(data)
-      navigate("/");
+      toast.success('Sucesso no Login');
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } else {
       console.log("Erro ao autenticar o usuário.");
+      toast.error('Erro no Login');
     }
   }
-  
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      toast.dismiss();
+    }, 3000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <div className="background">
       <Header></Header>
@@ -66,11 +77,12 @@ function DivLogin() {
               />
               <div className="divButtonLogin">
                 <button className="Botao tamanhoButton" onClick={Login}>
-                  Sing Up
+                  Sign Up
                 </button>
                 <button className="Botao Esqueceu tamanhoButton">
                   Esqueceu a senha?
                 </button>
+                <ToastContainer />
               </div>
             </div>
           </div>

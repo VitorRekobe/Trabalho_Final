@@ -5,6 +5,8 @@ import SelectedCategoria from '../../../componentes/selectCategoria/selectCatego
 import SelectedSexo from '../../../componentes/selectSexo/selectSexo';
 import { useEffect, useState } from 'react';
 import AltProd from './AlterarProduto/altProd';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function PageADMCad() {
     const [marcaId, setMarcaId] = useState('');
@@ -22,7 +24,7 @@ function PageADMCad() {
         document.getElementById("prodValor").value = '';
         document.getElementById("prodDescrição").value = '';
         document.getElementById("urlImagenproduto").value = '';
-        // window.location.reload();
+        window.location.reload();
     }
 
     const imagemChange = (event) => {
@@ -72,7 +74,7 @@ function PageADMCad() {
             CadProd(marcaId, categoriaId, sexoId, imagem);
             console.log(imagem);
         } else {
-            alert('Algum campo vazio');
+            toast.error('Algum campo vazio');
         }
     };
     
@@ -80,7 +82,7 @@ function PageADMCad() {
         if (marcaId && categoriaId) {
             AltProd(marcaId, categoriaId, sexoId, imagemALT);
         } else {
-            alert('Algum campo vazio');
+            toast.error('Algum campo vazio');
         }
     };
     return (
@@ -138,6 +140,7 @@ function PageADMCad() {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }

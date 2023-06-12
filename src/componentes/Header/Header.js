@@ -1,6 +1,6 @@
 import React from 'react';
 import './HeaderStyle.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 import bolsa from './bolsa.png';
 import User from './perfil.png';
 import { IoLogOutOutline } from "react-icons/io5";
@@ -9,10 +9,11 @@ import { IoLogOutOutline } from "react-icons/io5";
 function Header() {
   const usuarioJson = localStorage.getItem('usuario');
   const usuario = JSON.parse(usuarioJson);
+  const navigate = useNavigate();
 
   function deslogar() {
     localStorage.clear("usuario")
-    window.location.reload();
+    navigate("/");
   }
 
   let telaHeader;

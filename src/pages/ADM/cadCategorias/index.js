@@ -1,22 +1,22 @@
+import React, { useEffect, useState } from 'react';
 import './pageAdmCliente.css';
-import Header from "../../../componentes/Header/Header";
+import Header from '../../../componentes/Header/Header';
 import TelaAdm from '../../../componentes/divAdmOp/divAdmOp';
-import CadCategoria from './funcaoCategoria/CadCategoriaApi';
 import TableCategoria from './tableCategoria';
-import { useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function PageADMcadCategorias() {
-
     const [idcategoria, setIdCategoria] = useState([]);
     const [categoriaNome, setCategoriaNome] = useState('');
 
     function fecharModalCategoria() {
-        document.getElementById("divCadCategoria").style.display = "none";
+        document.getElementById('divCadCategoria').style.display = 'none';
     }
 
     function fecharModalCategoriaALT() {
-        document.getElementById("divCadCategoriaALT").style.display = "none";
-        document.getElementById("prodCategoriaALT").value = null;
+        document.getElementById('divCadCategoriaALT').style.display = 'none';
+        document.getElementById('prodCategoriaALT').value = null;
     }
 
     function pegarIDCategoria(CategoriaID) {
@@ -25,15 +25,15 @@ function PageADMcadCategorias() {
 
     function buscarCategoriaPorID(id) {
         fetch(`http://localhost:8082/api/categoria/${id}`)
-            .then(response => response.json())
-            .then(data => {
+            .then((response) => response.json())
+            .then((data) => {
                 if (data.nome) {
                     setCategoriaNome(data.nome);
                 } else {
                     setCategoriaNome('');
                 }
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error('Erro ao buscar categoria por ID:', error);
             });
     }
@@ -45,30 +45,59 @@ function PageADMcadCategorias() {
     }, [idcategoria]);
 
     function ALTCategoria() {
-        let nome = document.getElementById("prodCategoriaALT").value;
+        let nome = document.getElementById('prodCategoriaALT').value;
         console.log(idcategoria);
         fetch(`http://localhost:8082/api/categoria/${idcategoria}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                Accept: 'application/json',
             },
-            body: nome 
+            body: nome,
         })
-            .then(response => {
+            .then((response) => {
                 if (!response.ok) {
                     throw new Error(response.status);
                 }
                 return response.json();
             })
-            .then(data => {
-                console.log('Categoria atualizada:', data);
-                console.log(nome);
+            .then((data) => {
+                toast.success('Categoria atualizada com sucesso');
             })
-            .catch(error => {
-                console.error('Erro ao atualizar categoria:', error);
+            .catch((error) => {
+                toast.error('Erro ao atualizar categoria');
             });
     }
+
+    function CadCategoria() {
+        let categoria = document.getElementById('prodCategoria').value;
+    
+        fetch('http://localhost:8082/api/categoria/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            nome: categoria,
+          }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Erro ao criar a categoria');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            toast.success('Sucesso no Cadastro');
+          })
+          .catch((error) => {
+            console.error(error);
+            console.log(categoria);
+            toast.error('Erro no Cadastro');
+          });
+      }
+
     return (
         <div className="background">
             <Header></Header>
@@ -76,34 +105,40 @@ function PageADMcadCategorias() {
                 <TelaAdm></TelaAdm>
                 <div className="telaO">
                     <TableCategoria onpegarIDCategoria={pegarIDCategoria}></TableCategoria>
-                    <div className="divCadCategoria" id='divCadCategoria'>
-
+                    <div className="divCadCategoria" id="divCadCategoria">
                         {/* CADASTRAR */}
                         <div className="alinhaModalCategoria">
                             <div className="fecharCategoria" onClick={fecharModalCategoria}></div>
                             <h1>Cadastrar uma Categoria</h1>
                             <br></br>
-                            <input id='prodCategoria' className='StyleInputUser' placeholder='Categoria'></input>
+                            <input id="prodCategoria" className="StyleInputUser" placeholder="Categoria"></input>
                             <br></br>
-                            <button onClick={CadCategoria} className="Botao">Cadastrar</button>
+                            <button onClick={CadCategoria} className="Botao">
+                                Cadastrar
+                            </button>
+                            <ToastContainer />
                         </div>
                     </div>
 
                     {/* ALTERAR */}
-                    <div className="divCadCategoriaALT" id='divCadCategoriaALT'>
+                    <div className="divCadCategoriaALT" id="divCadCategoriaALT">
                         <div className="alinhaModalCategoria">
                             <div className="fecharCategoria" onClick={fecharModalCategoriaALT}></div>
                             <h1>Alterar uma Categoria</h1>
                             <br></br>
-                            <input id='prodCategoriaALT' className='StyleInputUser' placeholder='Categoria'></input>
+                            <input id="prodCategoriaALT" className="StyleInputUser" placeholder="Categoria"></input>
                             <br></br>
-                            <button onClick={ALTCategoria} className="Botao">Alterar</button>
+                            <button onClick={ALTCategoria} className="Botao">
+                                Alterar
+                            </button>
+                            <ToastContainer />
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default PageADMcadCategorias;
