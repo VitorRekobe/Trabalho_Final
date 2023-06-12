@@ -3,10 +3,17 @@ import './HeaderStyle.css';
 import { Link } from 'react-router-dom';
 import bolsa from './bolsa.png';
 import User from './perfil.png';
+import { IoLogOutOutline } from "react-icons/io5";
+
 
 function Header() {
   const usuarioJson = localStorage.getItem('usuario');
   const usuario = JSON.parse(usuarioJson);
+
+  function deslogar() {
+    localStorage.clear("usuario")
+    window.location.reload();
+  }
 
   let telaHeader;
 
@@ -32,6 +39,10 @@ function Header() {
                 <img src={User} alt="Ícone do usuário" />
               </Link>
             </ol>
+            <ol>|</ol>
+            <ol className="hover deslogar">
+              <IoLogOutOutline onClick={deslogar}></IoLogOutOutline>
+            </ol>
           </div>
         </div>
       );
@@ -55,6 +66,10 @@ function Header() {
               <Link to="/cliente">
                 <img src={User} alt="Ícone do usuário" />
               </Link>
+            </ol> 
+            <ol>|</ol>
+            <ol className="hover deslogar">
+              <IoLogOutOutline onClick={deslogar}></IoLogOutOutline>
             </ol>
           </div>
         </div>

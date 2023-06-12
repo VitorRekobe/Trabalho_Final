@@ -43,3 +43,7 @@ a{
 header img{
     height: 30px;
 }
+
+.deslogar{
+    cursor: pointer;
+}
