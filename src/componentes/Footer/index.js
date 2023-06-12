@@ -6,7 +6,7 @@ function footer() {
     return (
         <div id='footer'>
             <div className="footerMargin">
-                <h3>Sobre a empresa</h3>
+                <h3><Link to={'/Sobrenos'}>Sobre a empresa</Link></h3>
                 <h3>Redes Sociais</h3>
                 <h3><Link to={'/cliente'}>Cliente</Link></h3>
                 <h3><Link to={'/ADM/ListProd'}>Administrador</Link></h3>
