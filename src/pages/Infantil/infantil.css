@@ -1,0 +1,104 @@
+#pageK{
+    height: 100vh;
+}
+
+#div_1_kids {
+    height: 80%;
+    width: 100%;
+    margin: auto;
+    padding-left: 1%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.imagemKids {
+    width: 300px;
+    height: 400px;
+    min-width: 20%;
+    min-height: 40%;
+    box-shadow: 0 15px 15px -7px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+
+#carrossel {
+
+    background-color: white;
+    height: 90%;
+    width: 70%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.imgCardKids{
+    height: 100%;
+    width: 100%;
+}
+
+.nameCardK{
+    display: none;
+    color: white;
+    text-align: end;
+    animation: text-slide-in 1s forwards;
+}
+
+#casacoK:hover .nameCardK{
+    display: block;
+}
+
+#calçadosK:hover .nameCardK{
+    display: block;
+}
+
+#calçaK:hover .nameCardK{
+    display: block;
+}
+
+#Vestidos:hover .nameCardK{
+    display: block;
+}
+
+#casacoK{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("./imagensKids/infantil1.jpg");
+}
+
+#calçadosK{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("./imagensKids/infantil6.jpg");
+}
+
+#calçaK{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("./imagensKids/infantil3.jpg");
+}
+
+#Vestidos{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("./imagensKids/infantil4.jpg");
+}
+
+@keyframes text-slide-in {
+    from {
+      opacity: 0; 
+      transform: translateX(100%); 
+    }
+    to {
+      opacity: 1; 
+      transform: translateX(0%);
+    }
+  }

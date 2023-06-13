@@ -24,6 +24,9 @@ import TelaProduto from './pages/TelaDoProduto';
 import ErrorPage from './pages/TelaError';
 import FinalizaCompra from './pages/carrinho/Finalização';
 import Sobrenos from './pages/sobreEmpresa';
+import PageMasculino from './pages/Masculino';
+import NovidadesPage from './pages/Novidades';
+import InfantilPage from './pages/Infantil';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -55,6 +58,9 @@ function Rotas() {
           <Route path='/Produto' element={<TelaProduto></TelaProduto>}></Route>
           <Route path='/Finalizar_Compra' element={<FinalizaCompra></FinalizaCompra>}></Route>
           <Route path='/Sobrenos' element={<Sobrenos></Sobrenos>}></Route>
+          <Route path='/Masculina' element={<PageMasculino></PageMasculino>}></Route>
+          <Route path='/Kids' element={<InfantilPage></InfantilPage>}></Route>
+          <Route path='/Novidades' element={<NovidadesPage></NovidadesPage>}></Route>
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </Router>
