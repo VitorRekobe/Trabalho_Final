@@ -5,6 +5,9 @@ import Header from "../../componentes/Header/Header";
 import HeaderPesquisa from "../../componentes/HeaderItens.js/BarraPesquisa";
 import Footer from '../../componentes/Footer/index'
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import "./TelaProduto.css";
 
 function TelaProduto() {
@@ -52,7 +55,6 @@ function TelaProduto() {
         if (produtoExistente) {
           // Se o produto já existe no carrinho, incrementa a quantidade
           produtoExistente.quantidade += qtd;
-          console.log("Tem no carrinho", produtoExistente.quantidade);
         } else {
           // Se o produto não existe no carrinho, adiciona ao carrinho com quantidade 1
           apiGetProd();
@@ -66,10 +68,10 @@ function TelaProduto() {
           };
 
           carrinho.push(novoProduto);
-          console.log("nao tem no carrinho");
         }
         console.log(carrinho);
         localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        toast.success("Adicionado ao carrinho");
       }
     }else{
       navigate("/Login");
@@ -120,6 +122,7 @@ function TelaProduto() {
         ) : null}
       </div>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }

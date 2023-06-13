@@ -96,7 +96,7 @@ function PageADMcadMarcas() {
                             <button onClick={CadMarca} className="Botao BotaoCadastrarMarca">
                                 Cadastrar
                             </button>
-                            <ToastContainer />
+
                         </div>
                     </div>
 
@@ -109,11 +109,11 @@ function PageADMcadMarcas() {
                             <button onClick={ALTMarca} className="Botao BotaoCadastrarMarca">
                                 Alterar
                             </button>
-                            <ToastContainer />
                         </div>
                     </div>
                 </div>
             </div>
+                            <ToastContainer />
         </div >
     );
 }
